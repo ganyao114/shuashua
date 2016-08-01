@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.shuashua.buss.R;
+
 /**
  * 广告图片自动轮播控件</br>
  * 
