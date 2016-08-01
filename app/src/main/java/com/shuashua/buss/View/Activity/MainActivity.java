@@ -3,6 +3,9 @@ package com.shuashua.buss.View.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,15 +17,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.shuashua.buss.R;
+import com.shuashua.buss.View.Adapter.FragmentAdapter;
 
+import net.gy.SwiftFrameWork.Core.S;
+import net.gy.SwiftFrameWork.IOC.Model.local.resource.entity.ResType;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@ContentView(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @ViewInject(R.id.tabs)
+    private TabLayout mTabLayout;
+    @ViewInject(R.id.viewpager)
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        S.ViewUtils.Inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -35,6 +52,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -43,6 +61,31 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    //视图初始化
+    private void findview(){
+
+    }
+
+    //viewpage初始化
+    private void setViewPages(){
+        List<String> titles = new ArrayList<>();
+        titles.add((String) S.loadRes(ResType.String,this,R.string.fragment_main_title));
+        titles.add("数据查看");
+        titles.add("通知信息");
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(0)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(1)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(2)));
+        List<Fragment> fragments = new ArrayList<>();
+//        fragments.add(new MainFragment());
+//        fragments.add(new DataFragment());
+//        fragments.add(new NotifyFragment());
+        FragmentAdapter adapter =
+                new FragmentAdapter(getSupportFragmentManager(), fragments, titles);
+        mViewPager.setAdapter(adapter);
+        mTabLayout.setupWithViewPager(mViewPager);
+        mTabLayout.setTabsFromPagerAdapter(adapter);
     }
 
     @Override
@@ -100,5 +143,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        S.ViewUtils.Remove(this);
     }
 }
