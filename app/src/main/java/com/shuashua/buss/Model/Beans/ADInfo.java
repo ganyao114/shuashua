@@ -1,4 +1,4 @@
-package com.shuashua.buss.View.Widgets.Banner;
+package com.shuashua.buss.Model.Beans;
 /**
  * 描述：广告信息</br>
  * @author Eden Cheng</br>
@@ -7,7 +7,7 @@ package com.shuashua.buss.View.Widgets.Banner;
 public class ADInfo {
 	String id = "";
 	String url = "";
-	String content = "";
+	String content = "123";
 	String type = "";
 	public String getId() {
 		return id;

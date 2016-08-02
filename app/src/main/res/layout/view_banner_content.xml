@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.minking.imagecycleview.CycleViewPager
+    <com.shuashua.buss.View.Widgets.Banner.CycleViewPager
         android:id="@+id/pager_banner"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
-    </com.minking.imagecycleview.CycleViewPager>
+    </com.shuashua.buss.View.Widgets.Banner.CycleViewPager>
 
     <LinearLayout
         android:id="@+id/viewGroup"
