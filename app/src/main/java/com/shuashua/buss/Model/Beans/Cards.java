@@ -25,8 +25,8 @@ public class Cards implements Serializable{
     private String coverurl;
     private String time;
     private String deadline;
-//    private List<CardPropertys> propertys;
-//    private List<Shop> shopsava;
+    private List<CardPropertys> propertys;
+    private List<Shop> shopsava;
 
     public String getId() {
         return id;
@@ -76,19 +76,19 @@ public class Cards implements Serializable{
         this.deadline = deadline;
     }
 
-//    public List<CardPropertys> getPropertys() {
-//        return propertys;
-//    }
-//
-//    public void setPropertys(List<CardPropertys> propertys) {
-//        this.propertys = propertys;
-//    }
-//
-//    public List<Shop> getShopsava() {
-//        return shopsava;
-//    }
-//
-//    public void setShopsava(List<Shop> shopsava) {
-//        this.shopsava = shopsava;
-//    }
+    public List<CardPropertys> getPropertys() {
+        return propertys;
+    }
+
+    public void setPropertys(List<CardPropertys> propertys) {
+        this.propertys = propertys;
+    }
+
+    public List<Shop> getShopsava() {
+        return shopsava;
+    }
+
+    public void setShopsava(List<Shop> shopsava) {
+        this.shopsava = shopsava;
+    }
 }

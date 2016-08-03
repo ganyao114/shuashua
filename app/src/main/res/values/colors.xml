@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gray">#696969</color>
+    <color name="white">#ffffff</color>
+    <color name="themeColor">#ffce3d3a</color>
+    <color name="toolbarTextColor">#ffffffff</color>
+    <color name="toolbarSubTextColor">#ffd4d4d4</color>
+    <color name="normalBackground">#fff2f4f5</color>
 </resources>

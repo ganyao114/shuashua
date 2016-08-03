@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Adapter.FragmentAdapter;
 import com.shuashua.buss.View.Fragment.MainFragment;
+import com.shuashua.buss.View.Fragment.ShopManagerFragment;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Model.local.resource.entity.ResType;
@@ -74,15 +75,15 @@ public class MainActivity extends AppCompatActivity
     private void setViewPages(){
         List<String> titles = new ArrayList<>();
         titles.add((String) S.loadRes(ResType.String,this,R.string.fragment_main_title));
-//        titles.add("数据查看");
-//        titles.add("通知信息");
+        titles.add("店铺管理");
+        titles.add("通知信息");
         mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(0)));
-//        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(1)));
-//        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(2)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(1)));
+        mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(2)));
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(new MainFragment());
-//        fragments.add(new DataFragment());
-//        fragments.add(new NotifyFragment());
+        fragments.add(new ShopManagerFragment());
+        fragments.add(new ShopManagerFragment());
         FragmentAdapter adapter =
                 new FragmentAdapter(getSupportFragmentManager(), fragments, titles);
         mViewPager.setAdapter(adapter);

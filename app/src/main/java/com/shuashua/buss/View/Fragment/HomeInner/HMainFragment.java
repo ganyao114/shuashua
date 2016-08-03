@@ -1,9 +1,7 @@
-package com.shuashua.buss.View.Fragment;
+package com.shuashua.buss.View.Fragment.HomeInner;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.shuashua.buss.Model.Beans.ADInfo;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.IShowMainCycleView;
-import com.shuashua.buss.Model.Beans.ADInfo;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -23,20 +21,18 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
 
-import org.xutils.x;
-
 import java.util.ArrayList;
 
 /**
- * Created by pc on 16/8/1.
+ * Created by pc on 16/8/3.
  */
-@ContentView(R.layout.fragment_main_layout)
-public class MainFragment extends BaseFragmentV4 implements ImageCycleView.ImageCycleViewListener
-        ,IShowMainCycleView{
+@ContentView(R.layout.fragment_homemain_layout)
+public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.ImageCycleViewListener
+        ,IShowMainCycleView {
 
-    @ViewInject(R.id.main_cycle_view)
+    @ViewInject(R.id.loop_view)
     private ImageCycleView cycleView;
-    @ViewInject(R.id.mainfrag_cards)
+    @ViewInject(R.id.maincards_list)
     private RecyclerView cardslist_view;
 
     private String[] imageUrls = {"http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg",
@@ -44,6 +40,7 @@ public class MainFragment extends BaseFragmentV4 implements ImageCycleView.Image
             "http://pic18.nipic.com/20111215/577405_080531548148_2.jpg",
             "http://pic15.nipic.com/20110722/2912365_092519919000_2.jpg",
             "http://pic.58pic.com/58pic/12/64/27/55U58PICrdX.jpg"};
+
 
     @Nullable
     @Override
@@ -68,8 +65,6 @@ public class MainFragment extends BaseFragmentV4 implements ImageCycleView.Image
         cardslist_view.setNestedScrollingEnabled(false);
         S.ViewUtils.ListBind(cardslist_view).bind(TestModel.getCards());
     }
-
-
 
 
     @Override

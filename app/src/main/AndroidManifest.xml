@@ -8,20 +8,36 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SplashTheme">
         <activity
             android:name=".View.Activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.AppBarOverlay">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity
+            android:name=".View.Activity.HomeActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:theme="@style/ImageTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activity.WebActivity"
-            android:launchMode="singleInstance"></activity>
+        <activity
+            android:name=".View.Activity.WebActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".View.Activity.UserActivity"
+            android:label="@string/title_activity_user"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

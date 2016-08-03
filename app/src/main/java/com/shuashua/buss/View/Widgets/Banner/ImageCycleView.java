@@ -126,17 +126,19 @@ public class ImageCycleView extends LinearLayout {
 		mImageViews = new ImageView[imageCount];
 		for (int i = 0; i < imageCount; i++) {
 			mImageView = new ImageView(mContext);
-			int imageParams = (int) (mScale * 20 + 0.5f);// XP与DP转换，适应不同分辨率
-			int imagePadding = (int) (mScale * 5 + 0.5f);
-			LayoutParams layout = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
-			layout.setMargins(3, 0, 3, 0);
+			int imageParams = (int) (mScale * 10 + 0.5f);// XP与DP转换，适应不同分辨率
+			int imagePadding = (int) (mScale * 2 + 0.5f);
+//			LayoutParams layout = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+//			layout.setMargins(3, 0, 3, 0);
+			LayoutParams layout = new LayoutParams(imageParams,imageParams);
+			layout.setMargins(imagePadding, 0, imagePadding, 0);
 			mImageView.setLayoutParams(layout);
 			//mImageView.setPadding(imagePadding, imagePadding, imagePadding, imagePadding);
 			mImageViews[i] = mImageView;
 			if (i == 0) {
-				mImageViews[i].setBackgroundResource(R.drawable.icon_point_pre);
+				mImageViews[i].setBackgroundResource(R.drawable.red_point);
 			} else {
-				mImageViews[i].setBackgroundResource(R.drawable.icon_point);
+				mImageViews[i].setBackgroundResource(R.drawable.grey_point);
 			}
 			mGroup.addView(mImageViews[i]);
 		}
@@ -220,10 +222,10 @@ public class ImageCycleView extends LinearLayout {
 			// 设置图片滚动指示器背景
 			mImageIndex = index;
 			index -= 1;
-			mImageViews[index].setBackgroundResource(R.drawable.icon_point_pre);
+			mImageViews[index].setBackgroundResource(R.drawable.red_point);
 			for (int i = 0; i < mImageViews.length; i++) {
 				if (index != i) {
-					mImageViews[i].setBackgroundResource(R.drawable.icon_point);
+					mImageViews[i].setBackgroundResource(R.drawable.grey_point);
 				}
 			}
 
