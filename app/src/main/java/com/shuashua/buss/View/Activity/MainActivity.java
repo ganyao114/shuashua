@@ -19,7 +19,7 @@ import android.view.MenuItem;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Adapter.FragmentAdapter;
 import com.shuashua.buss.View.Fragment.MainFragment;
-import com.shuashua.buss.View.Fragment.ShopManagerFragment;
+import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Model.local.resource.entity.ResType;

@@ -8,6 +8,14 @@
 
     <string name="fragment_main_title">主页</string>
     <string name="title_activity_user">UserActivity</string>
+
+    <!--程序配置,-->
+    <!--数据接口等-->
+    <string name="base_url"></string>
+    <string name="cache_path"></string>
+    <string name="imgcache_size"></string>
+    <string name="backup_url"></string>
+    <string name="title_activity_card">CardActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -97,4 +105,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
 </resources>
