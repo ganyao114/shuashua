@@ -31,6 +31,7 @@
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/login_splash</item>
+        <item name="android:launchMode">singleInstance</item>
     </style>
 
     <style name="NormalTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -78,5 +79,10 @@
         <item name="android:windowEnterAnimation">@anim/menu_bottombar_in</item>
         <item name="android:windowExitAnimation">@anim/menu_bottombar_out</item>
     </style>
+
+    <style name="SplashTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="SplashTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>

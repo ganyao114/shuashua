@@ -10,13 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMainFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
+import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
 
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
@@ -28,20 +28,19 @@ import java.util.List;
 /**
  * Created by pc on 16/8/3.
  */
-@ContentView(R.layout.fragment_home_layout)
-public class HomeFragment extends BaseFragmentV4{
+@ContentView(R.layout.fragment_mng_layout)
+public class MngFragment extends BaseFragmentV4{
 
-    @ViewInject(R.id.disco_tab)
+    @ViewInject(R.id.mng_tab)
     private TabLayout main_tab;
-    @ViewInject(R.id.disco_viewPager)
+    @ViewInject(R.id.mng_viewPager)
     private ViewPager main_viewpager;
 
 
     private List<Fragment> fragments = new ArrayList<>(4);
-    private String[] title = new String[]{"主页", "会员卡", "推荐", "更多"};
-
+    private String[] title = new String[]{"店铺", "会员卡", "会员", "订单"};
     //二级fragment
-    private HMainFragment mainFragment;
+    private ShopManagerFragment shopManagerFragment;
     private HCardsFragment cardsFragment;
     private HCampFragment campFragment;
     private HMoreFragment moreFragment;
@@ -57,9 +56,9 @@ public class HomeFragment extends BaseFragmentV4{
     }
 
     private void initView(){
-        if (mainFragment == null){
-            mainFragment = new HMainFragment();
-            fragments.add(mainFragment);
+        if (shopManagerFragment == null){
+            shopManagerFragment = new ShopManagerFragment();
+            fragments.add(shopManagerFragment);
         }
         if (cardsFragment == null){
             cardsFragment = new HCardsFragment();
