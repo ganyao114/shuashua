@@ -143,7 +143,7 @@ public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implemen
                 break;
             case R.id.bar_search:
                 Intent intent = new Intent();
-                intent.setClass(this,UserActivity.class);
+                intent.setClass(this,RegistActivity.class);
                 startActivity(intent);
                 break;
         }

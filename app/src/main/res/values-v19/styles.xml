@@ -13,12 +13,12 @@
 
     <style name="ImageTranslucentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowTranslucentStatus">true</item>
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="ColorTranslucentTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowTranslucentStatus">true</item>
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="Theme.Translucent.Navigation" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -35,6 +35,6 @@
         <item name="android:windowBackground">@drawable/login_splash</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:launchMode">singleInstance</item>
+        <item name="android:launchMode">singleTask</item>
     </style>
 </resources>
