@@ -38,6 +38,19 @@
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/SplashTheme.PopupOverlay">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:adjustViewBounds="true"
+                    android:layout_gravity="right"
+                    android:src="@drawable/qr_icon"
+                    android:paddingRight="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:clickable="true"
+                    android:id="@+id/imgbtn_newdd"/>
+
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
