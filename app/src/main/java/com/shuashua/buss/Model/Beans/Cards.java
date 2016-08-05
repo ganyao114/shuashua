@@ -6,6 +6,7 @@ import com.shuashua.buss.R;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.BindAsyncImgUrl;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.BindText;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.ListDataSrc;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.OnBtClick;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 @ListDataSrc(R.layout.item_mainfrag_cards)
 public class Cards implements Serializable{
 
+    @OnBtClick({R.id.btn_newdd,R.id.btn_more})
     private String id;
     @BindText(R.id.cards_title)
     private String name;

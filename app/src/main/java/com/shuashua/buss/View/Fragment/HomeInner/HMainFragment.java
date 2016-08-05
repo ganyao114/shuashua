@@ -1,5 +1,6 @@
 package com.shuashua.buss.View.Fragment.HomeInner;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +11,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.shuashua.buss.Model.Beans.ADInfo;
+import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
+import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.View.IShowMainCycleView;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
 
@@ -22,18 +25,22 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by pc on 16/8/3.
  */
 @ContentView(R.layout.fragment_homemain_layout)
 public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.ImageCycleViewListener
-        ,IShowMainCycleView {
+        ,IShowMainCycleView,View.OnClickListener {
 
     @ViewInject(R.id.loop_view)
     private ImageCycleView cycleView;
     @ViewInject(R.id.maincards_list)
     private RecyclerView cardslist_view;
+
+
+    private List<Cards> cards;
 
     private String[] imageUrls = {"http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg",
             "http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg",
@@ -63,7 +70,10 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
         cardslist_view.setLayoutManager(mFullyLinearLayoutManager);
         cardslist_view.setNestedScrollingEnabled(false);
-        S.ViewUtils.ListBind(cardslist_view).bind(TestModel.getCards());
+        cards = TestModel.getCards();
+        S.ViewUtils.ListBind(cardslist_view)
+                   .setLtnImpl(this)
+                   .bind(cards);
     }
 
 
@@ -105,5 +115,18 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     public void onDestroyView() {
         super.onDestroyView();
         cycleView.pushImageCycle();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_more:
+                Intent intent = new Intent();
+                intent.setClass(getContext(), CardActivity.class);
+                String cid = cards.get((Integer) v.getTag()).getId();
+                intent.putExtra("cardid",cid);
+                startActivity(intent);
+                break;
+        }
     }
 }

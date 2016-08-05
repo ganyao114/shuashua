@@ -1,5 +1,6 @@
 package com.shuashua.buss.Utils;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
@@ -27,5 +28,15 @@ public class ViewUtils {
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
 //将重新设置的params再应用到listview中
         listView.setLayoutParams(params);
+    }
+
+    public static int dip2px(Context context, float dipValue){
+        final float scale= context.getResources().getDisplayMetrics().densityDpi;
+        return (int)(dipValue*(scale/160)+0.5f);
+    }
+
+    public static int px2dp(Context context,float pxValue){
+        final float scale = context.getResources().getDisplayMetrics().densityDpi;
+        return (int)((pxValue*160)/scale+0.5f);
     }
 }

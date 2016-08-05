@@ -27,5 +27,6 @@ public class CardActivity extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("XXX会员卡");
     }
 }
