@@ -40,6 +40,5 @@
         <item name="android:windowBackground">@drawable/login_splash</item>
         <item name="android:windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:launchMode">singleInstance</item>
     </style>
 </resources>

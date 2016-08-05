@@ -1,6 +1,5 @@
 package com.shuashua.buss.View.Activity;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -20,11 +19,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Fragment.HomeFragment;
-import com.shuashua.buss.View.Fragment.MngFragment;
 
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
@@ -82,7 +79,6 @@ public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implemen
 
     private void addFragments(){
         fragmentlist.add(new HomeFragment());
-        fragmentlist.add(new MngFragment());
     }
 
     private void initView(){
@@ -135,17 +131,6 @@ public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implemen
                 bar_my.setSelected(false);
                 view_pager.setCurrentItem(0);
                 break;
-            case R.id.bar_mng:
-                bar_home.setSelected(false);
-                bar_mng.setSelected(true);
-                bar_my.setSelected(false);
-                view_pager.setCurrentItem(1);
-                break;
-            case R.id.bar_search:
-                Intent intent = new Intent();
-                intent.setClass(this,UserActivity.class);
-                startActivity(intent);
-                break;
         }
     }
 
@@ -190,11 +175,6 @@ public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implemen
             case 0:
                 bar_home.setSelected(true);
                 bar_mng.setSelected(false);
-                bar_my.setSelected(false);
-                break;
-            case 1:
-                bar_home.setSelected(false);
-                bar_mng.setSelected(true);
                 bar_my.setSelected(false);
                 break;
         }

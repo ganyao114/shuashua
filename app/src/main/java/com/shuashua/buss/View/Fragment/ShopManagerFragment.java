@@ -1,4 +1,4 @@
-package com.shuashua.buss.View.Fragment.MngInner;
+package com.shuashua.buss.View.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

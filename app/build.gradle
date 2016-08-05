@@ -24,6 +24,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':SwiftFrameWork')
     compile files('libs/xutils.jar')
-    compile 'com.google.zxing:zxing-parent:3.2.1'
-    compile files('libs/core_3.2.0.jar')
 }

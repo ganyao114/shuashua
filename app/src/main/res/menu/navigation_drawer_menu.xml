@@ -1,41 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_search"
-            android:icon="@drawable/ic_search_36pt_2x"
-            android:title="查询会员" />
-        <item
-            android:id="@+id/nav_collection"
-            android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="收藏的会员" />
-        <item
-            android:id="@+id/nav_history"
-            android:icon="@drawable/ic_history_black_24dp"
-            android:title="最近查看的会员" />
-        <item
-            android:id="@+id/nav_nearby"
-            android:icon="@drawable/ic_place_24dp"
-            android:title="附近的会员" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="设置" />
-    </group>
+    <!--<group-->
+        <!--android:id="@+id/top_group"-->
+        <!--android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/item_msg"-->
+            <!--android:icon="@mipmap/topmenu_icn_msg"-->
+            <!--android:title="我的消息" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_store"-->
+            <!--android:icon="@mipmap/topmenu_icn_store"-->
+            <!--android:title="积分商城" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_member"-->
+            <!--android:icon="@mipmap/topmenu_icn_member"-->
+            <!--android:title="付费音乐包" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_free"-->
+            <!--android:icon="@mipmap/topmenu_icn_free"-->
+            <!--android:title="在线听歌免流量" />-->
+    <!--</group>-->
 
-    <item android:title="更多">
-        <menu>
-            <!--<item-->
-            <!--android:id="@+id/nav_share"-->
-            <!--android:icon="@drawable/ic_menu_share"-->
-            <!--android:title="供应系统" />-->
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="发送推送" />
-        </menu>
-    </item>
+    <!--<group-->
+        <!--android:id="@+id/bottom_group"-->
+        <!--android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/item_identify"-->
+            <!--android:icon="@mipmap/topmenu_icn_identify"-->
+            <!--android:title="听歌识曲" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_skin"-->
+            <!--android:icon="@mipmap/topmenu_icn_skin"-->
+            <!--android:title="主题换肤" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_night"-->
+            <!--android:icon="@mipmap/topmenu_icn_night"-->
+            <!--android:title="夜间模式" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_time"-->
+            <!--android:icon="@mipmap/topmenu_icn_time"-->
+            <!--android:title="定时停止播放" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_clock"-->
+            <!--android:icon="@mipmap/topmenu_icn_clock"-->
+            <!--android:title="音乐闹钟" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_cloud"-->
+            <!--android:icon="@mipmap/topmenu_icn_cloud"-->
+            <!--android:title="我的音乐云盘" />-->
+        <!--<item-->
+            <!--android:id="@+id/item_cloud2"-->
+            <!--android:icon="@mipmap/topmenu_icn_cloud"-->
+            <!--android:title="我的音乐云盘" />-->
+    <!--</group>-->
 
 
 </menu>

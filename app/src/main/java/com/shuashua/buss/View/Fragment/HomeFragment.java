@@ -13,10 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMainFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
 
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
@@ -35,16 +32,12 @@ public class HomeFragment extends BaseFragmentV4{
     private TabLayout main_tab;
     @ViewInject(R.id.disco_viewPager)
     private ViewPager main_viewpager;
-
-
     private List<Fragment> fragments = new ArrayList<>(4);
-    private String[] title = new String[]{"主页", "会员卡", "推荐", "更多"};
+    private String[] title = new String[]{"主页", "会员卡", "推荐", "排行榜"};
 
     //二级fragment
     private HMainFragment mainFragment;
-    private HCardsFragment cardsFragment;
-    private HCampFragment campFragment;
-    private HMoreFragment moreFragment;
+
 
     @Nullable
     @Override
@@ -53,6 +46,7 @@ public class HomeFragment extends BaseFragmentV4{
             return view;
         super.onCreateView(inflater, container, savedInstanceState);
         initView();
+        Toast.makeText(getContext(),"demo",Toast.LENGTH_LONG).show();
         return view;
     }
 
@@ -60,18 +54,6 @@ public class HomeFragment extends BaseFragmentV4{
         if (mainFragment == null){
             mainFragment = new HMainFragment();
             fragments.add(mainFragment);
-        }
-        if (cardsFragment == null){
-            cardsFragment = new HCardsFragment();
-            fragments.add(cardsFragment);
-        }
-        if (campFragment == null){
-            campFragment = new HCampFragment();
-            fragments.add(campFragment);
-        }
-        if (moreFragment == null){
-            moreFragment = new HMoreFragment();
-            fragments.add(moreFragment);
         }
         MyAdapter myAdapter = new MyAdapter(getFragmentManager());
         myAdapter.notifyDataSetChanged();

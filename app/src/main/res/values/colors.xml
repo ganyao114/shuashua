@@ -9,8 +9,4 @@
     <color name="toolbarTextColor">#ffffffff</color>
     <color name="toolbarSubTextColor">#ffd4d4d4</color>
     <color name="normalBackground">#fff2f4f5</color>
-    <color name="primary">#E43F3F</color>
-    <color name="primary_dark">#E12929</color>
-
-    <color name="black">#000000</color>
 </resources>

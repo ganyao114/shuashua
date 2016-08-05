@@ -1,4 +1,4 @@
-package com.shuashua.buss.Utils;
+package com.shuashua.buss.Model.Http;
 
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.Model.net.http.IHttpDealCallBack;
