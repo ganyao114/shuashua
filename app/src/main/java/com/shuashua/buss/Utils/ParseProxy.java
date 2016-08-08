@@ -8,11 +8,11 @@ import java.io.Serializable;
 /**
  * Created by pc on 16/8/2.
  */
-public class DeCyParse implements IHttpDealCallBack{
+public class ParseProxy implements IHttpDealCallBack{
 
     private IHttpDealCallBack callBack;
 
-    public DeCyParse(IHttpDealCallBack callBack) {
+    public ParseProxy(IHttpDealCallBack callBack) {
         this.callBack = callBack;
     }
 
@@ -22,6 +22,7 @@ public class DeCyParse implements IHttpDealCallBack{
 
     @Override
     public Serializable dealReturn(String result) throws HttpServiceException {
+        Validate.loginVali(result);
         //解密
         return callBack.dealReturn(result);
     }

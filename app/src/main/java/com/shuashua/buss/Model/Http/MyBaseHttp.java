@@ -17,6 +17,10 @@ public abstract class MyBaseHttp<T> extends BaseHttpModel<T> implements IHttpDea
 
     protected static RequestHeader header;
 
+    public MyBaseHttp() {
+        initModel();
+    }
+
     @Override
     public void initModel() {
         super.initModel();

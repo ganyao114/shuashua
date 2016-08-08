@@ -1,11 +1,10 @@
 package com.shuashua.buss.Model.Http;
 
 import com.shuashua.buss.Model.Beans.User;
-import com.shuashua.buss.Utils.DeCyParse;
+import com.shuashua.buss.Utils.ParseProxy;
 
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.IOC.Model.net.http.entity.HttpConnectMode;
-import net.gy.SwiftFrameWork.MVP.Model.BaseHttpModel;
 import net.gy.SwiftFrameWork.Model.net.http.IHttpDealCallBack;
 import net.gy.SwiftFrameWork.Service.thread.templet.configs.HttpTheadConfigBean;
 
@@ -31,7 +30,7 @@ public class LoginModel extends MyBaseHttp<User>{
 
     @Override
     public IHttpDealCallBack setCallBack() {
-        return new DeCyParse(new IHttpDealCallBack() {
+        return new ParseProxy(new IHttpDealCallBack() {
             @Override
             public Serializable dealReturn(String result) throws HttpServiceException {
                 return null;

@@ -9,7 +9,7 @@ import com.shuashua.buss.View.Activity.LoginActivity;
  * Created by pc on 16/8/1.
  */
 public class Validate {
-    public static void loginVali(){
+    public static void loginVali(String string){
 
     }
 
