@@ -4,10 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
@@ -57,7 +59,7 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         S.ViewUtils.Inject(this);
-        registModel = new RegistModel();
+        registModel = new RegistModel(this);
         uirunnable = new Runnable() {
             @Override
             public void run() {
@@ -99,7 +101,7 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
             progressDialog = new ProgressDialog(this);
         progressDialog.setTitle(getString(R.string.regist_progress_title));
         progressDialog.show();
-
+        registModel.doHttp();
     }
 
     private void getyzm(){
@@ -138,4 +140,15 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
         });
     }
 
+    @Override
+    public void onRegistOk() {
+        progressDialog.cancel();
+        toLoginView();
+    }
+
+    @Override
+    public void onRegistFail() {
+        progressDialog.cancel();
+        Snackbar.make(getWindow().getDecorView(),getString(R.string.regist_fail_msg),Snackbar.LENGTH_LONG).show();
+    }
 }

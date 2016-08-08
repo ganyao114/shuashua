@@ -50,7 +50,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="地理位置" />
+                        android:text="地理位置"
+                        android:id="@+id/user_posistion" />
 
                 </LinearLayout>
 
@@ -91,7 +92,8 @@
                     android:gravity="right"
                     android:layout_gravity="right"
                     android:layout_marginRight="6dp"
-                    android:textAppearance="?android:attr/textAppearanceSearchResultTitle"></TextView>
+                    android:textAppearance="?android:attr/textAppearanceSearchResultTitle"
+                    android:id="@+id/user_date"></TextView>
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>

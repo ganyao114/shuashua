@@ -1,5 +1,6 @@
 package com.shuashua.buss.Model.Http;
 
+import com.shuashua.buss.Utils.ParseProxy;
 import com.shuashua.buss.View.IRegistCallback;
 
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
@@ -30,17 +31,17 @@ public class RegistModel extends MyBaseHttp<String>{
 
     @Override
     public IHttpDealCallBack setCallBack() {
-        return null;
+        return new ParseProxy(this);
     }
 
     @Override
     public HttpConnectMode setconMode() {
-        return null;
+        return HttpConnectMode.Post;
     }
 
     @Override
     public HttpTheadConfigBean setConfig() {
-        return null;
+        return HttpTheadConfigBean.Default();
     }
 
     @Override
