@@ -130,6 +130,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     }
 
     private void showImgValiDia(String url){
+        ImageLoader.With(this).removeCache(url);
         if (valiDia == null){
             valiDia = new MaterialDialog(this);
             valiDia.setTitle(getString(R.string.valiimg_dialog_title));

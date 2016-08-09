@@ -2,6 +2,8 @@ package com.shuashua.buss.Configs.Application;
 
 import android.app.Application;
 
+import com.squareup.leakcanary.LeakCanary;
+
 import net.gy.SwiftFrameWork.Core.S;
 
 import org.xutils.x;
@@ -15,5 +17,6 @@ public class MyApplication extends Application{
         super.onCreate();
         x.Ext.init(this);
         S.init(this);
+        LeakCanary.install(this);
     }
 }

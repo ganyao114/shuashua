@@ -17,12 +17,15 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Model.Beans.User;
+import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
+import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 
@@ -61,6 +64,11 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
     @ViewInject(R.id.tabs)
     private TabLayout tabLayout;
 
+    private View header;
+    private ImageView photo;
+    private TextView name;
+    private TextView tel;
+
     private boolean isOpen = false;
     private List<Fragment> fragmentlist = new ArrayList<>(3);
     private MyFragmentPagerAdapter adapter;
@@ -94,6 +102,10 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         view_pager.addOnPageChangeListener(this);
         bar_home.setSelected(true);
         view_pager.setCurrentItem(0);
+        header = mNavigationView.getHeaderView(0);
+        photo = (ImageView) header.findViewById(R.id.nav_photo);
+        name = (TextView) header.findViewById(R.id.nav_name);
+        tel = (TextView) header.findViewById(R.id.nav_tel);
         mDrawerLayout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
@@ -115,6 +127,12 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
             @Override
             public void onDrawerStateChanged(int newState) {
 
+            }
+        });
+        header.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navTo(UserActivity.class);
             }
         });
     }

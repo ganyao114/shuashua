@@ -7,14 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.R;
 
-public class CreateCardActivity extends AppCompatActivity {
+import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+
+@InjectPresenter(CardCreatePresenter.class)
+@ContentView(R.layout.activity_create_card)
+public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_card);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
