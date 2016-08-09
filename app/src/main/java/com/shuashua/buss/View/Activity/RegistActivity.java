@@ -37,6 +37,7 @@ import net.gy.SwiftFrameWork.Reactive.entity.RunContextType;
 import net.gy.SwiftFrameWork.Reactive.impl.Observer;
 import net.gy.SwiftFrameWork.Reactive.impl.Publisher;
 import net.gy.SwiftFrameWork.Reactive.impl.Subscriber;
+import net.gy.SwiftFrameWork.Service.loader.imgloader.strategy.mystrategy.impl.ImageLoader;
 import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
@@ -202,6 +203,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     @Override
     protected void onDestroy() {
         isAcrun = false;
+        ImageLoader.With(this).destory();
         super.onDestroy();
         S.ViewUtils.Remove(this);
     }
