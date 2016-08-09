@@ -2,6 +2,8 @@ package com.shuashua.buss.View.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -9,26 +11,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.IRegistCallback;
+import com.squareup.picasso.Picasso;
 
 import net.gy.SwiftFrameWork.Core.S;
+import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.OnBtClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
+import net.gy.SwiftFrameWork.Reactive.IPublisher;
+import net.gy.SwiftFrameWork.Reactive.OnObserver;
+import net.gy.SwiftFrameWork.Reactive.OnPublisher;
+import net.gy.SwiftFrameWork.Reactive.annotation.RunContext;
+import net.gy.SwiftFrameWork.Reactive.entity.RunContextType;
+import net.gy.SwiftFrameWork.Reactive.impl.Observer;
+import net.gy.SwiftFrameWork.Reactive.impl.Publisher;
+import net.gy.SwiftFrameWork.Reactive.impl.Subscriber;
+import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 /**
  * Created by pc on 16/8/3.
  */
 @ContentView(R.layout.activity_signup)
-public class RegistActivity extends AppCompatActivity implements Runnable,IRegistCallback{
+public class RegistActivity extends BaseActivity implements Runnable,IRegistCallback{
 
     @ViewInject(R.id.get_yzm)
     private AppCompatButton getyzm;
@@ -46,8 +62,14 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
     private EditText tuiguang;
 
     private ProgressDialog progressDialog;
+    private MaterialDialog valiDia;
+    private AutoLoadImgView codeImg;
+    private EditText codeInput;
 
     private RegistModel registModel;
+    private GetValidateImg validateImgModel;
+
+    private IPublisher codeImgPub;
 
 
     private Thread timethread;
@@ -60,6 +82,8 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
         super.onCreate(savedInstanceState);
         S.ViewUtils.Inject(this);
         registModel = new RegistModel(this);
+        validateImgModel = new GetValidateImg();
+        PubValiImg();
         uirunnable = new Runnable() {
             @Override
             public void run() {
@@ -78,7 +102,7 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
 
         switch (view.getId()){
             case R.id.get_yzm:
-                getyzm();
+                showImgValiDia("http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg");
                 break;
             case R.id.btn_signup:
                 regist();
@@ -102,6 +126,69 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
         progressDialog.setTitle(getString(R.string.regist_progress_title));
         progressDialog.show();
         registModel.doHttp();
+    }
+
+    private void showImgValiDia(String url){
+        if (valiDia == null){
+            valiDia = new MaterialDialog(this);
+            valiDia.setTitle(getString(R.string.valiimg_dialog_title));
+            codeImg = new AutoLoadImgView(this);
+            codeImg.setMaxHeight(64);
+            LinearLayout content = new LinearLayout(this);
+            content.setOrientation(LinearLayout.VERTICAL);
+            codeInput = new EditText(this);
+            codeInput.setTextColor(Color.BLACK);
+            codeInput.setHintTextColor(Color.GRAY);
+            codeInput.setHint(getString(R.string.valiimg_dialog_hint));
+            content.addView(codeImg);
+            content.addView(codeInput);
+            valiDia.setContentView(content);
+            valiDia.setPositiveButton(getString(R.string.valiimg_dialog_confirm), new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getyzm();
+                    valiDia.dismiss();
+                }
+            })     .setNegativeButton(R.string.valiimg_dialog_cancel, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    valiDia.dismiss();
+                }
+            });
+        }
+        valiDia.show();
+        codeImg.ShowImg(url);
+    }
+
+    //下载图片验证码
+    private void PubValiImg(){
+        codeImgPub = Publisher.getInstance().create(new OnPublisher() {
+            @Override
+            @RunContext(RunContextType.IO)
+            public void call(OnObserver observer) {
+                Bitmap bitmap = validateImgModel.getValiImg("http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg");
+                if (bitmap == null)
+                    observer.onError(new HttpServiceException("未能获取到图片"));
+                else
+                    observer.onSuccess(bitmap);
+            }
+        }).bind(new Observer<Bitmap>() {
+            @RunContext(RunContextType.MainThread)
+            @Override
+            public void onSuccess(Bitmap o) {
+//                showImgValiDia(o);
+            }
+            @RunContext(RunContextType.MainThread)
+            @Override
+            public void onError(Throwable throwable) {
+                showSnakeBar(throwable.getMessage());
+                getyzm.setClickable(true);
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
     }
 
     private void getyzm(){
@@ -149,6 +236,6 @@ public class RegistActivity extends AppCompatActivity implements Runnable,IRegis
     @Override
     public void onRegistFail() {
         progressDialog.cancel();
-        Snackbar.make(getWindow().getDecorView(),getString(R.string.regist_fail_msg),Snackbar.LENGTH_LONG).show();
+        showSnakeBar(R.string.regist_fail_msg);
     }
 }

@@ -28,6 +28,11 @@
     <string name="regist_fail_msg">登录失败</string>
     <string name="regist_ok_msg">登录成功</string>
 
+    <string name="valiimg_dialog_title">图片验证</string>
+    <string name="valiimg_dialog_confirm">确认</string>
+    <string name="valiimg_dialog_cancel">取消</string>
+    <string name="valiimg_dialog_hint">输入图片验证码</string>
+
     <string name="title_activity_card">CardActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -118,5 +123,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_create_card">CreateCardActivity</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>

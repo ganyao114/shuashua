@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_email"
+            <EditText android:id="@+id/login_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
-            <EditText android:id="@+id/input_password"
+            <EditText android:id="@+id/login_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
@@ -52,7 +52,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
             android:padding="12dp"
-            android:text="Login"/>
+            android:text="登陆"/>
 
         <TextView android:id="@+id/link_getpass"
             android:layout_width="fill_parent"
@@ -60,6 +60,7 @@
             android:layout_marginBottom="24dp"
             android:text="忘记密码?"
             android:gravity="center"
+            android:clickable="true"
             android:textSize="16dip"/>
 
         <TextView android:id="@+id/link_regist"
@@ -68,6 +69,7 @@
             android:layout_marginBottom="24dp"
             android:text="注册账号"
             android:gravity="center"
+            android:clickable="true"
             android:textSize="16dip"/>
 
     </LinearLayout>

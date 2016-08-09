@@ -6,35 +6,15 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.TextView;
 
-import com.shuashua.buss.Presenter.Base.UserPresenter;
 import com.shuashua.buss.R;
 
-import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
-import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
-import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
-import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
-
-@ContentView(R.layout.activity_user)
-@InjectPresenter(UserPresenter.class)
-public class UserActivity extends BaseMvpActivity<UserPresenter> {
-
-    @ViewInject(R.id.user_name)
-    private TextView name;
-    @ViewInject(R.id.user_tel)
-    private TextView tel;
-    @ViewInject(R.id.user_posistion)
-    private TextView position;
-    @ViewInject(R.id.user_date)
-    private TextView date;
-    @ViewInject(R.id.user_icon)
-    private AutoLoadImgView icon;
+public class CreateCardActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_card);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

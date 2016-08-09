@@ -40,7 +40,7 @@ import java.util.List;
  */
 @InjectPresenter(HomePresenter.class)
 @ContentView(R.layout.activity_home)
-public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implements ViewPager.OnPageChangeListener {
+public class HomeActivity extends BaseMvpActivity<HomePresenter> implements ViewPager.OnPageChangeListener {
 
     @ViewInject(R.id.navigation_view)
     private NavigationView mNavigationView;
@@ -143,7 +143,7 @@ public class HomeActivity extends BaseAppCompactActivity<HomePresenter> implemen
                 break;
             case R.id.bar_search:
                 Intent intent = new Intent();
-                intent.setClass(this,RegistActivity.class);
+                intent.setClass(this,LoginActivity.class);
                 startActivity(intent);
                 break;
         }
