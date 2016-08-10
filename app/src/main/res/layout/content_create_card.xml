@@ -13,31 +13,51 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColorHint="@color/gray"    >
-        <EditText android:id="@+id/card_name"
+        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="会员卡名称"
-            android:textColorHint="@color/gray"
-            android:textColor="@color/black" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white"
+            android:hint="请输入标题"
+            android:textColorHint="@android:color/darker_gray"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#373447"
+            android:textSize="16sp"
+            android:id="@+id/card_title" />
 
-    </android.support.design.widget.TextInputLayout>
-
-        <android.support.v7.widget.AppCompatButton
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/choose_shop_canuse"
-            android:text="@string/choose_shop_canuse"/>
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="1dp"
+            android:background="@android:color/white"
+            android:gravity="top"
+            android:hint="请输入内容"
+            android:padding="10dp"
+            android:textColor="#373447"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:id="@+id/card_content" />
 
-        <android.support.v7.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/choose_deadline"
-            android:text="@string/choose_time_canuse"/>
+        <include layout="@layout/card_btn_choosetime"></include>
+
+        <include layout="@layout/card_btn_choosetshop"></include>
+
+        <!--<android.support.v7.widget.AppCompatButton-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/choose_shop_canuse"-->
+            <!--android:text="@string/choose_shop_canuse"/>-->
+
+        <!--<android.support.v7.widget.AppCompatButton-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/choose_deadline"-->
+            <!--android:text="@string/choose_time_canuse"/>-->
 
         <include layout="@layout/card_textinput_layout"></include>
 
