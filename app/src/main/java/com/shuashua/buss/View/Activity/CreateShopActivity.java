@@ -9,12 +9,12 @@ import android.view.View;
 
 import com.shuashua.buss.R;
 
-public class CardActivity extends AppCompatActivity {
+public class CreateShopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card);
+        setContentView(R.layout.activity_create_shop);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -22,11 +22,10 @@ public class CardActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "您只可以修改部分属性", Snackbar.LENGTH_LONG)
-                        .setAction("修改", null).show();
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setTitle("XXX会员卡");
     }
 }

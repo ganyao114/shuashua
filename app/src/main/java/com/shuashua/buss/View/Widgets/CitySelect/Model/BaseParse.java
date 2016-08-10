@@ -1,4 +1,6 @@
-package com.shuashua.buss.Utils;
+package com.shuashua.buss.View.Widgets.CitySelect.Model;
+
+import com.shuashua.buss.Utils.Validate;
 
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.Model.net.http.IHttpDealCallBack;
@@ -11,11 +13,11 @@ import java.io.Serializable;
 /**
  * Created by pc on 16/8/2.
  */
-public class ParseProxy implements IHttpDealCallBack,Cloneable{
+public class BaseParse implements IHttpDealCallBack{
 
     private IHttpDealCallBack callBack;
 
-    public ParseProxy(IHttpDealCallBack callBack) {
+    public BaseParse(IHttpDealCallBack callBack) {
         this.callBack = callBack;
     }
 
@@ -39,10 +41,5 @@ public class ParseProxy implements IHttpDealCallBack,Cloneable{
             throw new HttpServiceException(e.toString());
         }
         return callBack.dealReturn(data);
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 }

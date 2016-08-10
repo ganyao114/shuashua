@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/pop_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#312E3F"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            android:background="@android:color/white">
+
+            <com.shuashua.buss.View.Widgets.CitySelect.View.WheelView
+                android:id="@+id/id_province"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </com.shuashua.buss.View.Widgets.CitySelect.View.WheelView>
+
+            <com.shuashua.buss.View.Widgets.CitySelect.View.WheelView
+                android:id="@+id/id_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </com.shuashua.buss.View.Widgets.CitySelect.View.WheelView>
+
+            <com.shuashua.buss.View.Widgets.CitySelect.View.WheelView
+                android:id="@+id/id_district"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" >
+            </com.shuashua.buss.View.Widgets.CitySelect.View.WheelView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/comfirm_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:layout_marginTop="5dp"
+            android:background="#373447"
+            android:padding="10dp"
+            android:text="确认选择"
+            android:textColor="#CEC9E7"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dip"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:text="取消"
+            android:textColor="#373447"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>

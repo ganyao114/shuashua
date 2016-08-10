@@ -3,6 +3,7 @@
     package="com.shuashua.buss">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
         android:name=".Configs.Application.MyApplication"
         android:allowBackup="true"
@@ -78,7 +79,16 @@
             android:name=".View.Activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".View.Activity.CreateShopActivity"
+            android:label="@string/title_activity_create_shop"
+            android:parentActivityName=".View.Activity.HomeActivity"
+            android:theme="@style/SplashTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shuashua.buss.View.Activity.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>
