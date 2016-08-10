@@ -1,25 +1,55 @@
 package com.shuashua.buss.Model.Http;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
+import com.shuashua.buss.Model.Beans.ImgValiBean;
+
+import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.Model.net.http.impl.MyHttpService;
+import net.gy.SwiftFrameWork.Service.loader.imgloader.strategy.test.ImageLoader;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Created by pc on 16/8/8.
  */
 public class GetValidateImg {
 
-    private MyHttpService httpService;
 
-    public GetValidateImg() {
-        httpService = new MyHttpService();
-    }
-
-    public Bitmap getValiImg(String url){
+    public ImgValiBean getBitmap(String url) {
+        InputStream is = null;
         try {
-            return httpService.getBitmap(url,null);
-        } catch (Exception e) {
-            e.printStackTrace();
+            Bitmap bitmap = null;
+            URL imageUrl = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) imageUrl
+                    .openConnection();
+            conn.setConnectTimeout(30000);
+            conn.setReadTimeout(30000);
+            conn.setInstanceFollowRedirects(true);
+            int responseCode = conn.getResponseCode();
+            if (responseCode != HttpURLConnection.HTTP_OK) {
+                return null;
+            }
+            is = conn.getInputStream();
+            bitmap = BitmapFactory.decodeStream(is);
+            String id = conn.getHeaderField("jsessionid");
+            is.close();
+            return new ImgValiBean(bitmap,id);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            try {
+                if (is!=null)
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }

@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.shuashua.buss.Model.Beans.ImgValiBean;
 import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
@@ -64,19 +65,22 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
 
     private ProgressDialog progressDialog;
     private MaterialDialog valiDia;
-    private AutoLoadImgView codeImg;
+    private ImageView codeImg;
     private EditText codeInput;
 
     private RegistModel registModel;
     private GetValidateImg validateImgModel;
 
     private IPublisher codeImgPub;
+    private ImgValiBean valiBean;
 
 
     private Thread timethread;
     private int sec = 60;
     private Runnable uirunnable;
     private boolean isAcrun = true;
+
+    private String url = "http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,11 +134,11 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     }
 
     private void showImgValiDia(String url){
-        ImageLoader.With(this).removeCache(url);
+        codeImgPub.post();
         if (valiDia == null){
             valiDia = new MaterialDialog(this);
             valiDia.setTitle(getString(R.string.valiimg_dialog_title));
-            codeImg = new AutoLoadImgView(this);
+            codeImg = new ImageView(this);
             codeImg.setMaxHeight(64);
             LinearLayout content = new LinearLayout(this);
             content.setOrientation(LinearLayout.VERTICAL);
@@ -159,7 +163,6 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
             });
         }
         valiDia.show();
-        codeImg.ShowImg(url);
     }
 
     //下载图片验证码
@@ -168,17 +171,18 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
             @Override
             @RunContext(RunContextType.IO)
             public void call(OnObserver observer) {
-                Bitmap bitmap = validateImgModel.getValiImg("http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg");
-                if (bitmap == null)
+                ImgValiBean bean = validateImgModel.getBitmap(url);
+                valiBean = bean;
+                if (bean == null)
                     observer.onError(new HttpServiceException("未能获取到图片"));
                 else
-                    observer.onSuccess(bitmap);
+                    observer.onSuccess(bean.getBitmap());
             }
         }).bind(new Observer<Bitmap>() {
             @RunContext(RunContextType.MainThread)
             @Override
             public void onSuccess(Bitmap o) {
-//                showImgValiDia(o);
+                codeImg.setImageBitmap(o);
             }
             @RunContext(RunContextType.MainThread)
             @Override
