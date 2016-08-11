@@ -26,6 +26,7 @@ import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Utils.Global;
+import com.shuashua.buss.Utils.LeakFix;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 
@@ -175,6 +176,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        LeakFix.fixInputMethodManagerLeak(this);
     }
 
     @Override

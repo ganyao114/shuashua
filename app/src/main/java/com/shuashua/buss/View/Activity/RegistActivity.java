@@ -62,6 +62,10 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     private EditText username;
     @ViewInject(R.id.tuiguang_name)
     private EditText tuiguang;
+    @ViewInject(R.id.input_adress)
+    private EditText adress;
+    @ViewInject(R.id.get_area)
+    private AppCompatButton getCity;
 
     private ProgressDialog progressDialog;
     private MaterialDialog valiDia;
@@ -102,7 +106,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
         };
     }
 
-    @OnClick({R.id.get_yzm,R.id.btn_signup,R.id.link_login})
+    @OnClick({R.id.get_yzm,R.id.btn_signup,R.id.link_login,R.id.get_area})
     public void click(View view){
 
         switch (view.getId()){
@@ -114,6 +118,9 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
                 break;
             case R.id.link_login:
                 toLoginView();
+                break;
+            case R.id.get_area:
+                navTo(CityPickerActivity.class);
                 break;
         }
 
@@ -204,6 +211,20 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
         timethread.start();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        String citycode = data.getStringExtra("city");
+        String cityname = data.getStringExtra("cityname");
+        // 根据上面发送过去的请求吗来区别
+        switch (requestCode) {
+            case 0:
+
+                break;
+            default:
+                break;
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -237,12 +258,13 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     @Override
     public void onRegistOk() {
         progressDialog.cancel();
+        makeToast("注册成功");
         toLoginView();
     }
 
     @Override
-    public void onRegistFail() {
+    public void onRegistFail(String msg) {
         progressDialog.cancel();
-        showSnakeBar(R.string.regist_fail_msg);
+        showSnakeBar(msg);
     }
 }

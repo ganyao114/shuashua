@@ -36,6 +36,14 @@
     <string name="choose_shop_canuse">选择适用店铺</string>
     <string name="choose_time_canuse">选择适用期限</string>
 
+    <string name="select_city">选择城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="located_city">定位城市</string>
+    <string name="hint_search_box">请输入城市名或拼音</string>
+    <string name="nothing_found">没有搜索结果~</string>
+    <string name="locating">正在定位…</string>
+    <string name="located_failed">定位失败</string>
+
     <string name="title_activity_card">CardActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -132,5 +140,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_create_shop">CreateShopActivity</string>
+    <string name="title_activity_shop">ShopActivity</string>
 
 </resources>

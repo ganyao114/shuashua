@@ -5,9 +5,6 @@ import android.graphics.BitmapFactory;
 
 import com.shuashua.buss.Model.Beans.ImgValiBean;
 
-import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
-import net.gy.SwiftFrameWork.Model.net.http.impl.MyHttpService;
-import net.gy.SwiftFrameWork.Service.loader.imgloader.strategy.test.ImageLoader;
 
 import java.io.File;
 import java.io.FileOutputStream;

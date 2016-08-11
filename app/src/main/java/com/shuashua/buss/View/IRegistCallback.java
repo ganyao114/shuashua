@@ -5,5 +5,5 @@ package com.shuashua.buss.View;
  */
 public interface IRegistCallback {
     public void onRegistOk();
-    public void onRegistFail();
+    public void onRegistFail(String msg);
 }

@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.shuashua.buss">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".Configs.Application.MyApplication"
@@ -83,6 +88,27 @@
         <activity
             android:name=".View.Activity.CreateShopActivity"
             android:label="@string/title_activity_create_shop"
+            android:parentActivityName=".View.Activity.HomeActivity"
+            android:theme="@style/SplashTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.shuashua.buss.View.Activity.HomeActivity" />
+        </activity>
+        <activity
+            android:name=".View.Activity.CityPickerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+
+        <!-- 高德地图定位 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="07e4e3deba98311f4e9749f8170a9166" />
+        <!-- 高德地图定位结束 -->
+        <activity
+            android:name=".View.Activity.ShopActivity"
+            android:label="@string/title_activity_shop"
             android:parentActivityName=".View.Activity.HomeActivity"
             android:theme="@style/SplashTheme">
             <meta-data

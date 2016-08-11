@@ -8,4 +8,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="side_letter_bar_letter_size">12sp</dimen>
+    <dimen name="side_letter_bar_width">36dp</dimen>
+    <dimen name="city_text_size">16sp</dimen>
 </resources>
