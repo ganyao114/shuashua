@@ -4,18 +4,22 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Model.Beans.ImgValiBean;
+import com.shuashua.buss.Model.Beans.LoginBean;
 import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
@@ -66,6 +70,8 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     private EditText adress;
     @ViewInject(R.id.get_area)
     private AppCompatButton getCity;
+    @ViewInject(R.id.input_loginname)
+    private EditText loginName;
 
     private ProgressDialog progressDialog;
     private MaterialDialog valiDia;
@@ -86,11 +92,19 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
 
     private String url = "http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg";
 
+    private String citycode;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            //此处可以重新指定状态栏颜色
+            tintManager.setStatusBarTintResource(R.color.themeColor);
+        }
         super.onCreate(savedInstanceState);
         S.ViewUtils.Inject(this);
-        registModel = new RegistModel(this);
         validateImgModel = new GetValidateImg();
         PubValiImg();
         uirunnable = new Runnable() {
@@ -114,7 +128,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
                 showImgValiDia("http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg");
                 break;
             case R.id.btn_signup:
-                regist();
+                regist(getLoginInfo());
                 break;
             case R.id.link_login:
                 toLoginView();
@@ -132,12 +146,27 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
         startActivity(intent);
     }
 
-    private void regist() {
+    private void regist(LoginBean bean) {
         if (progressDialog == null)
             progressDialog = new ProgressDialog(this);
         progressDialog.setTitle(getString(R.string.regist_progress_title));
         progressDialog.show();
+        registModel = new RegistModel(this,bean);
         registModel.doHttp();
+    }
+
+    private LoginBean getLoginInfo(){
+        LoginBean loginBean = new LoginBean();
+        loginBean.setAddress(adress.getText().toString());
+        loginBean.setAddressCode(citycode);
+        loginBean.setTel(phone.getText().toString());
+        loginBean.setRealName(username.getText().toString());
+        loginBean.setEmail(null);
+        loginBean.setIdcard(idcard.getText().toString());
+        loginBean.setPasswd(passwd.getText().toString());
+        loginBean.setUsername(loginName.getText().toString());
+        loginBean.setPromoter(tuiguang.getText().toString());
+        return loginBean;
     }
 
     private void showImgValiDia(String url){
@@ -213,12 +242,12 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String citycode = data.getStringExtra("city");
+        citycode = data.getStringExtra("city");
         String cityname = data.getStringExtra("cityname");
         // 根据上面发送过去的请求吗来区别
         switch (requestCode) {
             case 0:
-
+            getCity.setText(cityname);
                 break;
             default:
                 break;

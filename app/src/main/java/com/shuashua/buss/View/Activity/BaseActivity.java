@@ -19,7 +19,7 @@ public class BaseActivity extends AppCompatActivity{
 
 
     protected void showSnakeBar(String str){
-        Snackbar.make(getWindow().getDecorView(),
+        Snackbar.make(getWindow().getDecorView().getRootView(),
                 str
                 ,Snackbar.LENGTH_LONG).show();
     }

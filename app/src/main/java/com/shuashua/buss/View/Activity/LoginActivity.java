@@ -1,8 +1,11 @@
 package com.shuashua.buss.View.Activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Presenter.Base.LoginPresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.ILoginCallBack;
@@ -21,6 +24,13 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements IL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            //此处可以重新指定状态栏颜色
+            tintManager.setStatusBarTintResource(R.color.themeColor);
+        }
     }
 
     @OnClick({R.id.link_regist,R.id.link_getpass})
