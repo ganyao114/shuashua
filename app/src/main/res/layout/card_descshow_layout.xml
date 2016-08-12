@@ -21,29 +21,24 @@
             android:layout_height="50dp"
             android:gravity="center_horizontal">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textColor="@color/gray"
-                android:layout_toRightOf="@+id/shop_ratestar"
-                android:text="本卡适用店铺"
-                android:singleLine="true"
-                android:id="@+id/card_shopcanuse"
-                android:textSize="18dp"/>
+                android:textColor="@color/gray_deep"
+                android:paddingLeft="8dp"
+                android:textSize="20dp"
+                android:text="描述/条款"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:text="更多10家 >"
+                android:text="完整>"
                 android:textSize="16dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
-                android:paddingRight="8dp"
-                android:id="@+id/card_shop_more"
-                android:singleLine="true"/>
+                android:paddingRight="8dp"/>
 
         </RelativeLayout>
 
@@ -52,13 +47,28 @@
             android:layout_height="1dp"
             android:background="#66E0DFE0"></View>
 
-        <include layout="@layout/item_shopscanuse_layout"></include>
+        <!--<com.shuashua.buss.View.Widgets.RateView.RateView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/rate_content">-->
 
-        <include layout="@layout/item_shopscanuse_layout"></include>
+        <!--</com.shuashua.buss.View.Widgets.RateView.RateView>-->
 
-        <include layout="@layout/item_shopscanuse_layout"></include>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="1.该会员卡适用于XXXXXXXX"
+                android:textSize="18dp"
+                android:id="@+id/textView4"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/gray_deep"/>
+        </RelativeLayout>
 
     </LinearLayout>
 

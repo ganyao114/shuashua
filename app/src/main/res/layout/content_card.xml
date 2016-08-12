@@ -15,7 +15,11 @@
 
       <include layout="@layout/card_cardbaseinfo_layout"></include>
 
+      <include layout="@layout/card_descshow_layout"></include>
+
       <include layout="@layout/card_rateifo_layout"></include>
+
+      <include layout="@layout/card_cardshopcanuse_layout"></include>
 
    </LinearLayout>
 

@@ -97,7 +97,7 @@
         <activity
             android:name=".View.Activity.CityPickerActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan"></activity>
+            android:windowSoftInputMode="stateHidden|adjustPan" />
 
         <!-- 高德地图定位 -->
         <service android:name="com.amap.api.location.APSService" />
@@ -115,6 +115,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
         </activity>
+        <activity
+            android:name=".View.Activity.AllCardsActivity"
+            android:label="@string/title_activity_all_cards"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.ActivitySearch"
+            android:label="@string/title_activity_activity_search"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.CardsSearchActivity"
+            android:label="@string/title_activity_cards_search"
+            android:theme="@style/SplashTheme"></activity>
     </application>
 
 </manifest>

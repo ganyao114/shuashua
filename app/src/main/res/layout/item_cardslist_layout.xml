@@ -8,7 +8,7 @@
     <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:id="@+id/shop_cards_cover"
+        android:id="@+id/list_cards_cover"
         android:src="@drawable/loading"
         android:adjustViewBounds="true" />
 
@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="XXX会员卡"
-            android:id="@+id/shop_card_name"
+            android:id="@+id/list_card_name"
             android:singleLine="true"
             android:textColor="@color/gray_deep"
             android:textSize="24sp"/>
@@ -30,7 +30,7 @@
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/shop_ratestar"
+            android:id="@+id/listcards_ratestar"
             android:rating="5"
             style="?android:attr/ratingBarStyleSmall" />
 
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="办会员卡送大保健5次!"
-            android:id="@+id/shop_card_desc"
+            android:id="@+id/list_card_desc"
             android:singleLine="true"
             android:textColor="@color/gray_deep"
             android:textSize="14sp"/>

@@ -21,15 +21,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XXX会员卡"
-            android:id="@+id/shop_card_name"
+            android:text="XXX店铺"
+            android:id="@+id/card_shop_name"
             android:textColor="@color/gray_deep"
             android:textSize="24sp"/>
 
         <RatingBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/shop_ratestar"
+            android:id="@+id/shop_card_ratestar"
             android:rating="5"
             style="?android:attr/ratingBarStyleSmall" />
 
@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="南京市江宁XXXX路XXX号"
-            android:id="@+id/shop_card_position"
+            android:id="@+id/card_shop_position"
             android:textColor="@color/gray_deep"
             android:textSize="14sp"/>
 

@@ -14,6 +14,8 @@
         android:orientation="vertical">
         <include layout="@layout/card_shopbaseinfo_layout"></include>
 
+        <include layout="@layout/shop_descshow_layout"></include>
+
         <include layout="@layout/card_shoprate_layout"></include>
 
         <include layout="@layout/card_shopcards_layout"></include>

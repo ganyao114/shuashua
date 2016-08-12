@@ -141,5 +141,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_create_shop">CreateShopActivity</string>
     <string name="title_activity_shop">XXX店铺</string>
+    <string name="title_activity_all_cards">AllCardsActivity</string>
+    <string name="title_activity_activity_search">ActivitySearch</string>
+    <string name="title_activity_cards_search">CardsSearchActivity</string>
 
 </resources>
