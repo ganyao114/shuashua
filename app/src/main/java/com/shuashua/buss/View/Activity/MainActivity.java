@@ -25,6 +25,7 @@ import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Model.local.resource.entity.ResType;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;

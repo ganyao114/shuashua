@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -23,6 +24,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +40,7 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     private ImageCycleView cycleView;
     @ViewInject(R.id.maincards_list)
     private RecyclerView cardslist_view;
+
 
 
     private List<Cards> cards;
@@ -69,7 +72,7 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
         FullyLinearLayoutManager mFullyLinearLayoutManager = new FullyLinearLayoutManager(getContext(), LinearLayout.VERTICAL,true);
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
         cardslist_view.setLayoutManager(mFullyLinearLayoutManager);
-        cardslist_view.setNestedScrollingEnabled(false);
+        cardslist_view.setHasFixedSize(true);
         cards = TestModel.getCards();
         S.ViewUtils.ListBind(cardslist_view)
                    .setLtnImpl(this)

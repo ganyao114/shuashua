@@ -37,7 +37,8 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
                 android:layout_toRightOf="@+id/shop_ratestar"
-                android:text="3.5分"/>
+                android:text="3.5分"
+                android:id="@+id/shop_rate" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -47,7 +48,8 @@
                 android:textSize="16dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
-                android:paddingRight="8dp"/>
+                android:paddingRight="8dp"
+                android:id="@+id/shop_rate_count" />
 
         </RelativeLayout>
 
@@ -55,13 +57,6 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#66E0DFE0"></View>
-
-        <!--<com.shuashua.buss.View.Widgets.RateView.RateView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/rate_content">-->
-
-        <!--</com.shuashua.buss.View.Widgets.RateView.RateView>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -72,11 +67,18 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="暂无数据"
-                android:id="@+id/textView4"
+                android:id="@+id/textView2"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/gray_deep"/>
         </RelativeLayout>
+
+        <!--<com.shuashua.buss.View.Widgets.RateView.RateView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/rate_content">-->
+
+        <!--</com.shuashua.buss.View.Widgets.RateView.RateView>-->
 
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.shuashua.buss.Test;
 
 import com.shuashua.buss.Model.Beans.Cards;
+import com.shuashua.buss.Model.Beans.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,19 @@ public class TestModel {
             cards.setCoverurl("http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg");
             cards.setContent("卡号0000000000");
             list.add(cards);
+        }
+        return list;
+    }
+
+    public static List<Shop> getShops(){
+        List<Shop> list = new ArrayList<>();
+        for (int i = 0;i < 10;i ++){
+            Shop shop = new Shop();
+            shop.setName("测试店铺");
+            shop.setCoverUrl("http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg");
+            shop.setDesc("烧烤店");
+            shop.setGrade("评分4.5分");
+            list.add(shop);
         }
         return list;
     }

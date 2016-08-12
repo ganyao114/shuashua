@@ -140,6 +140,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_create_shop">CreateShopActivity</string>
-    <string name="title_activity_shop">ShopActivity</string>
+    <string name="title_activity_shop">XXX店铺</string>
 
 </resources>

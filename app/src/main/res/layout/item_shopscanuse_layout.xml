@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:weightSum="1">
+
+    <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/shop_cards_cover"
+        android:src="@drawable/loading"
+        android:adjustViewBounds="true" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XXX会员卡"
+            android:id="@+id/shop_card_name"
+            android:textColor="@color/gray_deep"
+            android:textSize="24sp"/>
+
+        <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shop_ratestar"
+            android:rating="5"
+            style="?android:attr/ratingBarStyleSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="南京市江宁XXXX路XXX号"
+            android:id="@+id/shop_card_position"
+            android:textColor="@color/gray_deep"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

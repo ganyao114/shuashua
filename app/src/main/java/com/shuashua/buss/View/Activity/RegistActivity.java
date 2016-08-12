@@ -25,6 +25,7 @@ import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.IRegistCallback;
+import com.shuashua.buss.View.Widgets.ImgCanDel.ImgCanDel;
 import com.squareup.picasso.Picasso;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -174,7 +175,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
         if (valiDia == null){
             valiDia = new MaterialDialog(this);
             valiDia.setTitle(getString(R.string.valiimg_dialog_title));
-            codeImg = new ImageView(this);
+            codeImg = new ImgCanDel(this);
             codeImg.setMaxHeight(64);
             LinearLayout content = new LinearLayout(this);
             content.setOrientation(LinearLayout.VERTICAL);

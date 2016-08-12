@@ -8,10 +8,16 @@
     tools:context="com.shuashua.buss.View.Activity.ShopActivity"
     tools:showIn="@layout/activity_shop">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:orientation="vertical">
+        <include layout="@layout/card_shopbaseinfo_layout"></include>
+
+        <include layout="@layout/card_shoprate_layout"></include>
+
+        <include layout="@layout/card_shopcards_layout"></include>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

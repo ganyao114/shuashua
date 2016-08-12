@@ -21,15 +21,6 @@
             android:layout_height="50dp"
             android:gravity="center_horizontal">
 
-            <RatingBar
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/shop_ratestar"
-                android:rating="5"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,17 +28,20 @@
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
                 android:layout_toRightOf="@+id/shop_ratestar"
-                android:text="3.5分"/>
+                android:text="本店铺会员卡"
+                android:id="@+id/shop_card"
+                android:textSize="18dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:text="评论170条 >"
+                android:text="更多卡10张 >"
                 android:textSize="16dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
-                android:paddingRight="8dp"/>
+                android:paddingRight="8dp"
+                android:id="@+id/shop_card_more" />
 
         </RelativeLayout>
 
@@ -56,27 +50,13 @@
             android:layout_height="1dp"
             android:background="#66E0DFE0"></View>
 
-        <!--<com.shuashua.buss.View.Widgets.RateView.RateView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/rate_content">-->
+        <include layout="@layout/item_shopcards_layout"></include>
 
-        <!--</com.shuashua.buss.View.Widgets.RateView.RateView>-->
+        <include layout="@layout/item_shopcards_layout"></include>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="240dp">
+        <include layout="@layout/item_shopcards_layout"></include>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="暂无数据"
-                android:id="@+id/textView4"
-                android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"
-                android:textColor="@color/gray_deep"/>
-        </RelativeLayout>
+
 
     </LinearLayout>
 
