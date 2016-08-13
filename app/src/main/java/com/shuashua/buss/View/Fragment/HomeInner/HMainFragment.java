@@ -36,6 +36,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.OnItemClickListener;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreAdapter;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.adapter.NomRcViewAdapter;
 
 import java.util.ArrayList;
@@ -52,7 +53,7 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     @ViewInject(R.id.loop_view)
     private ImageCycleView cycleView;
     @ViewInject(R.id.maincards_list)
-    private RecyclerView cardslist_view;
+    private LoadMoreRecyclerView cardslist_view;
     @ViewInject(R.id.main_refresh_layout)
     private SwipeRefreshLayout refreshLayout;
 //    private LoadMoreAdapter moreAdapter;
@@ -87,31 +88,19 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
             infos.add(info);
         }
         showCycleView(infos);
-        CustomLinearLayoutManager mFullyLinearLayoutManager = new CustomLinearLayoutManager(getContext(), LinearLayout.VERTICAL,true);
+        LinearLayoutManager mFullyLinearLayoutManager = new LinearLayoutManager(getContext());
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
+        mFullyLinearLayoutManager.setAutoMeasureEnabled(true);
         cardslist_view.setLayoutManager(mFullyLinearLayoutManager);
         cardslist_view.setHasFixedSize(true);
         cardslist_view.setNestedScrollingEnabled(false);
+        cardslist_view.setAutoLoadMoreEnable(true);
         cards = TestModel.getCards();
         S.ViewUtils.ListBind(cardslist_view)
                    .setClass(Cards.class)
                    .setLtnImpl(this)
                    .bind(cards);
-        NomRcViewAdapter adapter = (NomRcViewAdapter) cardslist_view.getAdapter();
-        adapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(ViewGroup parent, View view, Object o, int position) {
-                Cards cards = (Cards) o;
-
-                Log.e("gy","click"+cards.getContent());
-            }
-
-            @Override
-            public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
-                return false;
-            }
-        });
-        cardslist_view.setAdapter(new BugFixAdapter(adapter));
+//        cardslist_view.setAdapter(new BugFixAdapter(adapter));
 //        moreAdapter = new LoadMoreAdapter(cardslist_view.getAdapter());
 //        moreBt = new AppCompatButton(getContext());
 ////        moreBt.setText("点击加载更多");
