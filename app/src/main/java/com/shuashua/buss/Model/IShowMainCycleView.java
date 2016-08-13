@@ -1,4 +1,4 @@
-package com.shuashua.buss.View;
+package com.shuashua.buss.Model;
 
 import com.shuashua.buss.Model.Beans.ADInfo;
 

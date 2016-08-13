@@ -37,4 +37,5 @@ dependencies {
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
     compile files('libs/AMap_Location_v2.3.0_20160112.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
 }

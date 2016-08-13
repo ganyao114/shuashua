@@ -1,8 +1,7 @@
 package com.shuashua.buss.Model.Http;
 
 import com.shuashua.buss.Model.Beans.LoginBean;
-import com.shuashua.buss.Utils.ParseProxy;
-import com.shuashua.buss.View.IRegistCallback;
+import com.shuashua.buss.Model.IRegistCallback;
 import com.shuashua.buss.View.Widgets.CitySelect.Model.BaseParse;
 
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;

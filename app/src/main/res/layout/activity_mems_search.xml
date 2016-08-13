@@ -16,7 +16,7 @@
         android:background="@android:color/white">
 
         <ListView
-            android:id="@+id/listview_all_city"
+            android:id="@+id/listview_all_mems"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:cacheColorHint="@android:color/transparent"
@@ -37,14 +37,14 @@
             android:visibility="gone"/>
 
         <com.shuashua.buss.View.Widgets.SideBar.SideLetterBar
-            android:id="@+id/side_letter_bar"
+            android:id="@+id/mems_side_letter_bar"
             android:layout_width="@dimen/side_letter_bar_width"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             tools:ignore="RtlHardcoded" />
 
         <ListView
-            android:id="@+id/listview_search_result"
+            android:id="@+id/memslist_search_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"

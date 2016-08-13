@@ -124,8 +124,12 @@
             android:label="@string/title_activity_activity_search"
             android:theme="@style/SplashTheme" />
         <activity
-            android:name=".View.Activity.CardsSearchActivity"
+            android:name=".View.Activity.MemSearchActivity"
             android:label="@string/title_activity_cards_search"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.CardsListActivity"
+            android:label="@string/title_activity_cards_list"
             android:theme="@style/SplashTheme"></activity>
     </application>
 

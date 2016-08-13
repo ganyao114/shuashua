@@ -1,9 +1,7 @@
 package com.shuashua.buss.View.Fragment;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +11,7 @@ import android.widget.LinearLayout;
 
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
-import com.shuashua.buss.View.IShowMainCycleView;
+import com.shuashua.buss.Model.IShowMainCycleView;
 import com.shuashua.buss.Model.Beans.ADInfo;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
 
@@ -22,8 +20,6 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
-
-import org.xutils.x;
 
 import java.util.ArrayList;
 

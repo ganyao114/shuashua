@@ -7,34 +7,27 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Model.Beans.ImgValiBean;
 import com.shuashua.buss.Model.Beans.LoginBean;
 import com.shuashua.buss.Model.Http.GetValidateImg;
-import com.shuashua.buss.Model.Http.MyBaseHttp;
 import com.shuashua.buss.Model.Http.RegistModel;
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.IRegistCallback;
+import com.shuashua.buss.Model.IRegistCallback;
 import com.shuashua.buss.View.Widgets.ImgCanDel.ImgCanDel;
-import com.squareup.picasso.Picasso;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
-import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.OnBtClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
 import net.gy.SwiftFrameWork.Reactive.IPublisher;
 import net.gy.SwiftFrameWork.Reactive.OnObserver;
 import net.gy.SwiftFrameWork.Reactive.OnPublisher;
@@ -42,9 +35,7 @@ import net.gy.SwiftFrameWork.Reactive.annotation.RunContext;
 import net.gy.SwiftFrameWork.Reactive.entity.RunContextType;
 import net.gy.SwiftFrameWork.Reactive.impl.Observer;
 import net.gy.SwiftFrameWork.Reactive.impl.Publisher;
-import net.gy.SwiftFrameWork.Reactive.impl.Subscriber;
 import net.gy.SwiftFrameWork.Service.loader.imgloader.strategy.mystrategy.impl.ImageLoader;
-import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 /**

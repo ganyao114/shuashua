@@ -16,7 +16,7 @@ public class TestModel {
             Cards cards = new Cards();
             cards.setName("测试会员卡");
             cards.setCoverurl("http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg");
-            cards.setContent("卡号0000000000");
+            cards.setContent("卡号0000000000"+i);
             list.add(cards);
         }
         return list;

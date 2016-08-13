@@ -53,6 +53,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="50dp"
                     android:layout_toLeftOf="@+id/bar_mng"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
                     android:background="@drawable/actionbar_disco"
                     android:clickable="true" />
 
@@ -61,12 +63,16 @@
                     android:layout_width="55dp"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
                     android:background="@drawable/actionbar_music"
                     android:clickable="true" />
 
                 <ImageView
                     android:id="@+id/bar_my"
                     android:layout_width="55dp"
+                    android:scaleX="0.5"
+                    android:scaleY="0.5"
                     android:layout_height="match_parent"
                     android:layout_toRightOf="@+id/bar_mng"
                     android:background="@drawable/actionbar_friends"

@@ -1,4 +1,4 @@
-package com.shuashua.buss.View;
+package com.shuashua.buss.Model;
 
 /**
  * Created by pc on 16/8/8.

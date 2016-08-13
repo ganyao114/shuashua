@@ -8,12 +8,11 @@ import android.view.WindowManager;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Presenter.Base.LoginPresenter;
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.ILoginCallBack;
+import com.shuashua.buss.Model.ILoginCallBack;
 
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
-import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
 
 /**
  * Created by pc on 16/8/3.
