@@ -15,15 +15,7 @@ import android.os.Environment;
 
 public class FileUtil {
 
-    
-    /**
-     * ��Bitmap ͼƬ���浽����·����������·��
-     * @param c
-     * @param mType ��Դ���ͣ�����  MultimediaContentType ö�٣����ݴ����ͣ�����ʱ���Զ�����
-     * @param fileName �ļ�����
-     * @param bitmap ͼƬ
-     * @return
-     */
+
 	public static String saveFile(Context c, String fileName, Bitmap bitmap) {
 		return saveFile(c, "", fileName, bitmap);
 	}

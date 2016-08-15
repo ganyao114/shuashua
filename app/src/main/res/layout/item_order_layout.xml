@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="22sp"
+            android:text="今天"
+            android:id="@+id/item_order_date" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:text="9:30"
+            android:id="@+id/item_order_time" />
+
+    </LinearLayout>
+
+    <net.gy.SwiftFrameWork.UI.customwidget.cirlleimageview.CircleImageView
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:id="@+id/item_order_cover"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray_deep"
+            android:textSize="22sp"
+            android:text="3小时"
+            android:id="@+id/item_order_count" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:text="时长-XXX网吧单人包间"
+            android:id="@+id/item_order_desc" />
+
+    </LinearLayout>
+
+</LinearLayout>

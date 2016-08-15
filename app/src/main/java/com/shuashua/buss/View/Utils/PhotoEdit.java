@@ -3,6 +3,7 @@ package com.shuashua.buss.View.Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -35,12 +36,13 @@ public class PhotoEdit {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(uri, "image/*");
         intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", 428);
-        intent.putExtra("aspectY", 270);
+        intent.putExtra("aspectX", 856);
+        intent.putExtra("aspectY", 540);
         intent.putExtra("outputX", 856);
         intent.putExtra("outputY", 540);
         intent.putExtra("scale", true);//黑边
         intent.putExtra("scaleUpIfNeeded", true);//黑边
+        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("return-data", true);
         context.startActivityForResult(intent, REQUESTCODE_CUTTING);
     }

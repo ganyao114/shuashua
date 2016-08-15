@@ -5,32 +5,31 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ToggleButton;
 
-import com.shuashua.buss.Model.Beans.Shop;
+import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
+import com.shuashua.buss.View.Activity.CardActivity;
+import com.shuashua.buss.View.Activity.CreateCardActivity;
 import com.shuashua.buss.View.Activity.ShopActivity;
 import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
 import com.shuashua.buss.View.Widgets.RateView.OnTabItemClickListener;
 import com.shuashua.buss.View.Widgets.RateView.RateBean;
-import com.shuashua.buss.View.Widgets.RateView.RateItem;
 import com.shuashua.buss.View.Widgets.RateView.RateView;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
-import net.gy.SwiftFrameWork.Reactive.test.Test;
 import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.OnItemClickListener;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.adapter.NomRcViewAdapter;
 
@@ -41,24 +40,22 @@ import java.util.List;
 /**
  * Created by pc on 16/8/2.
  */
-@ContentView(R.layout.fragment_shopmng_layout)
-public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClickListener<RateBean>,OnMenuClick,OnItemClickListener {
+@ContentView(R.layout.fragment_cardmng_layout)
+public class CardManagerFragment extends BaseFragmentV4 implements OnTabItemClickListener<RateBean>,OnMenuClick,OnItemClickListener,View.OnClickListener {
 
-//    @ViewInject(R.id.rate_view)
-    private RateView rateView;
-    @ViewInject(R.id.mng_shop_list)
-    private LoadMoreRecyclerView shop_list;
-    @ViewInject(R.id.shop_mngfrag_content)
+    @ViewInject(R.id.mng_card_list)
+    private LoadMoreRecyclerView card_list;
+    @ViewInject(R.id.card_mngfrag_content)
     private FrameLayout content;
 
     private MenuHelper menu1Helper;
     private MenuHelper menu2Helper;
     private MenuHelper menu3Helper;
 
-    @ViewInject(R.id.menu_btn1)
+    @ViewInject(R.id.menu_cardmng_btn1)
     private ToggleButton menu1;
 
-    private List<Shop> shops;
+    private List<Cards> cards;
     private List<String> menuData;
 
     @Nullable
@@ -107,15 +104,15 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
         LinearLayoutManager mFullyLinearLayoutManager = new LinearLayoutManager(getContext());
         mFullyLinearLayoutManager.setAutoMeasureEnabled(true);
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
-        shop_list.setLayoutManager(mFullyLinearLayoutManager);
-        shop_list.setNestedScrollingEnabled(false);
-        shop_list.setHasFixedSize(true);
-        shop_list.setAutoLoadMoreEnable(true);
-        shops = TestModel.getShops();
-        S.ViewUtils.ListBind(shop_list)
+        card_list.setLayoutManager(mFullyLinearLayoutManager);
+        card_list.setNestedScrollingEnabled(false);
+        card_list.setHasFixedSize(true);
+        card_list.setAutoLoadMoreEnable(true);
+        cards = TestModel.getCards();
+        S.ViewUtils.ListBind(card_list)
                 .setLtnImpl(this)
-                .bind(shops);
-        LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) shop_list.getAdapter();
+                .bind(cards);
+        LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) card_list.getAdapter();
         NomRcViewAdapter rowadapter = (NomRcViewAdapter) adapter.getRowAdapter();
         rowadapter.setOnItemClickListener(this);
     }
@@ -139,12 +136,32 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     @Override
     public void onItemClick(ViewGroup parent, View view, Object o, int position) {
         Intent intent = new Intent();
-        intent.setClass(getContext(), ShopActivity.class);
+        intent.setClass(getContext(), CardActivity.class);
         startActivity(intent);
     }
 
     @Override
     public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
         return false;
+    }
+
+    @OnClick(R.id.cardmng_newcard_btn)
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_more:
+                Log.e("gy","click"+v.getTag());
+                Intent intent = new Intent();
+                intent.setClass(getContext(), CardActivity.class);
+                String cid = cards.get((Integer) v.getTag()).getId();
+                intent.putExtra("cardid",cid);
+                startActivity(intent);
+                break;
+            case R.id.cardmng_newcard_btn:
+                Intent newcardintent = new Intent();
+                newcardintent.setClass(getContext(), CreateCardActivity.class);
+                startActivity(newcardintent);
+                break;
+        }
     }
 }

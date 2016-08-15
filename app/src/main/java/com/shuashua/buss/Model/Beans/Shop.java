@@ -12,23 +12,20 @@ import java.io.Serializable;
 /**
  * Created by pc on 16/8/1.
  */
-@ListDataSrc(R.layout.item_mngshop_layout)
+@ListDataSrc(R.layout.card_mngfragshop_layout)
 public class Shop implements Serializable{
 
-    @OnBtClick(R.id.btn_shop_more)
     private String id;
-    @BindText(R.id.shops_title)
+    @BindText(R.id.mngfreg_shop_name)
     private String name;
-    @BindText(R.id.shops_desc)
+    @BindText(R.id.mngfreg_shop_position)
     private String Desc;
     private String kind;
     private String subKind;
     private String areacode;
     private String areaName;
-    @BindAsyncImgUrl(R.id.shops_cover)
     private String coverUrl;
     private String tel;
-    @BindText(R.id.shops_vips)
     private String grade;
 
     public String getId() {

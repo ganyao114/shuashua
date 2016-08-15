@@ -1,6 +1,9 @@
 package com.shuashua.buss.View.Activity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -26,6 +29,7 @@ import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
+import com.shuashua.buss.Utils.FileUtil;
 import com.shuashua.buss.View.Adapter$LayoutMng.SyLinearLayoutManager;
 import com.shuashua.buss.View.Utils.PhotoEdit;
 import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
@@ -38,6 +42,7 @@ import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.impl.ListBinder;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
+import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.HeadFooterAdapter;
 
 import java.io.File;
@@ -55,6 +60,9 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     @ViewInject(R.id.ac_cardcreate_content)
     private FrameLayout content;
 
+    @ViewInject(R.id.card_upload_icon)
+    private AutoLoadImgView card_cover;
+
     private HeadFooterAdapter adapter;
 
     private View footerView;
@@ -64,7 +72,6 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     private List<String> menuData;
 
     private int curSelectP;
-    private int foucsp;
 
 
     @Override
@@ -171,7 +178,13 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     }
 
     private void setPicToView(Intent data) {
-        uploadPt();
+        Bundle extras = data.getExtras();
+        if (extras != null) {
+            Bitmap photo = extras.getParcelable("data");
+            FileUtil.saveFile(this, "temphead.jpg", photo);
+            card_cover.setImageBitmap(photo);
+            uploadPt();
+        }
     }
 
     private void uploadPt() {
@@ -188,16 +201,13 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        Log.e("gy","foucs"+hasFocus+v.getTag());
+        CardPropertys propertys = (CardPropertys) v.getTag(net.gy.SwiftFrameWork.R.id.EntityTag);
+        EditText editText = (EditText) v;
         if (!hasFocus){
-            EditText editText = (EditText) v;
             String text = editText.getText().toString();
-            CardPropertys propertys = (CardPropertys) v.getTag(net.gy.SwiftFrameWork.R.id.EntityTag);
             if (propertys!=null)
                 propertys.setName(text);
         }else {
-            EditText editText = (EditText) v;
-            CardPropertys propertys = (CardPropertys) v.getTag(net.gy.SwiftFrameWork.R.id.EntityTag);
             if (propertys!=null)
                 editText.setText(propertys.getName());
         }

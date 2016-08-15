@@ -1,6 +1,7 @@
 package com.shuashua.buss.Test;
 
 import com.shuashua.buss.Model.Beans.Cards;
+import com.shuashua.buss.Model.Beans.Order;
 import com.shuashua.buss.Model.Beans.Shop;
 import com.shuashua.buss.Model.Entity.CardPropertys;
 
@@ -27,9 +28,9 @@ public class TestModel {
         List<Shop> list = new ArrayList<>();
         for (int i = 0;i < 10;i ++){
             Shop shop = new Shop();
-            shop.setName("测试店铺");
+            shop.setName("测试店铺"+i);
             shop.setCoverUrl("http://img.taodiantong.cn/v55183/infoimg/2013-07/130720115322ky.jpg");
-            shop.setDesc("烧烤店");
+            shop.setDesc("南京市江宁XXXX路XXX号");
             shop.setGrade("评分4.5分");
             list.add(shop);
         }
@@ -43,4 +44,14 @@ public class TestModel {
         propertyses.add(new CardPropertys());
         return propertyses;
     }
+
+    public static List<Order> getOeder(){
+        List<Order> orders = new ArrayList<>();
+        for (int i = 0;i < 20; i++){
+            orders.add(new Order());
+        }
+        return orders;
+    }
+
+
 }

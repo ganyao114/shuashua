@@ -131,7 +131,11 @@
             android:name=".View.Activity.CardsListActivity"
             android:label="@string/title_activity_cards_list"
             android:theme="@style/SplashTheme" />
-        <activity android:name=".View.Activity.ListActivity"></activity>
+        <activity android:name=".View.Activity.ListActivity" />
+        <activity
+            android:name=".View.Activity.OrderActivity"
+            android:label="@string/title_activity_order"
+            android:theme="@style/SplashTheme"></activity>
     </application>
 
 </manifest>

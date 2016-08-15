@@ -145,5 +145,6 @@
     <string name="title_activity_activity_search">ActivitySearch</string>
     <string name="title_activity_cards_search">CardsSearchActivity</string>
     <string name="title_activity_cards_list">CardsListActivity</string>
+    <string name="title_activity_order">订单详情</string>
 
 </resources>

@@ -9,11 +9,13 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -45,7 +47,7 @@ import java.util.List;
  */
 @InjectPresenter(HomePresenter.class)
 @ContentView(R.layout.activity_home)
-public class HomeActivity extends BaseMvpActivity<HomePresenter> implements ViewPager.OnPageChangeListener {
+public class HomeActivity extends BaseMvpActivity<HomePresenter> implements ViewPager.OnPageChangeListener,NavigationView.OnNavigationItemSelectedListener{
 
     @ViewInject(R.id.navigation_view)
     private NavigationView mNavigationView;
@@ -99,6 +101,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         setSupportActionBar(toolbar);
         //去除状态栏文字
         mNavigationView.setItemIconTintList(null);
+        mNavigationView.setNavigationItemSelectedListener(this);
         adapter = new MyFragmentPagerAdapter(getSupportFragmentManager());
         view_pager.setAdapter(adapter);
         view_pager.addOnPageChangeListener(this);
@@ -226,6 +229,17 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
 
     }
 
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_login:
+                navTo(LoginActivity.class);
+                break;
+        }
+        mDrawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
 
     class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 
@@ -252,4 +266,5 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         }
         return super.onKeyDown(keyCode, event);
     }
+
 }
