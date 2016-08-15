@@ -16,6 +16,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ import com.shuashua.buss.View.Window.SelectPicPopupWindow;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.impl.ListBinder;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.HeadFooterAdapter;
@@ -44,7 +46,7 @@ import java.util.List;
 
 @InjectPresenter(CardCreatePresenter.class)
 @ContentView(R.layout.activity_create_card)
-public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> implements View.OnClickListener, OnMenuClick ,TextWatcher,View.OnFocusChangeListener{
+public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> implements View.OnClickListener, OnMenuClick ,View.OnFocusChangeListener{
 
     private SelectPicPopupWindow menu;
     private String photoname = "uploadtemp.jpg";
@@ -62,13 +64,14 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     private List<String> menuData;
 
     private int curSelectP;
-
-
+    private int foucsp;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -182,23 +185,21 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
         textView.setText(menuData.get(position)+">");
     }
 
-    @Override
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-    }
-
-    @Override
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-    }
-
-    @Override
-    public void afterTextChanged(Editable s) {
-
-    }
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        Toast.makeText(this,"change",Toast.LENGTH_SHORT).show();
+        Log.e("gy","foucs"+hasFocus+v.getTag());
+        if (!hasFocus){
+            EditText editText = (EditText) v;
+            String text = editText.getText().toString();
+            CardPropertys propertys = (CardPropertys) v.getTag(net.gy.SwiftFrameWork.R.id.EntityTag);
+            if (propertys!=null)
+                propertys.setName(text);
+        }else {
+            EditText editText = (EditText) v;
+            CardPropertys propertys = (CardPropertys) v.getTag(net.gy.SwiftFrameWork.R.id.EntityTag);
+            if (propertys!=null)
+                editText.setText(propertys.getName());
+        }
     }
 }
