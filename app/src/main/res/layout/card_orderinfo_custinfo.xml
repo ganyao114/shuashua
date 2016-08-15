@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center">
-                <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
+                <ImageView
                     android:layout_width="42dp"
                     android:layout_height="42dp"
                     android:layout_alignParentLeft="true"
