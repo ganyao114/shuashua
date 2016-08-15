@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.Adapter.FragmentAdapter;
+import com.shuashua.buss.View.Adapter$LayoutMng.FragmentAdapter;
 import com.shuashua.buss.View.Fragment.MainFragment;
 import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
 
@@ -25,7 +25,6 @@ import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Model.local.resource.entity.ResType;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -42,7 +42,7 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_create_card" />
+    <include android:id="@+id/ac_cardcreate_content" layout="@layout/content_create_card" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

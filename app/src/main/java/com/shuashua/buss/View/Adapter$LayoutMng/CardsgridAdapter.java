@@ -1,4 +1,4 @@
-package com.shuashua.buss.View.Adapter;
+package com.shuashua.buss.View.Adapter$LayoutMng;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 /**
  * Created by pc on 16/8/12.
  */
-public class CardsListAdapter extends BaseAdapter{
+public class CardsgridAdapter extends BaseAdapter{
     @Override
     public int getCount() {
         return 0;

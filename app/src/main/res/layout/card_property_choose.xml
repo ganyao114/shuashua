@@ -18,11 +18,42 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <ListView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray_deep"
+                android:paddingLeft="8dp"
+                android:textSize="20dp"
+                android:text="属性管理"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:text="疑问?>"
+                android:textSize="16dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:paddingRight="8dp"/>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66E0DFE0"></View>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
             android:id="@+id/property_list">
-        </ListView>
+        </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
 

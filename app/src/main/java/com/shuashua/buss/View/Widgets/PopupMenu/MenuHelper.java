@@ -56,7 +56,7 @@ public class MenuHelper {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				i = position;
-				clickListener.onPopupMenuClick(position);
+				clickListener.onPopupMenuClick(position,topView);
 				popupWindow.dismiss();
 			}
 		});

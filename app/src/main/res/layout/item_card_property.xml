@@ -7,9 +7,9 @@
 
     <ImageButton
         android:layout_margin="8dp"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/property_rm"
         android:src="@drawable/cust"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/property_type"
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"
         android:textColor="@color/gray"
@@ -35,6 +35,12 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:hint="属性名称"
+        android:textColorHint="@color/gray"
+        android:textColor="@color/black"
+        android:id="@+id/property_name"
+        android:focusableInTouchMode="true"
+        android:singleLine="true"
         />
 
 </LinearLayout>

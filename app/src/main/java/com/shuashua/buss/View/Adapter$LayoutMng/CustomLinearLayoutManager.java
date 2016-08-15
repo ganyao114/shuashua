@@ -1,4 +1,4 @@
-package com.shuashua.buss.View.Adapter;
+package com.shuashua.buss.View.Adapter$LayoutMng;
 
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;

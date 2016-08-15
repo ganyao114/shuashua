@@ -7,27 +7,64 @@ import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.R;
+import com.shuashua.buss.Test.TestModel;
+import com.shuashua.buss.View.Adapter$LayoutMng.SyLinearLayoutManager;
 import com.shuashua.buss.View.Utils.PhotoEdit;
+import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
+import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
 import com.shuashua.buss.View.Window.SelectEditPopupWindow;
 import com.shuashua.buss.View.Window.SelectPicPopupWindow;
 
+import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.HeadFooterAdapter;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @InjectPresenter(CardCreatePresenter.class)
 @ContentView(R.layout.activity_create_card)
-public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> implements View.OnClickListener {
+public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> implements View.OnClickListener, OnMenuClick ,TextWatcher,View.OnFocusChangeListener{
 
     private SelectPicPopupWindow menu;
     private String photoname = "uploadtemp.jpg";
+    @ViewInject(R.id.property_list)
+    private RecyclerView property_list;
+    @ViewInject(R.id.ac_cardcreate_content)
+    private FrameLayout content;
+
+    private HeadFooterAdapter adapter;
+
+    private View footerView;
+
+    private MenuHelper menuHelper;
+
+    private List<String> menuData;
+
+    private int curSelectP;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +83,36 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        initview();
+    }
+
+    private void initview(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        linearLayoutManager.setAutoMeasureEnabled(true);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        property_list.setLayoutManager(linearLayoutManager);
+        property_list.setHasFixedSize(true);
+        property_list.setNestedScrollingEnabled(false);
+        property_list.setItemAnimator(new DefaultItemAnimator());
+        getPresent().propertysList = TestModel.getProperty();
+        S.ViewUtils.ListBind(property_list).setLtnImpl(this).bind(getPresent().propertysList);
+        adapter = new HeadFooterAdapter(property_list.getAdapter());
+        footerView = property_list.inflate(this,R.layout.item_property_add,null);
+        footerView.findViewById(R.id.property_add).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPresent().propertysList.add(new CardPropertys());
+                property_list.getAdapter().notifyItemInserted(getPresent().propertysList.size() - 1);
+                property_list.getAdapter().notifyItemRangeChanged(0,getPresent().propertysList.size());
+            }
+        });
+        adapter.addFooterView(footerView);
+        property_list.setAdapter(adapter);
+        menuData = new ArrayList<String>();
+        menuData.add("折扣");
+        menuData.add("时长");
+        menuData.add("次数");
+        menuData.add("其他");
     }
 
     @Override
@@ -53,14 +120,25 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
         switch (v.getId()){
             case R.id.takePhotoBtn:
                 menu.dismiss();
-                PhotoEdit.PickPt(this,photoname);
+                PhotoEdit.takePt(this,photoname);
                 break;
             case R.id.pickPhotoBtn:
                 menu.dismiss();
-                PhotoEdit.takePt(this,photoname);
+                PhotoEdit.PickPt(this,photoname);
                 break;
             case R.id.cancelBtn:
                 menu.dismiss();
+                break;
+            case R.id.property_type:
+                curSelectP = (int) v.getTag();
+                menuHelper = new MenuHelper(this, v, this, menuData, content);
+                menuHelper.showMenu();
+                break;
+            case R.id.property_rm:
+                int p = (int) v.getTag();
+                getPresent().propertysList.remove(p);
+                property_list.getAdapter().notifyItemRemoved(p);
+                property_list.getAdapter().notifyItemRangeChanged(0,getPresent().propertysList.size());
                 break;
         }
     }
@@ -95,5 +173,32 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
 
     private void uploadPt() {
 
+    }
+
+    @Override
+    public void onPopupMenuClick(int position,View topview) {
+        TextView textView = (TextView) topview;
+        getPresent().propertysList.get(curSelectP).setType(menuData.get(position));
+        textView.setText(menuData.get(position)+">");
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        Toast.makeText(this,"change",Toast.LENGTH_SHORT).show();
     }
 }

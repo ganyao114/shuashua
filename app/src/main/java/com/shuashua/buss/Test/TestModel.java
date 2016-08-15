@@ -2,6 +2,7 @@ package com.shuashua.buss.Test;
 
 import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.Shop;
+import com.shuashua.buss.Model.Entity.CardPropertys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,5 +34,13 @@ public class TestModel {
             list.add(shop);
         }
         return list;
+    }
+
+    public static List<CardPropertys> getProperty(){
+        List<CardPropertys> propertyses = new ArrayList<>();
+        propertyses.add(new CardPropertys());
+        propertyses.add(new CardPropertys());
+        propertyses.add(new CardPropertys());
+        return propertyses;
     }
 }

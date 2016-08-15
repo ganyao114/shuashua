@@ -1,15 +1,27 @@
 package com.shuashua.buss.Model.Entity;
 
+import com.shuashua.buss.R;
+
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.BindText;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.ListDataSrc;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.OnBtClick;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.OnFoucsChange;
+
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by pc on 16/8/1.
  */
+@ListDataSrc(R.layout.item_card_property)
 public class CardPropertys implements Serializable{
 
-    private String type;
-    private String name;
+    @OnBtClick({R.id.property_type,R.id.property_rm})
+    @BindText(R.id.property_type)
+    private String type = "属性类型>";
+    @BindText(R.id.property_name)
+    @OnFoucsChange({R.id.property_name})
+    private String name = "";
     private float value;
 
     public String getType() {
@@ -17,7 +29,7 @@ public class CardPropertys implements Serializable{
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type = type+">";
     }
 
     public String getName() {

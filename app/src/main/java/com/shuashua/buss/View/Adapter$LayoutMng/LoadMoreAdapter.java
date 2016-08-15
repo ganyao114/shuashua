@@ -1,11 +1,10 @@
-package com.shuashua.buss.View.Adapter;
+package com.shuashua.buss.View.Adapter$LayoutMng;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by pc on 16/8/13.

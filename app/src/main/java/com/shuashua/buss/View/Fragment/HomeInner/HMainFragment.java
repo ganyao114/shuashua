@@ -4,40 +4,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shuashua.buss.Model.Beans.ADInfo;
 import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
-import com.shuashua.buss.Utils.BugFixAdapter;
 import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.Model.IShowMainCycleView;
-import com.shuashua.buss.View.Adapter.CustomLinearLayoutManager;
-import com.shuashua.buss.View.Adapter.MyLinearLayoutManager;
-import com.shuashua.buss.View.Listener.RecyclerViewOnScroll;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
-import com.shuashua.buss.View.Widgets.CityPicker.utils.ToastUtils;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
-import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.OnItemClickListener;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreAdapter;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.adapter.NomRcViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +34,7 @@ import java.util.List;
  */
 @ContentView(R.layout.fragment_homemain_layout)
 public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.ImageCycleViewListener
-        ,IShowMainCycleView,View.OnClickListener, RecyclerViewOnScroll.LodeMoreCallBack {
+        ,IShowMainCycleView,View.OnClickListener, LoadMoreRecyclerView.LoadMoreListener {
 
     @ViewInject(R.id.loop_view)
     private ImageCycleView cycleView;
@@ -56,7 +42,9 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     private LoadMoreRecyclerView cardslist_view;
     @ViewInject(R.id.main_refresh_layout)
     private SwipeRefreshLayout refreshLayout;
-//    private LoadMoreAdapter moreAdapter;
+
+    private boolean isInit = true;
+//    private HeadFooterAdapter moreAdapter;
 //    private AppCompatButton moreBt;
 
 
@@ -95,17 +83,12 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
         cardslist_view.setHasFixedSize(true);
         cardslist_view.setNestedScrollingEnabled(false);
         cardslist_view.setAutoLoadMoreEnable(true);
+        cardslist_view.setLoadMoreListener(this);
         cards = TestModel.getCards();
         S.ViewUtils.ListBind(cardslist_view)
                    .setClass(Cards.class)
                    .setLtnImpl(this)
                    .bind(cards);
-//        cardslist_view.setAdapter(new BugFixAdapter(adapter));
-//        moreAdapter = new LoadMoreAdapter(cardslist_view.getAdapter());
-//        moreBt = new AppCompatButton(getContext());
-////        moreBt.setText("点击加载更多");
-////        moreAdapter.addHeaderView(moreBt);
-//        cardslist_view.setAdapter(moreAdapter);
     }
 
 
@@ -164,7 +147,7 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     }
 
     @Override
-    public void LodeMore() {
-        Toast.makeText(getContext(),"正在加载",Toast.LENGTH_LONG).show();
+    public void onLoadMore() {
+
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.Reactive.test.Test;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
 //    @ViewInject(R.id.rate_view)
     private RateView rateView;
     @ViewInject(R.id.mng_shop_list)
-    private RecyclerView shop_list;
+    private LoadMoreRecyclerView shop_list;
     @ViewInject(R.id.shop_mngfrag_content)
     private FrameLayout content;
 
@@ -100,9 +102,11 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
             }
         });
 
-        FullyLinearLayoutManager mFullyLinearLayoutManager = new FullyLinearLayoutManager(getContext(), LinearLayout.VERTICAL,true);
+        LinearLayoutManager mFullyLinearLayoutManager = new LinearLayoutManager(getContext());
+        mFullyLinearLayoutManager.setAutoMeasureEnabled(true);
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
         shop_list.setLayoutManager(mFullyLinearLayoutManager);
+        shop_list.setNestedScrollingEnabled(false);
         shop_list.setHasFixedSize(true);
         shops = TestModel.getShops();
         S.ViewUtils.ListBind(shop_list)
@@ -123,7 +127,7 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     }
 
     @Override
-    public void onPopupMenuClick(int position) {
+    public void onPopupMenuClick(int position,View topview) {
 
     }
 
