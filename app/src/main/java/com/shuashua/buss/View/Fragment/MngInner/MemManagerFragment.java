@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
@@ -28,15 +29,15 @@ import java.util.List;
 /**
  * Created by pc on 16/8/15.
  */
-@ContentView(R.layout.fragment_ordermng_layout)
+@ContentView(R.layout.fragment_memmng_layout)
 public class MemManagerFragment extends BaseFragmentV4 implements OnItemClickListener {
 
-    @ViewInject(R.id.mng_order_list)
-    private LoadMoreRecyclerView order_list;
-    @ViewInject(R.id.order_mngfrag_content)
+    @ViewInject(R.id.mem_mng_list)
+    private LoadMoreRecyclerView mem_lsit;
+    @ViewInject(R.id.mem_mngfrag_content)
     private FrameLayout content;
 
-    private List<Order> orders;
+    private List<Mem> mems;
 
     @Nullable
     @Override
@@ -50,14 +51,14 @@ public class MemManagerFragment extends BaseFragmentV4 implements OnItemClickLis
         LinearLayoutManager mFullyLinearLayoutManager = new LinearLayoutManager(getContext());
         mFullyLinearLayoutManager.setAutoMeasureEnabled(true);
         mFullyLinearLayoutManager.setSmoothScrollbarEnabled(true);
-        order_list.setLayoutManager(mFullyLinearLayoutManager);
-        order_list.setNestedScrollingEnabled(false);
-        order_list.setHasFixedSize(true);
-        order_list.setAutoLoadMoreEnable(true);
-        order_list.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
-        orders = TestModel.getOeder();
-        S.ViewUtils.ListBind(order_list).bind(orders);
-        LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) order_list.getAdapter();
+        mem_lsit.setLayoutManager(mFullyLinearLayoutManager);
+        mem_lsit.setNestedScrollingEnabled(false);
+        mem_lsit.setHasFixedSize(true);
+        mem_lsit.setAutoLoadMoreEnable(true);
+        mem_lsit.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
+        mems = TestModel.getMems();
+        S.ViewUtils.ListBind(mem_lsit).bind(mems);
+        LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) mem_lsit.getAdapter();
         NomRcViewAdapter rowadapter = (NomRcViewAdapter) adapter.getRowAdapter();
         rowadapter.setOnItemClickListener(this);
     }

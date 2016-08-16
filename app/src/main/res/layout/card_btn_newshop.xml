@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardBackgroundColor="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -34,13 +34,13 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/shop"
-                    android:id="@+id/mem_icon"/>
+                    android:src="@drawable/plus"
+                    android:id="@+id/newshopbt_icon"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/mem_icon"
+                    android:layout_toRightOf="@+id/newshopbt_icon"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="16dp"
                     android:orientation="vertical">
@@ -48,15 +48,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="适用门店"
+                        android:text="创建店铺"
                         android:textSize="18dp"
-                        android:id="@+id/olstatue"
+                        android:id="@+id/create_shop_txt"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="设置会员卡的适用门店"
+                        android:text="您现在还可以创建10家店铺"
                         android:textColor="@color/black"/>
 
 
@@ -71,7 +71,7 @@
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/position"/>
+                    android:src="@android:color/transparent"/>
             </RelativeLayout>
 
         </LinearLayout>

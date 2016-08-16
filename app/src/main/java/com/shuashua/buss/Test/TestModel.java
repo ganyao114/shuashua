@@ -1,6 +1,7 @@
 package com.shuashua.buss.Test;
 
 import com.shuashua.buss.Model.Beans.Cards;
+import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
 import com.shuashua.buss.Model.Beans.Shop;
 import com.shuashua.buss.Model.Entity.CardPropertys;
@@ -51,6 +52,14 @@ public class TestModel {
             orders.add(new Order());
         }
         return orders;
+    }
+
+    public static List<Mem> getMems(){
+        List<Mem> list = new ArrayList<>();
+        for (int i = 0;i < 20; i++){
+            list.add(new Mem());
+        }
+        return list;
     }
 
 

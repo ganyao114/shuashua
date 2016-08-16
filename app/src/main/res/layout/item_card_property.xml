@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="特权描述"
+        android:hint="输入特权描述"
         android:textColorHint="@color/gray"
         android:textColor="@color/black"
         android:id="@+id/property_name"

@@ -8,10 +8,41 @@
     tools:context="com.shuashua.buss.View.Activity.CreateShopActivity"
     tools:showIn="@layout/activity_create_shop">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:hint="请输入标题"
+        android:textColorHint="@android:color/darker_gray"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#373447"
+        android:textSize="16sp"
+        android:id="@+id/card_title" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="1dp"
+        android:background="@android:color/white"
+        android:gravity="top"
+        android:hint="请输入内容"
+        android:padding="10dp"
+        android:textColor="#373447"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="16sp"
+        android:id="@+id/card_content" />
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

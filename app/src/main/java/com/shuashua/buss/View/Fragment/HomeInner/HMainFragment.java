@@ -19,9 +19,11 @@ import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.Model.IShowMainCycleView;
 import com.shuashua.buss.View.Activity.DistributeActivity;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
+import com.xys.libzxing.zxing.activity.CaptureActivity;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
@@ -133,6 +135,7 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
         cycleView.pushImageCycle();
     }
 
+    @OnClick(R.id.main_btn_scan)
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -149,6 +152,10 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
                 String cid2 = cards.get((Integer) v.getTag()).getId();
                 intent1.putExtra("cardid",cid2);
                 startActivity(intent1);
+                break;
+            case R.id.main_btn_scan:
+                Intent openCameraIntent = new Intent(getContext(), CaptureActivity.class);
+                startActivityForResult(openCameraIntent, 0);
                 break;
         }
     }

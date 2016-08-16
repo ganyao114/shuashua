@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.v4.widget.SwipeRefreshLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:id="@+id/shop_refreshlayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <android.support.v4.widget.NestedScrollView
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:foreground="@android:color/transparent"
-    android:id="@+id/shop_mngfrag_content">
+    android:id="@+id/mem_mngfrag_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:id="@+id/togge_bts">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:id="@+id/cardmng_togge_bts">-->
 
-            <include android:id="@+id/menu_btn1" layout="@layout/toggle_button"></include>
+            <!--<include android:id="@+id/menu_cardmng_btn1" layout="@layout/toggle_button"></include>-->
 
-            <include android:id="@+id/menu_btn2" layout="@layout/toggle_button"></include>
+            <!--<include android:id="@+id/menu_cardmng_btn2" layout="@layout/toggle_button"></include>-->
 
-            <include android:id="@+id/menu_btn3" layout="@layout/toggle_button"></include>
+            <!--<include android:id="@+id/menu_cardmng_btn3" layout="@layout/toggle_button"></include>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
+
+        <!--<include android:id="@+id/cardmng_newcard_btn" layout="@layout/card_btn_newcard"></include>-->
 
         <!--<com.shuashua.buss.View.Widgets.RateView.RateView-->
             <!--android:layout_width="match_parent"-->
@@ -39,13 +40,11 @@
 
         <!--</com.shuashua.buss.View.Widgets.RateView.RateView>-->
 
-        <include layout="@layout/card_btn_newshop"></include>
-
 
             <net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/mng_shop_list">
+                android:layout_height="match_parent"
+                android:id="@+id/mem_mng_list">
 
             </net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView>
 

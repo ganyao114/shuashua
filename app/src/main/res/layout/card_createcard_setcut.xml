@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:weightSum="1">
 
             <ImageView
                 android:layout_width="40dp"
@@ -34,13 +35,17 @@
                 android:layout_marginLeft="8dp"/>
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
+                android:maxLength="2"
                 android:id="@+id/newcard_cutset"
                 android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_marginLeft="6dp"
+                android:hint="输入折扣数"
+                android:textColorHint="@color/gray"/>
+                <!--android:background="@drawable/edittext_back" />-->
 
 
         </LinearLayout>

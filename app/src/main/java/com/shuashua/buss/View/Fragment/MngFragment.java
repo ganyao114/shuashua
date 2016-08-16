@@ -12,11 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMainFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
 import com.shuashua.buss.View.Fragment.MngInner.CardManagerFragment;
+import com.shuashua.buss.View.Fragment.MngInner.MemManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.OrderManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
 
@@ -44,8 +41,8 @@ public class MngFragment extends BaseFragmentV4{
     //二级fragment
     private ShopManagerFragment shopManagerFragment;
     private CardManagerFragment cardsFragment;
-    private HCampFragment campFragment;
-    private OrderManagerFragment moreFragment;
+    private MemManagerFragment memFragment;
+    private OrderManagerFragment orderFragment;
 
     @Nullable
     @Override
@@ -66,13 +63,13 @@ public class MngFragment extends BaseFragmentV4{
             cardsFragment = new CardManagerFragment();
             fragments.add(cardsFragment);
         }
-        if (campFragment == null){
-            campFragment = new HCampFragment();
-            fragments.add(campFragment);
+        if (memFragment == null){
+            memFragment = new MemManagerFragment();
+            fragments.add(memFragment);
         }
-        if (moreFragment == null){
-            moreFragment = new OrderManagerFragment();
-            fragments.add(moreFragment);
+        if (orderFragment == null){
+            orderFragment = new OrderManagerFragment();
+            fragments.add(orderFragment);
         }
         MyAdapter myAdapter = new MyAdapter(getFragmentManager());
         myAdapter.notifyDataSetChanged();

@@ -15,7 +15,9 @@
 
         <include layout="@layout/card_orderbaseinfo_layout"></include>
 
-    <include layout="@layout/card_orderinfo_custinfo"></include>
+        <include layout="@layout/card_orderinfo_custinfo"></include>
+
+        <include layout="@layout/card_mngordercard_layout"></include>
 
         <include layout="@layout/card_ordercust_layout"></include>
 

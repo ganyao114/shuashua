@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingTop="8dp"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="@color/white"
-    android:background="@color/white">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +25,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_settings_black_18dp"
+                android:src="@drawable/my"
                 android:id="@+id/mem_icon"/>
 
             <LinearLayout
@@ -48,33 +39,33 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="软件设置"
+                    android:text="张三"
                     android:textSize="18dp"
-                    android:id="@+id/olstatue"
+                    android:id="@+id/mem_name"
                     android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="设置"
-                    android:textColor="@color/black"/>
+                    android:text="+86-18015973768"
+                    android:textColor="@color/black"
+                    android:id="@+id/mem_telno" />
 
 
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/send_msg"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:id="@+id/mem_call"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:scaleType="fitXY"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/ic_settings_black_18dp"/>
+                android:src="@drawable/tel"/>
         </RelativeLayout>
 
     </LinearLayout>
 
-
-</android.support.v7.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/white"
+    android:clickable="true"
+    android:background="@color/white">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:weightSum="1">
+
+        <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:id="@+id/mngfreg_shop_cover"
+            android:src="@drawable/loading"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true" />
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XXX会员卡"
+                android:id="@+id/mngfreg_order_cardname"
+                android:textColor="@color/gray_deep"
+                android:textSize="24sp"/>
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shop_card_ratestar"
+                android:rating="5"
+                style="?android:attr/ratingBarStyleSmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卡号00000000000000001"
+                android:id="@+id/mngfreg_order_cardno"
+                android:textColor="@color/gray_deep"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
