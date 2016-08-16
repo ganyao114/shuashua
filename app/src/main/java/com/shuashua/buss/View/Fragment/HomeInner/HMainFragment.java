@@ -17,6 +17,7 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.Model.IShowMainCycleView;
+import com.shuashua.buss.View.Activity.DistributeActivity;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -136,12 +137,18 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_more:
-                Log.e("gy","click"+v.getTag());
                 Intent intent = new Intent();
                 intent.setClass(getContext(), CardActivity.class);
                 String cid = cards.get((Integer) v.getTag()).getId();
                 intent.putExtra("cardid",cid);
                 startActivity(intent);
+                break;
+            case R.id.btn_newmem:
+                Intent intent1 = new Intent();
+                intent1.setClass(getContext(), DistributeActivity.class);
+                String cid2 = cards.get((Integer) v.getTag()).getId();
+                intent1.putExtra("cardid",cid2);
+                startActivity(intent1);
                 break;
         }
     }

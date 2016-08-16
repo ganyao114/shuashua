@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.shuashua.buss.View.Activity.CardActivity">
+    tools:context="com.shuashua.buss.View.Activity.DistributeActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -36,34 +36,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/SplashTheme.PopupOverlay">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="right"
-                    android:adjustViewBounds="true"
-                    android:layout_gravity="right"
-                    android:src="@drawable/qr_icon"
-                    android:paddingRight="12dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
-                    android:clickable="true"
-                    android:id="@+id/imgbtn_cardqr"/>
-
-            </android.support.v7.widget.Toolbar>
+                app:popupTheme="@style/SplashTheme.PopupOverlay" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_card" />
+    <include layout="@layout/content_distribute" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_edit"
+        android:src="@drawable/qr_icon"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 

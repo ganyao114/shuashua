@@ -16,7 +16,7 @@ import com.shuashua.buss.R;
 
 public class SelectShopEditPopupWindow extends PopupWindow {
 
-	private Button changetel,changeposition,changephoto, cancelBtn,changeDesc,changeKind;
+	private Button changetel,changeposition,changephoto, cancelBtn,changeDesc,changeKind,mngstaff;
 	private View mMenuView;
 
 	@SuppressLint("InflateParams")
@@ -31,12 +31,14 @@ public class SelectShopEditPopupWindow extends PopupWindow {
 		cancelBtn = (Button) mMenuView.findViewById(R.id.shop_cancel_edit);
 		changeDesc = (Button) mMenuView.findViewById(R.id.btn_change_shop_desc);
 		changeKind = (Button) mMenuView.findViewById(R.id.btn_choose_shop_kind);
+		mngstaff = (Button) mMenuView.findViewById(R.id.btn_change_shop_staff);
 		cancelBtn.setOnClickListener(itemsOnClick);
 		changeDesc.setOnClickListener(itemsOnClick);
 		changeposition.setOnClickListener(itemsOnClick);
 		changephoto.setOnClickListener(itemsOnClick);
 		changetel.setOnClickListener(itemsOnClick);
 		changeKind.setOnClickListener(itemsOnClick);
+		mngstaff.setOnClickListener(itemsOnClick);
 		this.setContentView(mMenuView);
 		this.setWidth(LayoutParams.MATCH_PARENT);
 		this.setHeight(LayoutParams.WRAP_CONTENT);

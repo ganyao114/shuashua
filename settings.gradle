@@ -1,1 +1,1 @@
-include ':app', ':SwiftFrameWork'
+include ':app', ':SwiftFrameWork', ':libzxing'

@@ -23,7 +23,7 @@
         android:layout_gravity="center_vertical"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        android:text="属性类型 >"/>
+        android:text="特权类型 >"/>
 
     <TextView
         android:layout_marginLeft="4dp"
@@ -35,7 +35,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="属性名称"
+        android:hint="特权描述"
         android:textColorHint="@color/gray"
         android:textColor="@color/black"
         android:id="@+id/property_name"

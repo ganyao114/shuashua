@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.shuashua.buss.View.Activity.CardActivity">
+    tools:context="com.shuashua.buss.View.Activity.CreatOrderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/SplashTheme.AppBarOverlay">
 
@@ -22,48 +22,24 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
-                android:id="@+id/card_icon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="parallax"
-                android:src="@drawable/loading"/>
-
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/SplashTheme.PopupOverlay">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="right"
-                    android:adjustViewBounds="true"
-                    android:layout_gravity="right"
-                    android:src="@drawable/qr_icon"
-                    android:paddingRight="12dp"
-                    android:paddingTop="12dp"
-                    android:paddingBottom="12dp"
-                    android:clickable="true"
-                    android:id="@+id/imgbtn_cardqr"/>
-
-            </android.support.v7.widget.Toolbar>
+                app:popupTheme="@style/SplashTheme.PopupOverlay" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_card" />
+    <include layout="@layout/content_creat_order" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_menu_edit"
+        android:src="@android:drawable/ic_dialog_email"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
 

@@ -5,19 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.shuashua.buss.View.Activity.OrderActivity"
-    tools:showIn="@layout/activity_order">
+    tools:context="com.shuashua.buss.View.Activity.DistributeActivity"
+    tools:showIn="@layout/activity_distribute">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/card_orderbaseinfo_layout"></include>
+        <include layout="@layout/card_cardbaseinfo_layout"></include>
 
-    <include layout="@layout/card_orderinfo_custinfo"></include>
+        <include layout="@layout/card_orderinfo_custinfo"></include>
 
-        <include layout="@layout/card_ordercust_layout"></include>
+        <include layout="@layout/card_distbalance_set"></include>
+
+        <include layout="@layout/card_distproperty_value"></include>
+
+        <include layout="@layout/card_btn_newmem_confirm"></include>
 
     </LinearLayout>
 

@@ -12,20 +12,21 @@ import com.google.zxing.WriterException;
  */
 public class QRView extends ImageView{
     public QRView(Context context) {
-        this(context,null);
+        super(context);
     }
 
     public QRView(Context context, AttributeSet attrs) {
-        this(context,attrs,0);
+        super(context, attrs);
     }
 
     public QRView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public void ShowQR(String str){
+    public void ShowQR(String str,int width){
         try {
-            Bitmap bitmap = QRUtil.createQRCode(str,getWidth());
+
+            Bitmap bitmap = QRUtil.createQRCode(str,width);
             setImageBitmap(bitmap);
         } catch (WriterException e) {
             e.printStackTrace();

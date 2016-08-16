@@ -17,7 +17,7 @@ import java.util.List;
 @ListDataSrc(R.layout.item_mainfrag_cards)
 public class Cards implements Serializable{
 
-    @OnBtClick({R.id.btn_newdd,R.id.btn_more})
+    @OnBtClick({R.id.btn_newmem,R.id.btn_more})
     private String id;
     @BindText(R.id.cards_title)
     private String name;

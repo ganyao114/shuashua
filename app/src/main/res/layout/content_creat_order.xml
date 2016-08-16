@@ -5,20 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.shuashua.buss.View.Activity.OrderActivity"
-    tools:showIn="@layout/activity_order">
+    tools:context="com.shuashua.buss.View.Activity.CreatOrderActivity"
+    tools:showIn="@layout/activity_creat_order">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <include layout="@layout/card_orderbaseinfo_layout"></include>
-
-    <include layout="@layout/card_orderinfo_custinfo"></include>
-
-        <include layout="@layout/card_ordercust_layout"></include>
-
-    </LinearLayout>
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/large_text" />
 
 </android.support.v4.widget.NestedScrollView>

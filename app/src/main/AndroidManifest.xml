@@ -135,6 +135,14 @@
         <activity
             android:name=".View.Activity.OrderActivity"
             android:label="@string/title_activity_order"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.DistributeActivity"
+            android:label="@string/title_activity_distribute"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.CreatOrderActivity"
+            android:label="@string/title_activity_creat_order"
             android:theme="@style/SplashTheme"></activity>
     </application>
 

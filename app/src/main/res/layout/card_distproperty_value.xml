@@ -30,7 +30,7 @@
                 android:textColor="@color/gray_deep"
                 android:paddingLeft="8dp"
                 android:textSize="20dp"
-                android:text="可选特权"/>
+                android:text="特权充值"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="280dp"
-            android:id="@+id/property_list">
+            android:id="@+id/card_privileges">
         </android.support.v7.widget.RecyclerView>
 
     </LinearLayout>

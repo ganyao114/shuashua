@@ -18,7 +18,7 @@ public class CardPropertys implements Serializable{
 
     @OnBtClick({R.id.property_type,R.id.property_rm})
     @BindText(R.id.property_type)
-    private String type = "属性类型>";
+    private String type = "特权描述>";
     @BindText(R.id.property_name)
     @OnFoucsChange({R.id.property_name})
     private String name = "";

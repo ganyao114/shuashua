@@ -146,5 +146,7 @@
     <string name="title_activity_cards_search">CardsSearchActivity</string>
     <string name="title_activity_cards_list">CardsListActivity</string>
     <string name="title_activity_order">订单详情</string>
+    <string name="title_activity_distribute">发卡界面</string>
+    <string name="title_activity_creat_order">CreatOrderActivity</string>
 
 </resources>

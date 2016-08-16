@@ -119,9 +119,9 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
         adapter.addFooterView(footerView);
         property_list.setAdapter(adapter);
         menuData = new ArrayList<String>();
-        menuData.add("折扣");
-        menuData.add("时长");
-        menuData.add("次数");
+        menuData.add("折扣特权");
+        menuData.add("计时特权");
+        menuData.add("计次特权");
         menuData.add("其他");
     }
 

@@ -12,7 +12,8 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:theme="@style/SplashTheme.AppBarOverlay">
+        android:theme="@style/SplashTheme.AppBarOverlay"
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -20,10 +21,6 @@
             android:layout_height="match_parent"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
                     android:id="@+id/user_icon"
@@ -72,10 +69,6 @@
                         android:text="手机号码"
                         android:id="@+id/user_tel"/>
                 </LinearLayout>
-
-            </FrameLayout>
-
-
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"

@@ -44,6 +44,8 @@
             android:textSize="16sp"
             android:id="@+id/card_content" />
 
+        <include layout="@layout/card_createcard_setcut"></include>
+
         <include layout="@layout/card_btn_choosetime"></include>
 
         <include layout="@layout/card_btn_choosetshop"></include>
