@@ -16,6 +16,7 @@ import android.widget.ToggleButton;
 import com.shuashua.buss.Model.Beans.Shop;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
+import com.shuashua.buss.View.Activity.CreateShopActivity;
 import com.shuashua.buss.View.Activity.ShopActivity;
 import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
@@ -26,6 +27,7 @@ import com.shuashua.buss.View.Widgets.RateView.RateView;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 import net.gy.SwiftFrameWork.Reactive.test.Test;
@@ -118,6 +120,13 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
         LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) shop_list.getAdapter();
         NomRcViewAdapter rowadapter = (NomRcViewAdapter) adapter.getRowAdapter();
         rowadapter.setOnItemClickListener(this);
+    }
+
+    @OnClick(R.id.new_shop)
+    public void click(View view){
+        Intent intent = new Intent();
+        intent.setClass(getContext(), CreateShopActivity.class);
+        startActivity(intent);
     }
 
     @Override

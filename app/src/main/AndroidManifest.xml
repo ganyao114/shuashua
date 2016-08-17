@@ -34,7 +34,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:theme="@style/ImageTranslucentTheme">
+            android:theme="@style/ImageTranslucentTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,20 +45,25 @@
         <activity
             android:name=".View.Activity.WebActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Activity.RegistActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleTask" />
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".View.Activity.UserActivity"
             android:label=""
             android:parentActivityName=".View.Activity.HomeActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
@@ -66,7 +72,9 @@
             android:name=".View.Activity.CardActivity"
             android:label="@string/title_activity_card"
             android:parentActivityName=".View.Activity.HomeActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
@@ -75,7 +83,9 @@
             android:name=".View.Activity.CreateCardActivity"
             android:label="@string/title_activity_create_card"
             android:parentActivityName=".View.Activity.HomeActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
@@ -84,20 +94,25 @@
             android:name=".View.Activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_splash"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/FullscreenTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.CreateShopActivity"
             android:label="@string/title_activity_create_shop"
             android:parentActivityName=".View.Activity.HomeActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
         </activity>
         <activity
             android:name=".View.Activity.CityPickerActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
 
         <!-- 高德地图定位 -->
         <service android:name="com.amap.api.location.APSService" />
@@ -110,7 +125,9 @@
             android:name=".View.Activity.ShopActivity"
             android:label="@string/title_activity_shop"
             android:parentActivityName=".View.Activity.HomeActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.shuashua.buss.View.Activity.HomeActivity" />
@@ -118,15 +135,21 @@
         <activity
             android:name=".View.Activity.AllCardsActivity"
             android:label="@string/title_activity_all_cards"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.ActivitySearch"
             android:label="@string/title_activity_activity_search"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.MemSearchActivity"
             android:label="@string/title_activity_cards_search"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.CardsListActivity"
             android:label="@string/title_activity_cards_list"
@@ -135,15 +158,21 @@
         <activity
             android:name=".View.Activity.OrderActivity"
             android:label="@string/title_activity_order"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.DistributeActivity"
             android:label="@string/title_activity_distribute"
-            android:theme="@style/SplashTheme" />
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".View.Activity.CreatOrderActivity"
             android:label="@string/title_activity_creat_order"
-            android:theme="@style/SplashTheme"></activity>
+            android:theme="@style/SplashTheme"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

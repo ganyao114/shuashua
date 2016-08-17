@@ -149,7 +149,7 @@ public class CardManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_more:
+            case R.id.btn_newdd:
                 Log.e("gy","click"+v.getTag());
                 Intent intent = new Intent();
                 intent.setClass(getContext(), CardActivity.class);

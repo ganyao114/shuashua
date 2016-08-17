@@ -8,10 +8,12 @@
     tools:context="com.shuashua.buss.View.Activity.CreatOrderActivity"
     tools:showIn="@layout/activity_creat_order">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:orientation="vertical">
+        <include layout="@layout/card_mngordercard_layout"></include>
 
+        <include layout="@layout/card_order_cutvalue"></include>
+    </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

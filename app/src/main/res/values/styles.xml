@@ -25,6 +25,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/login_splash</item>
         <item name="android:launchMode">singleTask</item>
+        <item name="android:screenOrientation">portrait</item>
         <!--<item name="android:windowIsTranslucent">true</item>-->
         <!--在Android 4.4之前的版本上运行，直接跟随系统主题-->
     </style>
@@ -34,6 +35,7 @@
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowBackground">@drawable/login_splash</item>
         <item name="android:launchMode">singleTask</item>
+        <item name="android:screenOrientation">portrait</item>
     </style>
 
     <style name="NormalTheme" parent="Theme.AppCompat.Light.NoActionBar">

@@ -58,7 +58,7 @@
                             <ImageButton
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"
-                                android:background="@drawable/radio"
+                                android:background="@drawable/scanbt"
                                 android:id="@+id/main_btn_scan"/>
 
                             <TextView
@@ -83,26 +83,11 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:orientation="vertical">
-
-                            <FrameLayout
-                                android:layout_width="55dp"
-                                android:layout_height="55dp">
-
                                 <ImageButton
                                     android:id="@+id/daily_btn"
                                     android:layout_width="55dp"
                                     android:layout_height="55dp"
-                                    android:background="@drawable/paihang" />
-
-                                <TextView
-                                    android:id="@+id/daily_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:text="15"
-                                    android:textColor="@color/themeColor"
-                                    android:textSize="25sp" />
-                            </FrameLayout>
+                                    android:background="@drawable/zhangdan" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -134,7 +119,7 @@
                                 android:layout_width="55dp"
                                 android:layout_height="55dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/birthday" />
+                                android:background="@drawable/adicon" />
 
                             <TextView
                                 android:layout_width="wrap_content"

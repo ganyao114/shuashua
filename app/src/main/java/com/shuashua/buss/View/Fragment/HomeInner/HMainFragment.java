@@ -17,6 +17,7 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.Model.IShowMainCycleView;
+import com.shuashua.buss.View.Activity.CreatOrderActivity;
 import com.shuashua.buss.View.Activity.DistributeActivity;
 import com.shuashua.buss.View.Widgets.Banner.ImageCycleView;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
@@ -26,7 +27,9 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
+import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.OnItemClickListener;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
+import net.gy.SwiftFrameWork.UI.view.recyclerview.adapter.NomRcViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +40,7 @@ import java.util.List;
  */
 @ContentView(R.layout.fragment_homemain_layout)
 public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.ImageCycleViewListener
-        ,IShowMainCycleView,View.OnClickListener, LoadMoreRecyclerView.LoadMoreListener {
+        ,IShowMainCycleView,View.OnClickListener, LoadMoreRecyclerView.LoadMoreListener, OnItemClickListener {
 
     @ViewInject(R.id.loop_view)
     private ImageCycleView cycleView;
@@ -92,6 +95,9 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
                    .setClass(Cards.class)
                    .setLtnImpl(this)
                    .bind(cards);
+        LoadMoreRecyclerView.AutoLoadAdapter adapter = (LoadMoreRecyclerView.AutoLoadAdapter) cardslist_view.getAdapter();
+        NomRcViewAdapter rowadapter = (NomRcViewAdapter) adapter.getRowAdapter();
+        rowadapter.setOnItemClickListener(this);
     }
 
 
@@ -139,9 +145,9 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_more:
+            case R.id.btn_newdd:
                 Intent intent = new Intent();
-                intent.setClass(getContext(), CardActivity.class);
+                intent.setClass(getContext(), CreatOrderActivity.class);
                 String cid = cards.get((Integer) v.getTag()).getId();
                 intent.putExtra("cardid",cid);
                 startActivity(intent);
@@ -163,5 +169,19 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     @Override
     public void onLoadMore() {
 
+    }
+
+    @Override
+    public void onItemClick(ViewGroup parent, View view, Object o, int position) {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), CardActivity.class);
+        String cid = cards.get(position).getId();
+        intent.putExtra("cardid",cid);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onItemLongClick(ViewGroup parent, View view, Object o, int position) {
+        return false;
     }
 }

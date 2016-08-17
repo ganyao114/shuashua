@@ -17,6 +17,6 @@ public class MyApplication extends Application{
         super.onCreate();
         x.Ext.init(this);
         S.init(this);
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
     }
 }

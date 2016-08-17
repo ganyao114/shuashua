@@ -111,10 +111,20 @@
             android:id="@+id/card_order_desc"
             android:layout_marginLeft="6dp"/>
 
-        <TextView android:id="@+id/link_order_hasqust"
+        <TextView android:id="@+id/link_order_cancel"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:text="取消订单!"
+            android:gravity="center"
+            android:clickable="true"
+            android:textSize="18sp"
+            android:textColor="@color/themeColor"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView android:id="@+id/link_order_hasqust"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:text="对订单有疑问?"
             android:gravity="center"
             android:clickable="true"

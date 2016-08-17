@@ -43,6 +43,12 @@
         android:textSize="16sp"
         android:id="@+id/card_content" />
 
+        <include layout="@layout/card_credentials_set"></include>
+
+        <include layout="@layout/card_btn_chooseposition"></include>
+
+        <include layout="@layout/card_btn_newshopconfirm"></include>
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

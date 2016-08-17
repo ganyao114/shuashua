@@ -34,7 +34,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/plus"
+                    android:src="@drawable/comfirm"
                     android:id="@+id/choosep_icon"/>
 
                 <LinearLayout
@@ -48,16 +48,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="期限设置"
+                        android:text="确认创建"
                         android:textSize="18dp"
-                        android:id="@+id/olstatue"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="设置会员卡的过期时长"
-                        android:textColor="@color/black"/>
+                        android:text="店铺可能需要一些时间审核"
+                        android:textColor="@color/black" />
 
 
                 </LinearLayout>
@@ -71,7 +70,7 @@
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/cust"/>
+                    android:src="@android:color/transparent"/>
             </RelativeLayout>
 
         </LinearLayout>
