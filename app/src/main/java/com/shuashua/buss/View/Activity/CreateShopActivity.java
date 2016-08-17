@@ -9,7 +9,11 @@ import android.view.View;
 
 import com.shuashua.buss.R;
 
+import net.gy.SwiftFrameWork.UI.customwidget.calendar.CalendarView;
+
 public class CreateShopActivity extends AppCompatActivity {
+
+    private CalendarView calendarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

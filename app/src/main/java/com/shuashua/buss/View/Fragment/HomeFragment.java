@@ -10,7 +10,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
@@ -31,9 +30,9 @@ import java.util.List;
 @ContentView(R.layout.fragment_home_layout)
 public class HomeFragment extends BaseFragmentV4{
 
-    @ViewInject(R.id.disco_tab)
+    @ViewInject(R.id.home_tab)
     private TabLayout main_tab;
-    @ViewInject(R.id.disco_viewPager)
+    @ViewInject(R.id.home_viewPager)
     private ViewPager main_viewpager;
 
 

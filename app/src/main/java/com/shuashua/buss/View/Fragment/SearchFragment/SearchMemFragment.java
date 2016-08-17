@@ -11,6 +11,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 /**
  * Created by pc on 16/8/15.
  */
+
 public class SearchMemFragment extends BaseFragmentV4{
     @Nullable
     @Override
