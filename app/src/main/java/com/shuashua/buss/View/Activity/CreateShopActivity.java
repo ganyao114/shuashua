@@ -7,18 +7,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.shuashua.buss.Presenter.Base.CreateShopPresenter;
 import com.shuashua.buss.R;
 
+import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.UI.customwidget.calendar.CalendarView;
 
-public class CreateShopActivity extends AppCompatActivity {
+@ContentView(R.layout.activity_create_shop)
+@InjectPresenter(CreateShopPresenter.class)
+public class CreateShopActivity extends BaseMvpActivity<CreateShopPresenter> {
 
     private CalendarView calendarView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_shop);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -32,4 +38,14 @@ public class CreateShopActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    @OnClick(R.id.cardbtn_choosep)
+    public void onclick(View view){
+        switch (view.getId()){
+            case R.id.cardbtn_choosep:
+                navTo(ChoosePositionActivity.class);
+                break;
+        }
+    }
+
 }

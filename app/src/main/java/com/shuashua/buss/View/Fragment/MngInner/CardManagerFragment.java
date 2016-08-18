@@ -17,12 +17,10 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Activity.CardActivity;
 import com.shuashua.buss.View.Activity.CreateCardActivity;
-import com.shuashua.buss.View.Activity.ShopActivity;
-import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
+import com.shuashua.buss.View.Widgets.PopupMenu.StringMenuHelper;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
 import com.shuashua.buss.View.Widgets.RateView.OnTabItemClickListener;
 import com.shuashua.buss.View.Widgets.RateView.RateBean;
-import com.shuashua.buss.View.Widgets.RateView.RateView;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
@@ -48,9 +46,9 @@ public class CardManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     @ViewInject(R.id.card_mngfrag_content)
     private FrameLayout content;
 
-    private MenuHelper menu1Helper;
-    private MenuHelper menu2Helper;
-    private MenuHelper menu3Helper;
+    private StringMenuHelper menu1Helper;
+    private StringMenuHelper menu2Helper;
+    private StringMenuHelper menu3Helper;
 
     @ViewInject(R.id.menu_cardmng_btn1)
     private ToggleButton menu1;
@@ -92,7 +90,7 @@ public class CardManagerFragment extends BaseFragmentV4 implements OnTabItemClic
         menuData.add("ladfj");
         menuData.add("ladfj");
         menuData.add("ladfj");
-        menu1Helper = new MenuHelper(getContext(), menu1, this, menuData, content);
+        menu1Helper = new StringMenuHelper(getContext(), menu1, this, menuData, content);
 
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override

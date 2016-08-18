@@ -2,44 +2,33 @@ package com.shuashua.buss.View.Activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.Utils.FileUtil;
-import com.shuashua.buss.View.Adapter$LayoutMng.SyLinearLayoutManager;
 import com.shuashua.buss.View.Utils.PhotoEdit;
-import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
+import com.shuashua.buss.View.Widgets.PopupMenu.StringMenuHelper;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
-import com.shuashua.buss.View.Window.SelectEditPopupWindow;
 import com.shuashua.buss.View.Window.SelectPicPopupWindow;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
-import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.impl.ListBinder;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
@@ -67,7 +56,7 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
 
     private View footerView;
 
-    private MenuHelper menuHelper;
+    private StringMenuHelper menuHelper;
 
     private List<String> menuData;
 
@@ -141,7 +130,7 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
                 break;
             case R.id.property_type:
                 curSelectP = (int) v.getTag();
-                menuHelper = new MenuHelper(this, v, this, menuData, content);
+                menuHelper = new StringMenuHelper(this, v, this, menuData, content);
                 menuHelper.showMenu();
                 break;
             case R.id.property_rm:

@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.ToggleButton;
 
 import com.shuashua.buss.Model.Beans.Shop;
@@ -18,11 +16,10 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Activity.CreateShopActivity;
 import com.shuashua.buss.View.Activity.ShopActivity;
-import com.shuashua.buss.View.Widgets.PopupMenu.MenuHelper;
+import com.shuashua.buss.View.Widgets.PopupMenu.StringMenuHelper;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
 import com.shuashua.buss.View.Widgets.RateView.OnTabItemClickListener;
 import com.shuashua.buss.View.Widgets.RateView.RateBean;
-import com.shuashua.buss.View.Widgets.RateView.RateItem;
 import com.shuashua.buss.View.Widgets.RateView.RateView;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -30,9 +27,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
-import net.gy.SwiftFrameWork.Reactive.test.Test;
 import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.OnItemClickListener;
-import net.gy.SwiftFrameWork.UI.view.recyclerview.FullyLinearLayoutManager;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.adapter.NomRcViewAdapter;
 
@@ -53,9 +48,9 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     @ViewInject(R.id.shop_mngfrag_content)
     private FrameLayout content;
 
-    private MenuHelper menu1Helper;
-    private MenuHelper menu2Helper;
-    private MenuHelper menu3Helper;
+    private StringMenuHelper menu1Helper;
+    private StringMenuHelper menu2Helper;
+    private StringMenuHelper menu3Helper;
 
     @ViewInject(R.id.menu_btn1)
     private ToggleButton menu1;
@@ -97,7 +92,7 @@ public class ShopManagerFragment extends BaseFragmentV4 implements OnTabItemClic
         menuData.add("ladfj");
         menuData.add("ladfj");
         menuData.add("ladfj");
-        menu1Helper = new MenuHelper(getContext(), menu1, this, menuData, content);
+        menu1Helper = new StringMenuHelper(getContext(), menu1, this, menuData, content);
 
         menu1.setOnClickListener(new View.OnClickListener() {
             @Override

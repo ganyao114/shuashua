@@ -1,40 +1,40 @@
 package com.shuashua.buss.View.Widgets.PopupMenu;
 
+import java.util.List;
+
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.DrawableUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
+import android.widget.TextView;
 
 import com.shuashua.buss.R;
 
-import net.gy.SwiftFrameWork.Core.S;
-
-import java.util.List;
-
-public class MenuHelper<T> {
+public class StringMenuHelper {
 	private PopupWindow popupWindow;
 	private ListView listView;
-	private List<T> data;
+	private List<String> data;
 	private Context mContext;
 	private View topView;
+	private ListAdapter adapter;
 	private int i = 0;
 	private FrameLayout container;
-	private Class<T> itemClazz;
 
-	public MenuHelper(Context context, View topView, final OnMenuClick clickListener, List<T> data, FrameLayout containerView,Class<T> itemclazz) {
+	public StringMenuHelper(Context context, View topView, final OnMenuClick clickListener, List<String> data, FrameLayout containerView) {
 		mContext = context;
 		this.topView = topView;
 		this.data = data;
-		this.itemClazz = itemclazz;
+		
 		this.container = containerView;
 		container.getForeground().setAlpha(0);
 		
@@ -48,9 +48,8 @@ public class MenuHelper<T> {
 		listView.setDivider(null);
 		listView.setDividerHeight(0);
 		listView.setBackgroundColor(Color.WHITE);
-		listView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		listView.setDivider(mContext.getDrawable(R.color.gray));
-		S.ViewUtils.ListBind(listView).setClass(itemClazz).bind(data);
+		adapter = new ListAdapter(mContext);
+		listView.setAdapter(adapter);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -79,9 +78,9 @@ public class MenuHelper<T> {
 	}
 	
 	public void showMenu() {
-		S.ViewUtils.ListBind(listView).refresh();
+		adapter.notifyDataSetChanged();
 		if (popupWindow.isShowing()) {
-//			popupWindow.dismiss();
+			popupWindow.dismiss();
 		}else {
 			popupWindow.setOutsideTouchable(true);
 			popupWindow.setTouchable(true);
@@ -92,14 +91,46 @@ public class MenuHelper<T> {
 		}
 	}
 
-	public void dismiss(){
-		if (popupWindow.isShowing())
-			popupWindow.dismiss();
+	private class ListAdapter extends ArrayAdapter<String> {
+
+		public ListAdapter(Context context) {
+			super(context, R.layout.item_text, data);
+		}
+		
+		private Holder getHolder(final View view) {
+	        Holder holder = (Holder) view.getTag();
+	        if (holder == null) {
+	            holder = new Holder(view);
+	            view.setTag(holder);
+	        }
+	        return holder;
+	    }
+		
+		@Override
+		public View getView(final int position, View convertView, ViewGroup parent) {
+			View rowView = convertView;
+			if (rowView == null) {
+				LayoutInflater inflater = LayoutInflater.from(mContext);
+				rowView = inflater.inflate(R.layout.item_text, null);
+			}
+			final Holder holder = getHolder(rowView);
+			
+			holder.textview.setText(data.get(position));
+			if (position == i) {
+				holder.textview.setBackgroundColor(mContext.getResources().getColor(R.color.item_press));
+			}else {
+				holder.textview.setBackgroundColor(Color.TRANSPARENT);
+			}
+			
+			return rowView;
+		}
+
+		private class Holder {
+			public TextView textview;
+			
+			public Holder(View view) {
+				textview = (TextView) view.findViewById(R.id.textView);
+			}
+		}  
 	}
-
-	public void refresh(){
-		S.ViewUtils.ListBind(listView).refresh();
-	}
-
-
 }

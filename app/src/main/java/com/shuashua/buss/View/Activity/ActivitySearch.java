@@ -67,7 +67,6 @@ public class ActivitySearch extends BaseMvpActivity<SearchPresenter> implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        Intent intent = getIntent();
     }
 
     private void initView(){

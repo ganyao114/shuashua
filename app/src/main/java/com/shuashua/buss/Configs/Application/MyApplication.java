@@ -2,6 +2,7 @@ package com.shuashua.buss.Configs.Application;
 
 import android.app.Application;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.squareup.leakcanary.LeakCanary;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -17,6 +18,7 @@ public class MyApplication extends Application{
         super.onCreate();
         x.Ext.init(this);
         S.init(this);
+        SDKInitializer.initialize(this);
 //        LeakCanary.install(this);
     }
 }
