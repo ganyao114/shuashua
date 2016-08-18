@@ -6,12 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.shuashua.buss.R;
+import com.shuashua.buss.View.Listener.IChoose;
+import com.shuashua.buss.View.Listener.ISearch;
+
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 
 /**
  * Created by pc on 16/8/15.
  */
-public class SearchCardFragment extends BaseFragmentV4{
+@ContentView(R.layout.fragment_search_card)
+public class SearchCardFragment extends BaseFragmentV4 implements ISearch{
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,5 +30,10 @@ public class SearchCardFragment extends BaseFragmentV4{
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void search(String str) {
+
     }
 }

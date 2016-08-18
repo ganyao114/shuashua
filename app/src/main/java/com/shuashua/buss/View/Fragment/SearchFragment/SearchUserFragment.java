@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.shuashua.buss.Presenter.Base.SearchPresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Listener.ISearch;
 
@@ -15,8 +16,8 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
 /**
  * Created by pc on 16/8/15.
  */
-@ContentView(R.layout.fragment_search_order)
-public class SearchOrderFragment extends BaseFragmentV4 implements ISearch {
+@ContentView(R.layout.fragment_search_user)
+public class SearchUserFragment extends BaseFragmentV4<SearchPresenter>  implements ISearch {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +32,5 @@ public class SearchOrderFragment extends BaseFragmentV4 implements ISearch {
 
     @Override
     public void search(String str) {
-
     }
 }
