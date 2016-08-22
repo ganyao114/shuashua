@@ -49,7 +49,7 @@ public class MenuHelper<T> {
 		listView.setDividerHeight(0);
 		listView.setBackgroundColor(Color.WHITE);
 		listView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-		listView.setDivider(mContext.getDrawable(R.color.gray));
+		listView.setDivider(mContext.getResources().getDrawable(R.color.gray));
 		S.ViewUtils.ListBind(listView).setClass(itemClazz).bind(data);
 		
 		listView.setOnItemClickListener(new OnItemClickListener() {

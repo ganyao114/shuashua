@@ -45,6 +45,8 @@
 
         <include layout="@layout/card_credentials_set"></include>
 
+        <include layout="@layout/card_newshopupload_layout"></include>
+
         <include android:id="@+id/cardbtn_choosep" layout="@layout/card_btn_chooseposition"></include>
 
         <include layout="@layout/card_btn_newshopconfirm"></include>

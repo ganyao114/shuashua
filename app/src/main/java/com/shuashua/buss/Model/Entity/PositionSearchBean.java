@@ -24,6 +24,8 @@ public class PositionSearchBean implements Serializable{
     @BindText(R.id.poisearch_distance)
     private String dist;
 
+    private LatLng latLng;
+
     public String getId() {
         return id;
     }
@@ -56,11 +58,20 @@ public class PositionSearchBean implements Serializable{
         this.dist = dist;
     }
 
+    public LatLng getLatLng() {
+        return latLng;
+    }
+
+    public void setLatLng(LatLng latLng) {
+        this.latLng = latLng;
+    }
+
     public void setValue(PoiInfo info, LatLng locationLatLng){
         this.name = info.name;
         this.address = info.address;
         this.dist = (int) DistanceUtil.getDistance(locationLatLng, info.location)+"米";
         this.id = info.uid;
+        this.latLng = locationLatLng;
     }
 
 }

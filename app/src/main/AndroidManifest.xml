@@ -231,7 +231,11 @@
         </service>
 
         <activity android:name=".View.Activity.ChooseActivity" />
-        <activity android:name=".View.Activity.MutiChooseActivity"></activity>
+        <activity android:name=".View.Activity.MutiChooseActivity" />
+        <activity
+            android:name=".View.Activity.MemActivity"
+            android:label="@string/title_activity_mem"
+            android:theme="@style/SplashTheme"></activity>
     </application>
 
 </manifest>

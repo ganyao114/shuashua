@@ -33,6 +33,7 @@ import com.shuashua.buss.Utils.LeakFix;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 
+import net.gy.SwiftFrameWork.IOC.Core.cache.ReflectCacheControl;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;

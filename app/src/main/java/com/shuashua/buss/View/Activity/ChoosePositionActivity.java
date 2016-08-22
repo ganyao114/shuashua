@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -47,6 +48,7 @@ import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.Reactive.IPublisher;
 import net.gy.SwiftFrameWork.Reactive.OnObserver;
@@ -114,6 +116,9 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
     private FrameLayout search_container;
     private boolean isFirst = true;
 
+
+    private LatLng choosePosition;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -128,6 +133,7 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
         MapStatusUpdate mMapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mMapStatus);
         //改变地图状态
         mBaiduMap.setMapStatus(mMapStatusUpdate);
+
 
         //地图状态改变相关监听
         mBaiduMap.setOnMapStatusChangeListener(this);
@@ -145,6 +151,9 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
          * locationMode定位图层显示方式
          */
         mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(mCurrentMode, true, null));
+
+
+        mBaiduMap.showMapPoi(true);
 
         //初始化定位
         mLocClient = new LocationClient(this);
@@ -184,12 +193,13 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
         //设置 LocationClientOption
         mLocClient.setLocOption(option);
 
+
+
         //开始定位
         mLocClient.start();
 
         //recycleview init
         plist.setLayoutManager(new LinearLayoutManager(this));
-        plist.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
     }
 
 
@@ -284,7 +294,7 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
         List<PositionSearchBean> list = new ArrayList<>();
         for (PoiInfo info:poiInfos){
             PositionSearchBean bean = new PositionSearchBean();
-            bean.setValue(info,locationLatLng);
+            bean.setValue(info,info.location);
             list.add(bean);
         }
         return list;
@@ -329,10 +339,12 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
     @Override
     public void onMapStatusChangeFinish(MapStatus mapStatus) {
         //地图操作的中心点
-        if (!isFirst)
+        if (!isFirst&&geoCoder!=null) {
             mLocClient.stop();
-        LatLng cenpt = mapStatus.target;
-        geoCoder.reverseGeoCode(new ReverseGeoCodeOption().location(cenpt));
+        }
+        choosePosition = mapStatus.target;
+        if (geoCoder!=null)
+            geoCoder.reverseGeoCode(new ReverseGeoCodeOption().location(choosePosition));
     }
 
     /**
@@ -458,6 +470,9 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
     @Override
     public void onPopupMenuClick(int position, View topview) {
 
+        MapStatusUpdate msu = MapStatusUpdateFactory.newLatLngZoom(searchBeens.get(position).getLatLng(), 18);
+        mBaiduMap.animateMapStatus(msu);
+        mBaiduMap.setMapStatus(msu);
     }
 
     @Override
@@ -493,7 +508,7 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
                 //设置每页容量，默认为每页10条
                 poiCitySearchOption.pageCapacity(50);
                 //分页编号
-                poiCitySearchOption.pageNum(1);
+                poiCitySearchOption.pageNum(0);
                 poiSearch.searchInCity(poiCitySearchOption);
                 //设置poi检索监听者
                 poiSearch.setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
@@ -519,14 +534,17 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
             @RunContext(RunContextType.MainThread)
             public void onSuccess(PoiResult poiResult) {
                 List<PoiInfo> poiInfos = poiResult.getAllPoi();
+                if (poiInfos == null)
+                    return;
                 if (searchBeens == null){
                     searchBeens = new ArrayList<>();
-                }
-                searchBeens.clear();
-                if (poiInfos!=null)
                     searchBeens.addAll(PoiAdapter(poiInfos));
-                if (poiMenu == null)
-                    poiMenu = new MenuHelper<PositionSearchBean>(ChoosePositionActivity.this,searchAddress,ChoosePositionActivity.this,searchBeens,search_container,PositionSearchBean.class);
+                    if (poiMenu == null)
+                        poiMenu = new MenuHelper<PositionSearchBean>(ChoosePositionActivity.this,searchAddress,ChoosePositionActivity.this,searchBeens,search_container,PositionSearchBean.class);
+                }else {
+                    searchBeens.clear();
+                    searchBeens.addAll(PoiAdapter(poiInfos));
+                }
                 if (searchBeens.size() != 0)
                     poiMenu.showMenu();
             }
@@ -544,4 +562,15 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
 
 
     }
+
+    @OnClick(R.id.center_point)
+    public void onCLick(View view){
+        switch (view.getId()){
+            case R.id.center_point:
+                Toast.makeText(this,"选择"+choosePosition.toString(),Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
+
+
 }

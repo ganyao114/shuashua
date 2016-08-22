@@ -29,7 +29,8 @@
                 android:layout_height="32dp"
                 android:layout_centerInParent="true"
                 android:background="@android:color/transparent"
-                android:src="@drawable/position" />
+                android:src="@drawable/position"
+                android:id="@+id/center_point"/>
         </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView

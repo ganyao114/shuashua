@@ -23,24 +23,27 @@
             android:layout_height="50dp"
             android:gravity="center_horizontal">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:textColor="@color/gray_deep"
-                android:paddingLeft="8dp"
-                android:textSize="20dp"
-                android:text="可选特权"/>
+                android:textColor="@color/gray"
+                android:layout_toRightOf="@+id/shop_ratestar"
+                android:text="拥有本店的会员卡"
+                android:id="@+id/shop_card"
+                android:textSize="18dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:text="疑问?>"
+                android:text="更多卡10张 >"
                 android:textSize="16dp"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray"
-                android:paddingRight="8dp"/>
+                android:paddingRight="8dp"
+                android:id="@+id/shop_card_more" />
 
         </RelativeLayout>
 
@@ -49,11 +52,13 @@
             android:layout_height="1dp"
             android:background="#66E0DFE0"></View>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/property_list">
-        </android.support.v7.widget.RecyclerView>
+        <include layout="@layout/item_shopcards_layout"></include>
+
+        <include layout="@layout/item_shopcards_layout"></include>
+
+        <include layout="@layout/item_shopcards_layout"></include>
+
+
 
     </LinearLayout>
 

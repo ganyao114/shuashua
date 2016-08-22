@@ -37,7 +37,7 @@
                 android:text="XXX店铺"
                 android:id="@+id/mngfreg_shop_name"
                 android:textColor="@color/gray_deep"
-                android:textSize="24sp"/>
+                android:textSize="24dp"/>
 
             <RatingBar
                 android:layout_width="wrap_content"
@@ -52,7 +52,7 @@
                 android:text="南京市江宁XXXX路XXX号"
                 android:id="@+id/mngfreg_shop_position"
                 android:textColor="@color/gray_deep"
-                android:textSize="14sp"/>
+                android:textSize="14dp"/>
 
         </LinearLayout>
 
