@@ -41,7 +41,7 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_distribute" />
+    <include android:id="@+id/ac_cardsit_content" layout="@layout/content_distribute" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
