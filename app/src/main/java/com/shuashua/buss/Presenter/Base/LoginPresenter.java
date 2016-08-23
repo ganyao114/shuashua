@@ -28,7 +28,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
 
     @Override
     public void OnPresentInited(Context context) {
-        lmodel = new LoginModel();
+//        lmodel = new LoginModel();
         getActivityInter().setOnCreateListener(this);
     }
 

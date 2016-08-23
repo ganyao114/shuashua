@@ -1,13 +1,25 @@
 package com.shuashua.buss.Test;
 
+import android.util.Log;
+
 import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
 import com.shuashua.buss.Model.Beans.Shop;
 import com.shuashua.buss.Model.Entity.CardPropertys;
 
+import net.gy.SwiftFrameWork.IOC.Core.impl.IOC;
+import net.gy.SwiftFrameWork.IOC.Core.kernel.KernelLang;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import dalvik.system.BaseDexClassLoader;
+import dalvik.system.DexFile;
+import dalvik.system.PathClassLoader;
 
 /**
  * Created by pc on 16/8/1.
@@ -60,6 +72,49 @@ public class TestModel {
             list.add(new Mem());
         }
         return list;
+    }
+
+    public static void test(){
+        BaseDexClassLoader classLoader = (BaseDexClassLoader) IOC.getInstance().getApplication().getClassLoader();
+        //(BaseDexClassLoader) Thread.currentThread().getContextClassLoader();
+        try {
+            Field field = BaseDexClassLoader.class.getDeclaredField("pathList");
+            field.setAccessible(true);
+            Class clazz = Class.forName("dalvik.system.DexPathList");
+            Object dexpathlist = field.get(classLoader);
+            Field elementsfield = clazz.getDeclaredField("dexElements");
+            elementsfield.setAccessible(true);
+            Class clazz2 = Class.forName("dalvik.system.DexPathList$Element");
+            Object[] elements = (Object[]) elementsfield.get(dexpathlist);
+            Field dexField = clazz2.getDeclaredField("dexFile");
+            dexField.setAccessible(true);
+            DexFile dexFile = (DexFile) dexField.get(elements[0]);
+            Method[] methods = DexFile.class.getDeclaredMethods();
+            Method tarMethod = null;
+            for (Method method:methods){
+                if (method.getName().equalsIgnoreCase("getClassNameList")) {
+                    tarMethod = method;
+                    break;
+                }
+            }
+            tarMethod.setAccessible(true);
+            Field CookieField = DexFile.class.getDeclaredField("mCookie");
+            CookieField.setAccessible(true);
+            Object mCookie = CookieField.get(dexFile);
+            String[] classNames = (String[]) tarMethod.invoke(dexFile,mCookie);
+            for (String name:classNames){
+                Log.e("gy",name);
+            }
+//            Log.e("gy",);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
 

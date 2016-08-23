@@ -9,12 +9,13 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.shuashua.buss.R;
+import com.shuashua.buss.Utils.Validate;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -103,6 +104,16 @@ public class SplashActivity extends AppCompatActivity {
                 toggle();
             }
         });
+
+        mHideHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Validate.loginValiAndNaviToLogin(SplashActivity.this);
+                finish();
+            }
+        },2000);
+
+
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away

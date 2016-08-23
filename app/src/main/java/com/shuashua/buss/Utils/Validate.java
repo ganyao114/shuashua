@@ -3,6 +3,7 @@ package com.shuashua.buss.Utils;
 import android.content.Context;
 import android.content.Intent;
 
+import com.shuashua.buss.View.Activity.HomeActivity;
 import com.shuashua.buss.View.Activity.LoginActivity;
 
 /**
@@ -15,7 +16,10 @@ public class Validate {
 
     public static void loginValiAndNaviToLogin(Context context){
         Intent intent = new Intent();
-        intent.setClass(context, LoginActivity.class);
+        if (Global.user == null)
+            intent.setClass(context, HomeActivity.class);
+        else
+            intent.setClass(context, HomeActivity.class);
         context.startActivity(intent);
     }
 }

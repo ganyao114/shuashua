@@ -94,7 +94,7 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
         property_list.setNestedScrollingEnabled(false);
         property_list.setItemAnimator(new DefaultItemAnimator());
         getPresent().propertysList = TestModel.getProperty();
-        S.ViewUtils.ListBind(property_list).setLtnImpl(this).bind(getPresent().propertysList);
+        S.ViewUtils.ListBind(property_list).setLtnImpl(this).setClass(CardPropertys.class).bind(getPresent().propertysList);
         adapter = new HeadFooterAdapter(property_list.getAdapter());
         footerView = property_list.inflate(this,R.layout.item_property_add,null);
         footerView.findViewById(R.id.property_add).setOnClickListener(new View.OnClickListener() {
