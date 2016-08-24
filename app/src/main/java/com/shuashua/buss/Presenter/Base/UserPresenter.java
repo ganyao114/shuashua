@@ -18,4 +18,9 @@ public class UserPresenter extends Presenter{
     public void OnPresentInited(Context context) {
 
     }
+
+    public void logout(){
+
+    }
+
 }

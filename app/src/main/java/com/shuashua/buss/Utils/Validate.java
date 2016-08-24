@@ -17,7 +17,7 @@ public class Validate {
     public static void loginValiAndNaviToLogin(Context context){
         Intent intent = new Intent();
         if (Global.user == null)
-            intent.setClass(context, HomeActivity.class);
+            intent.setClass(context, LoginActivity.class);
         else
             intent.setClass(context, HomeActivity.class);
         context.startActivity(intent);

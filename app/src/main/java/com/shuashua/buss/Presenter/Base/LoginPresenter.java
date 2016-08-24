@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.shuashua.buss.Model.Http.LoginModel;
+import com.shuashua.buss.Model.ILoginCallBack;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Activity.LoginActivity;
 
@@ -28,7 +29,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
 
     @Override
     public void OnPresentInited(Context context) {
-//        lmodel = new LoginModel();
+        lmodel = new LoginModel((ILoginCallBack) context);
         getActivityInter().setOnCreateListener(this);
     }
 
@@ -38,9 +39,12 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
                           .setOnClickListener(new View.OnClickListener() {
                               @Override
                               public void onClick(View v) {
+                                  LoginActivity ac = (LoginActivity) activity;
+                                  ac.progressDialog.show();
+                                  getActivityInter().getView(R.id.btn_login).setClickable(false);
                                   EditText name = getActivityInter().getView(R.id.login_name);
                                   EditText pass = getActivityInter().getView(R.id.login_pass);
-                                  lmodel.doHttp();
+                                  lmodel.login(name.getText().toString(),pass.getText().toString());
                               }
                           });
     }

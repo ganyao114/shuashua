@@ -6,5 +6,5 @@ import com.shuashua.buss.Model.Beans.User;
  * Created by pc on 16/8/9.
  */
 public class Global {
-    public static User user;
+    public static User user = new User();
 }

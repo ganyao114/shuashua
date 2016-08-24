@@ -34,7 +34,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/plus"
+                    android:src="@drawable/logout"
                     android:id="@+id/telephone_icon"/>
 
                 <LinearLayout
@@ -48,15 +48,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="期限设置"
+                        android:text="退出登陆"
                         android:textSize="18dp"
-                        android:id="@+id/olstatue"
+                        android:id="@+id/logout_txt"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="设置会员卡的过期时长"
+                        android:text="您已经登陆了9天10小时"
                         android:textColor="@color/black"/>
 
 
@@ -71,7 +71,7 @@
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/cust"/>
+                    android:src="@android:color/transparent"/>
             </RelativeLayout>
 
         </LinearLayout>

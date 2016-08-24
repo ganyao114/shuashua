@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 /**
  * Created by pc on 16/8/3.
  */
-public class LoginModel extends MyBaseHttp<User>{
+public class LogoutModel extends MyBaseHttp<User>{
 
     private WeakReference<ILoginCallBack> callRef;
 
@@ -25,14 +25,12 @@ public class LoginModel extends MyBaseHttp<User>{
         super.initModel();
     }
 
-    public LoginModel(ILoginCallBack loginCallBack) {
+    public LogoutModel(ILoginCallBack loginCallBack) {
         callRef = new WeakReference<ILoginCallBack>(loginCallBack);
     }
 
 
-    public void login(String name,String pass) {
-        addParam("username",name);
-        addParam("password",pass);
+    public void login() {
         super.doHttp();
     }
 

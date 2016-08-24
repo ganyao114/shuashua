@@ -1,5 +1,6 @@
 package com.shuashua.buss.Model.Http;
 
+import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Model.ILoginCallBack;
 import com.shuashua.buss.Utils.Global;
@@ -12,11 +13,12 @@ import net.gy.SwiftFrameWork.Service.thread.templet.configs.HttpTheadConfigBean;
 
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 /**
  * Created by pc on 16/8/3.
  */
-public class LoginModel extends MyBaseHttp<User>{
+public class GetCardsModel extends MyBaseHttp<List<Cards>>{
 
     private WeakReference<ILoginCallBack> callRef;
 
@@ -25,7 +27,7 @@ public class LoginModel extends MyBaseHttp<User>{
         super.initModel();
     }
 
-    public LoginModel(ILoginCallBack loginCallBack) {
+    public GetCardsModel(ILoginCallBack loginCallBack) {
         callRef = new WeakReference<ILoginCallBack>(loginCallBack);
     }
 

@@ -107,6 +107,15 @@ public class UserActivity extends BaseMvpActivity<UserPresenter> implements View
         }
     }
 
+    @OnClick({R.id.logout_btn})
+    public void btn_click(View v){
+        switch (v.getId()){
+            case R.id.logout_btn:
+                getPresent().logout();
+                break;
+        }
+    }
+
     @Override
     public void onClick(View v) {
         showChangeEdit(v.getId());

@@ -1,5 +1,6 @@
 package com.shuashua.buss.View.Activity;
 
+import android.app.ProgressDialog;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.shuashua.buss.Model.ILoginCallBack;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
+import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 /**
  * Created by pc on 16/8/3.
@@ -20,6 +22,9 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 @ContentView(R.layout.activity_login)
 @InjectPresenter(LoginPresenter.class)
 public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements ILoginCallBack{
+
+    public ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements IL
             //此处可以重新指定状态栏颜色
             tintManager.setStatusBarTintResource(R.color.themeColor);
         }
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("登陆中...");
     }
 
     @OnClick({R.id.link_regist,R.id.link_getpass})
@@ -73,11 +80,12 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements IL
 
     @Override
     public void onLogSuccess() {
-
+        progressDialog.dismiss();
     }
 
     @Override
     public void onLogFailed() {
-
+        progressDialog.dismiss();
+        getView(R.id.btn_login).setClickable(true);
     }
 }

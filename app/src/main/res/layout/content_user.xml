@@ -13,12 +13,9 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/card_bt_setting"></include>
-        <include layout="@layout/card_bt_setting"></include>
-        <include layout="@layout/card_bt_setting"></include>
-        <include layout="@layout/card_bt_setting"></include>
-        <include layout="@layout/card_bt_setting"></include>
-        <include layout="@layout/card_bt_setting"></include>
+        <include layout="@layout/card_btn_userphone"></include>
+        <include layout="@layout/card_userinfo_detail"></include>
+        <include android:id="@+id/logout_btn" layout="@layout/card_btn_logout"></include>
         <include layout="@layout/card_bt_setting"></include>
 
       <!--<LinearLayout-->

@@ -34,7 +34,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/plus"
+                    android:src="@drawable/phone"
                     android:id="@+id/telephone_icon"/>
 
                 <LinearLayout
@@ -48,15 +48,15 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="期限设置"
+                        android:text="18015973768"
                         android:textSize="18dp"
-                        android:id="@+id/olstatue"
+                        android:id="@+id/user_phone_no"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="设置会员卡的过期时长"
+                        android:text="电话号码"
                         android:textColor="@color/black"/>
 
 
@@ -71,7 +71,7 @@
                     android:layout_marginBottom="10dp"
                     android:scaleType="fitXY"
                     android:layout_alignParentRight="true"
-                    android:src="@drawable/cust"/>
+                    android:src="@drawable/tel"/>
             </RelativeLayout>
 
         </LinearLayout>
