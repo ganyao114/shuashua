@@ -149,5 +149,6 @@
     <string name="title_activity_distribute">发卡界面</string>
     <string name="title_activity_creat_order">创建订单</string>
     <string name="title_activity_mem">XXX会员</string>
+    <string name="title_activity_staff_mng">StaffMngActivity</string>
 
 </resources>

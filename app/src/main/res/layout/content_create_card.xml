@@ -64,8 +64,6 @@
             <!--android:id="@+id/choose_deadline"-->
             <!--android:text="@string/choose_time_canuse"/>-->
 
-        <include layout="@layout/card_textinput_layout"></include>
-
 
     </LinearLayout>
 

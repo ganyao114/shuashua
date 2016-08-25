@@ -2,6 +2,7 @@ package com.shuashua.buss.Test;
 
 import android.util.Log;
 
+import com.shuashua.buss.Model.Beans.ADListBean;
 import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
@@ -70,6 +71,14 @@ public class TestModel {
         List<Mem> list = new ArrayList<>();
         for (int i = 0;i < 20; i++){
             list.add(new Mem());
+        }
+        return list;
+    }
+
+    public static List<ADListBean> getAds(){
+        List<ADListBean> list = new ArrayList<>();
+        for (int i = 0;i < 20; i++){
+            list.add(new ADListBean());
         }
         return list;
     }

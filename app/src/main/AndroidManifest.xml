@@ -81,9 +81,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/ImageTranslucentTheme">
-
-        </activity>
+            android:theme="@style/ImageTranslucentTheme"></activity>
         <activity
             android:name=".View.Activity.WebActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -138,15 +136,13 @@
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/FullscreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".View.Activity.CreateShopActivity"
             android:label="@string/title_activity_create_shop"
@@ -239,6 +235,10 @@
         <activity
             android:name=".View.Activity.MemActivity"
             android:label="@string/title_activity_mem"
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".View.Activity.StaffMngActivity"
+            android:label="@string/title_activity_staff_mng"
             android:theme="@style/SplashTheme"></activity>
     </application>
 

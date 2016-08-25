@@ -2,6 +2,7 @@ package com.shuashua.buss.Presenter.Base;
 
 import android.content.Context;
 
+import com.shuashua.buss.Model.Beans.ADListBean;
 import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
@@ -26,6 +27,8 @@ public class HomePresenter extends Presenter{
     public List<Mem> mngMemList;
 
     public List<Cards> mngCardsList;
+
+    public List<ADListBean> adlist;
 
     @Override
     protected void onContextChanged(ContextChangeEvent event) {

@@ -18,6 +18,7 @@
         android:orientation="vertical"
         android:padding="8dp"
         android:layout_margin="4dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +26,7 @@
             <ImageView
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/level"/>
+                android:src="@drawable/member"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,90 +35,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="用户等级"
-                android:layout_marginLeft="8dp"/>
-        </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal">
-
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/dimens"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="钻石用户"
-            android:textSize="20sp"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:textColor="@color/black"/>
-
-    </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="店铺创建不限量"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:textColor="@color/gray"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="会员不限量"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:textColor="@color/gray"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="会员卡创建不限量"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:textColor="@color/gray"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="会员特权不限量"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:textColor="@color/gray"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#66E0DFE0"></View>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/chanye"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:textColor="@color/gray_deep"
-                android:text="产业信息"
+                android:text="员工信息"
                 android:layout_marginLeft="8dp"/>
         </LinearLayout>
 
@@ -139,7 +57,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="店铺数量"
+                android:text="所在店铺"
                 android:layout_marginLeft="8dp"/>
 
             <TextView
@@ -149,8 +67,9 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="20家"
-                android:layout_marginLeft="80dp"/>
+                android:text="xxx路华润苏果"
+                android:layout_marginLeft="8dp"
+                android:singleLine="true"/>
 
         </LinearLayout>
 
@@ -163,7 +82,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/vipcard"/>
+                android:src="@drawable/gangwei"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -172,7 +91,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="会员卡数"
+                android:text="所属岗位"
                 android:layout_marginLeft="8dp"/>
 
             <TextView
@@ -182,8 +101,8 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="20张"
-                android:layout_marginLeft="80dp"/>
+                android:text="柜台收银员"
+                android:layout_marginLeft="8dp"/>
 
         </LinearLayout>
 
@@ -196,7 +115,7 @@
             <ImageView
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:src="@drawable/member"/>
+                android:src="@drawable/id"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -205,7 +124,7 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="会员数量"
+                android:text="员工编号"
                 android:layout_marginLeft="8dp"/>
 
             <TextView
@@ -215,8 +134,131 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:textColor="@color/gray_deep"
-                android:text="2000人"
-                android:layout_marginLeft="80dp"/>
+                android:text="0003"
+                android:layout_marginLeft="8dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#66E0DFE0"
+            android:layout_marginTop="8dp"></View>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/permisssion"
+                android:scaleX="0.85"
+                android:scaleY="0.85"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray_deep"
+                android:text="权限信息"
+                android:layout_marginLeft="8dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/create"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray_deep"
+                android:text="创会员卡"
+                android:layout_marginLeft="8dp"/>
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/chacha2"
+                android:layout_marginLeft="80dp"
+                android:scaleX="0.7"
+                android:scaleY="0.7"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/send"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray_deep"
+                android:text="发卡充值"
+                android:layout_marginLeft="8dp"/>
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/yes"
+                android:layout_marginLeft="80dp"
+                android:scaleX="0.7"
+                android:scaleY="0.7"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/shoukuan"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray_deep"
+                android:text="收银消费"
+                android:layout_marginLeft="8dp"/>
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/yes"
+                android:layout_marginLeft="80dp"
+                android:scaleX="0.7"
+                android:scaleY="0.7"/>
 
         </LinearLayout>
 

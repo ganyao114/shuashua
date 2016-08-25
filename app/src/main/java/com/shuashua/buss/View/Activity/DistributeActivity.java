@@ -13,9 +13,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.DistributePresenter;
+import com.shuashua.buss.Presenter.Base.SearchPresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Utils.PhotoEdit;
@@ -26,6 +29,7 @@ import com.xys.libzxing.zxing.activity.CaptureActivity;
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.HeadFooterAdapter;
 
@@ -97,6 +101,7 @@ public class DistributeActivity extends BaseMvpActivity<DistributePresenter> imp
         menuData.add("其他");
     }
 
+    @OnClick({R.id.carddist_picmem_btn})
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -111,6 +116,11 @@ public class DistributeActivity extends BaseMvpActivity<DistributePresenter> imp
                 property_list.getAdapter().notifyItemRemoved(p);
                 property_list.getAdapter().notifyItemRangeChanged(0,getPresent().propertysList.size());
                 break;
+            case R.id.carddist_picmem_btn:
+                Intent intent  = new Intent();
+                intent.setClass(this,ActivitySearch.class);
+                intent.putExtra(SearchPresenter.ACTION_FLAG,SearchPresenter.ACTION_RESULT_MEMINFO);
+                startActivityForResult(intent,0);
         }
     }
 
@@ -120,6 +130,13 @@ public class DistributeActivity extends BaseMvpActivity<DistributePresenter> imp
         if (resultCode == RESULT_OK) {
             Bundle bundle = data.getExtras();
             String scanResult = bundle.getString("result");
+        }else if (requestCode == SearchPresenter.ACTION_RESCODE){
+            if (data == null)
+                return;
+            Object mem = data.getSerializableExtra(SearchPresenter.ACTION_FLAG_STR);
+            if (mem != null) {
+                getPresent().tarMem = (Mem) mem;
+            }
         }
     }
 

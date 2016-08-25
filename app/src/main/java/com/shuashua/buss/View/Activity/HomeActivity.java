@@ -171,7 +171,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
                 break;
             case R.id.bar_search:
                 Intent intent = new Intent();
-                intent.setClass(this,ActivitySearch.class);
+                intent.setClass(this,StaffMngActivity.class);
                 startActivity(intent);
                 break;
         }

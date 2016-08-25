@@ -59,9 +59,8 @@ public class ActivitySearch extends BaseMvpActivity<SearchPresenter> implements 
     private SearchOrderFragment orderFragment;
     private SearchUserFragment userFragment;
 
-    private ISearch cursearch;
+    public ISearch cursearch;
 
-    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +130,6 @@ public class ActivitySearch extends BaseMvpActivity<SearchPresenter> implements 
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
 
     @Override

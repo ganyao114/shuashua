@@ -16,13 +16,15 @@
 
         <include layout="@layout/card_cardbaseinfo_layout"></include>
 
-        <include layout="@layout/card_orderinfo_custinfo"></include>
+        <include android:id="@+id/carddist_picmem_btn" layout="@layout/card_orderinfo_custinfo"></include>
 
         <include layout="@layout/card_distbalance_set"></include>
 
         <include layout="@layout/card_property_choose"></include>
 
         <include layout="@layout/card_distproperty_value"></include>
+
+        <include layout="@layout/card_textinput_layout"></include>
 
         <include layout="@layout/card_btn_newmem_confirm"></include>
 

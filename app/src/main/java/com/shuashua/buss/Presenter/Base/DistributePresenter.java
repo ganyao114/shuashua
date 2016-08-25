@@ -2,6 +2,8 @@ package com.shuashua.buss.Presenter.Base;
 
 import android.content.Context;
 
+import com.shuashua.buss.Model.Beans.Mem;
+import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Model.Entity.CardPropertys;
 
 import net.gy.SwiftFrameWork.MVP.Presenter.Presenter;
@@ -15,6 +17,8 @@ import java.util.List;
 public class DistributePresenter extends Presenter{
 
     public List<CardPropertys> propertysList;
+
+    public Mem tarMem;
 
     @Override
     protected void onContextChanged(ContextChangeEvent event) {

@@ -50,7 +50,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="发卡"
+                        android:text="发卡/变更"
                         android:textSize="18dp"
                         android:id="@+id/create_mem_txt"
                         android:textColor="@color/black" />
@@ -58,7 +58,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="将会员卡发放给XX客户"
+                        android:text="这项操作需要客户进行确认"
                         android:textColor="@color/black"/>
 
 
