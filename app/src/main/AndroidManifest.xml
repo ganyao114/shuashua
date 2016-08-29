@@ -221,6 +221,13 @@
             android:theme="@style/SplashTheme" />
         <activity android:name=".View.Activity.ChoosePositionActivity" />
 
+        <activity
+            android:name=".View.Activity.UserInfoActivity"
+            android:label="@string/title_activity_creat_order"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/UserInfo" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

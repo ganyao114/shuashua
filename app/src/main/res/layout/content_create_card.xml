@@ -52,6 +52,8 @@
 
         <include layout="@layout/card_property_choose"></include>
 
+        <include layout="@layout/card_btn_newcard"></include>
+
         <!--<android.support.v7.widget.AppCompatButton-->
             <!--android:layout_width="match_parent"-->
             <!--android:layout_height="wrap_content"-->

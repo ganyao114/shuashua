@@ -15,6 +15,7 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.View.Activity.MemActivity;
 import com.shuashua.buss.View.Activity.OrderActivity;
+import com.shuashua.buss.View.Activity.UserInfoActivity;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
@@ -72,7 +73,7 @@ public class MemManagerFragment extends BaseFragmentV4 implements OnItemClickLis
     @Override
     public void onItemClick(ViewGroup parent, View view, Object o, int position) {
         Intent intent = new Intent();
-        intent.setClass(getContext(), MemActivity.class);
+        intent.setClass(getContext(), UserInfoActivity.class);
         startActivity(intent);
     }
 

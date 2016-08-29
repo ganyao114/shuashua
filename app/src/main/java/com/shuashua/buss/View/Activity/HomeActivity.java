@@ -95,6 +95,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
+        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
+        test.test();
     }
 
     private void addFragments(){
@@ -171,7 +173,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
                 break;
             case R.id.bar_search:
                 Intent intent = new Intent();
-                intent.setClass(this,StaffMngActivity.class);
+                intent.setClass(this,ActivitySearch.class);
                 startActivity(intent);
                 break;
         }

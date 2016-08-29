@@ -42,8 +42,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_staff_mng"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="center_horizontal|bottom"/>
+        />
 
     <!--<android.support.design.widget.FloatingActionButton-->
         <!--android:id="@+id/fab"-->

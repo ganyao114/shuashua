@@ -117,4 +117,11 @@
         <item name="android:textColor">@color/gray</item>
     </style>
 
+
+    <!-- styles -->
+    <style name="UserInfo" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/user_color</item>
+        <item name="colorPrimaryDark">@color/user_color</item>
+    </style>
+
 </resources>

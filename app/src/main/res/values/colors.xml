@@ -29,4 +29,6 @@
     <color name="theme_gray">#646464</color>
 
     <color name="item_press">#F0F0F0</color>
+
+    <color name="user_color">#785447</color>
 </resources>
