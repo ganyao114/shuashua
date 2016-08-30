@@ -97,6 +97,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         initView();
         net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
         test.test();
+        test.getTree();
     }
 
     private void addFragments(){
