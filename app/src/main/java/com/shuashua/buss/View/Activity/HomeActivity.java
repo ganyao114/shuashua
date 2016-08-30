@@ -41,7 +41,9 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
+import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
 import net.gy.SwiftFrameWork.MVVM.Impl.JsonParse;
+import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
 import net.gy.SwiftFrameWork.MVVM.Test.TestPojo;
 import net.gy.SwiftFrameWork.Reactive.test.Test;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
@@ -101,6 +103,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         test.test();
         TestPojo pojo = JsonParse.getValue(test.getTree(),test.json);
         Log.e("gy",pojo.getObj().getName());
+        MvvmCacheControl.getCache(ILogin.class);
     }
 
     private void addFragments(){
