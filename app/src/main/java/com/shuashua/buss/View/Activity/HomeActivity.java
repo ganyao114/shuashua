@@ -105,7 +105,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
         test.test();
         MvvmCacheControl.getCache(ILogin.class);
-        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).establish();
+        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
         login.login("a","b","c");
         login.regist("a","b","c");
     }

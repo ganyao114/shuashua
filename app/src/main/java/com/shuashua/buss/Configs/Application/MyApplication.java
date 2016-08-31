@@ -21,6 +21,8 @@ import net.gy.SwiftFrameWork.IOC.Core.cache.ClassType;
 import net.gy.SwiftFrameWork.IOC.Core.cache.ReflectCacheControl;
 import net.gy.SwiftFrameWork.IOC.Core.entity.AnnotationPackage;
 import net.gy.SwiftFrameWork.IOC.Core.parase.AnnotationFactory;
+import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
+import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
 
 import org.xutils.x;
 
@@ -55,5 +57,6 @@ public class MyApplication extends Application{
                 Log.e("gy","end");
             }
         }).start();
+        MvvmCacheControl.preLoad(new Class[]{ILogin.class});
     }
 }
