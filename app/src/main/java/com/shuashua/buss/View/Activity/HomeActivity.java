@@ -44,6 +44,7 @@ import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
 import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Impl.JsonParse;
+import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
 import net.gy.SwiftFrameWork.MVVM.Test.TestPojo;
 import net.gy.SwiftFrameWork.Reactive.test.Test;
@@ -57,7 +58,7 @@ import java.util.List;
  */
 @InjectPresenter(HomePresenter.class)
 @ContentView(R.layout.activity_home)
-public class HomeActivity extends BaseMvpActivity<HomePresenter> implements ViewPager.OnPageChangeListener,NavigationView.OnNavigationItemSelectedListener{
+public class HomeActivity extends BaseMvpActivity<HomePresenter> implements ViewPager.OnPageChangeListener,NavigationView.OnNavigationItemSelectedListener,ICallBack{
 
     @ViewInject(R.id.navigation_view)
     private NavigationView mNavigationView;
@@ -103,11 +104,10 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         initView();
         net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
         test.test();
-        TestPojo pojo = JsonParse.getValue(test.getTree(),test.json);
-        Log.e("gy",pojo.getObj().getName());
         MvvmCacheControl.getCache(ILogin.class);
-        login = HttpProxyFactory.With(ILogin.class).establish();
+        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).establish();
         login.login("a","b","c");
+        login.regist("a","b","c");
     }
 
     private void addFragments(){
@@ -256,6 +256,16 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onSuccess(Object o) {
+        Log.e("gy","登陆成功");
+    }
+
+    @Override
+    public void onFailed(Object o) {
+        Log.e("gy","登陆失败");
     }
 
 
