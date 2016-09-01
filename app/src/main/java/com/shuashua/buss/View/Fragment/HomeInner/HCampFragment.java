@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.shuashua.buss.Model.Beans.ADListBean;
-import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;

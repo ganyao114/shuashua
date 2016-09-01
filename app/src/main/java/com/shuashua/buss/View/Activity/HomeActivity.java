@@ -19,36 +19,24 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.shuashua.buss.Model.Beans.User;
-import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
-import com.shuashua.buss.Test.TestModel;
-import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.Utils.LeakFix;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 
-import net.gy.SwiftFrameWork.IOC.Core.cache.ReflectCacheControl;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVP.View.context.activity.BaseAppCompactActivity;
 import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
-import net.gy.SwiftFrameWork.MVVM.Impl.JsonParse;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
-import net.gy.SwiftFrameWork.MVVM.Test.TestPojo;
-import net.gy.SwiftFrameWork.Reactive.test.Test;
-import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,12 +90,12 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-//        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
-//        test.test();
-//        MvvmCacheControl.getCache(ILogin.class);
-//        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
-//        login.login("a","b","c");
-//        login.regist("a","b","c");
+        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
+        test.test();
+        MvvmCacheControl.getCache(ILogin.class);
+        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
+        login.login("a","b","c");
+        login.regist("a","b","c");
     }
 
     private void addFragments(){
