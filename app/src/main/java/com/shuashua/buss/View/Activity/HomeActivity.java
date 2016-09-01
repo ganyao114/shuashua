@@ -102,12 +102,12 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
-        test.test();
-        MvvmCacheControl.getCache(ILogin.class);
-        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
-        login.login("a","b","c");
-        login.regist("a","b","c");
+//        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
+//        test.test();
+//        MvvmCacheControl.getCache(ILogin.class);
+//        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
+//        login.login("a","b","c");
+//        login.regist("a","b","c");
     }
 
     private void addFragments(){
