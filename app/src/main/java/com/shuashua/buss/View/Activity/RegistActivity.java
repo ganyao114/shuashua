@@ -19,8 +19,8 @@ import com.shuashua.buss.Model.Beans.ImgValiBean;
 import com.shuashua.buss.Model.Beans.LoginBean;
 import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.RegistModel;
-import com.shuashua.buss.R;
 import com.shuashua.buss.Model.IRegistCallback;
+import com.shuashua.buss.R;
 import com.shuashua.buss.View.Widgets.ImgCanDel.ImgCanDel;
 
 import net.gy.SwiftFrameWork.Core.S;

@@ -20,6 +20,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.shuashua.buss.Presenter.IGetDescBycity;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Widgets.CityPicker.adapter.CityListAdapter;
 import com.shuashua.buss.View.Widgets.CityPicker.adapter.ResultListAdapter;
@@ -30,6 +31,7 @@ import com.shuashua.buss.View.Widgets.CityPicker.utils.StringUtils;
 import com.shuashua.buss.View.Widgets.CityPicker.utils.ToastUtils;
 import com.shuashua.buss.View.Widgets.SideBar.SideLetterBar;
 
+import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 import java.util.List;
@@ -38,8 +40,17 @@ import java.util.List;
  * author zaaach on 2016/1/26.
  */
 public class CityPickerActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener {
+
+    public final static int RET_TYPE_QX = 0;
+
+    public final static int RET_TYPE_CITY = 1;
+
+    public final static int RET_CODE = 3;
+
     public static final int REQUEST_CODE_PICK_CITY = 2333;
     public static final String KEY_PICKED_CITY = "picked_city";
+
+    private int pick_type = 0;
 
     private ListView mListView;
     private ListView mResultListView;
@@ -61,6 +72,8 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
 
     private String tarCity;
 
+    private IGetDescBycity getDescBycity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +82,10 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
         initData();
         initView();
         initLocation();
+
+        getDescBycity = HttpProxyFactory.With(IGetDescBycity.class)
+                                        .addViewContent("getdesces",this)
+                                        .establish();
     }
 
     private void initLocation() {
@@ -183,14 +200,17 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
 
     private void back(String city){
         ToastUtils.showToast(this, "选择城市：" + city);
+        switch (pick_type){
+            case RET_TYPE_CITY:
+                Intent intent = new Intent();
+                intent.putExtra(KEY_PICKED_CITY,city);
+                setResult(RET_CODE,intent);
+                finish();
+                break;
+            case RET_TYPE_QX:
 
-    }
-
-    private void ret(){
-        Intent intent = new Intent();
-        intent.putExtra("city",tarCity);
-        setResult(0,intent);
-        finish();
+                break;
+        }
     }
 
     private void showDesc(String city){
@@ -201,6 +221,7 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
             descListView.setOnItemClickListener(this);
             Descdialog.setContentView(descListView);
         }
+        getDescBycity.getdesces(city);
         Descdialog.show();
     }
 

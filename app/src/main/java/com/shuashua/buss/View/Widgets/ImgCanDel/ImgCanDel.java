@@ -1,6 +1,5 @@
 package com.shuashua.buss.View.Widgets.ImgCanDel;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,6 +9,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.shuashua.buss.R;
+
+import net.gy.SwiftFrameWork.Service.loader.imgloader.strategy.mystrategy.impl.ImageLoader;
 
 /**
  * Created by pc on 16/8/10.
@@ -35,6 +36,7 @@ public class ImgCanDel extends ImageView{
 
     private void init(){
         cha = BitmapFactory.decodeResource(getResources(), R.drawable.chacha);
+        cha = ImageLoader.zoomImage(cha,16,16);
     }
     @Override
     protected void onDraw(Canvas canvas) {

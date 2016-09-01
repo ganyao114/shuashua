@@ -33,7 +33,6 @@ import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
@@ -90,11 +89,7 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-        net.gy.SwiftFrameWork.MVVM.Test.Test test = new net.gy.SwiftFrameWork.MVVM.Test.Test();
-        test.test();
-        MvvmCacheControl.getCache(ILogin.class);
-        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).addViewContent("login",this).establish();
-        login.login("a","b","c");
+        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).setViewContent(this).establish();
         login.regist("a","b","c");
     }
 
