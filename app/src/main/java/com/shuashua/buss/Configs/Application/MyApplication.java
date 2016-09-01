@@ -8,18 +8,15 @@ import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
-import com.shuashua.buss.View.Fragment.MainFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 import com.shuashua.buss.View.Fragment.MngInner.CardManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.MemManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.OrderManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
-import com.squareup.leakcanary.LeakCanary;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Core.cache.ClassType;
 import net.gy.SwiftFrameWork.IOC.Core.cache.ReflectCacheControl;
-import net.gy.SwiftFrameWork.IOC.Core.entity.AnnotationPackage;
 import net.gy.SwiftFrameWork.IOC.Core.parase.AnnotationFactory;
 import net.gy.SwiftFrameWork.MVVM.Cache.MvvmCacheControl;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
@@ -57,6 +54,6 @@ public class MyApplication extends Application{
                 Log.e("gy","end");
             }
         }).start();
-        MvvmCacheControl.preLoad(new Class[]{ILogin.class});
+        MvvmCacheControl.preLoad(new Class[]{ILogin.class, com.shuashua.buss.Presenter.ILogin.class});
     }
 }
