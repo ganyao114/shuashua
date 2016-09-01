@@ -72,4 +72,13 @@ public class RequestHeader implements Serializable{
     public void setUserid(StringEntry userid) {
         this.userid = userid;
     }
+
+    public Map<String,String> toMap(){
+        Map<String,String> map = new HashMap<>();
+        map.put(appkey.getKey(),appkey.getValue());
+        map.put(udid.getKey(),udid.getValue());
+        map.put(os.getKey(),os.getValue());
+        return map;
+    }
+
 }

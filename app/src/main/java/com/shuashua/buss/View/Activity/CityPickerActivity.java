@@ -20,6 +20,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.shuashua.buss.Model.Beans.DescsBean;
 import com.shuashua.buss.Presenter.IGetDescBycity;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Widgets.CityPicker.adapter.CityListAdapter;
@@ -32,6 +33,7 @@ import com.shuashua.buss.View.Widgets.CityPicker.utils.ToastUtils;
 import com.shuashua.buss.View.Widgets.SideBar.SideLetterBar;
 
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
+import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 import java.util.List;
@@ -39,7 +41,7 @@ import java.util.List;
 /**
  * author zaaach on 2016/1/26.
  */
-public class CityPickerActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener {
+public class CityPickerActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener, ICallBack {
 
     public final static int RET_TYPE_QX = 0;
 
@@ -73,6 +75,7 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
     private String tarCity;
 
     private IGetDescBycity getDescBycity;
+    private DescsBean descsBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +87,8 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
         initLocation();
 
         getDescBycity = HttpProxyFactory.With(IGetDescBycity.class)
-                                        .addViewContent("getdesces",this)
+                                        .setViewContent(this)
+                                        .setCallBack(this)
                                         .establish();
     }
 
@@ -248,6 +252,17 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onSuccess(Object o) {
+        if (o!=null)
+        descsBean = (DescsBean) o;
+    }
+
+    @Override
+    public void onFailed(Object o) {
 
     }
 }

@@ -9,6 +9,7 @@ import android.widget.EditText;
 import com.shuashua.buss.Model.Http.LoginModel;
 import com.shuashua.buss.Model.ILoginCallBack;
 import com.shuashua.buss.R;
+import com.shuashua.buss.View.Activity.HomeActivity;
 import com.shuashua.buss.View.Activity.LoginActivity;
 
 import net.gy.SwiftFrameWork.MVP.Presenter.Presenter;
@@ -18,7 +19,7 @@ import net.gy.SwiftFrameWork.MVP.View.context.entity.ContextChangeEvent;
 /**
  * Created by pc on 16/8/3.
  */
-public class LoginPresenter extends Presenter implements ActivityOnCreatedListener{
+public class LoginPresenter extends Presenter implements ActivityOnCreatedListener,ILoginCallBack{
 
     private LoginModel lmodel;
 
@@ -29,7 +30,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
 
     @Override
     public void OnPresentInited(Context context) {
-        lmodel = new LoginModel((ILoginCallBack) context);
+        lmodel = new LoginModel(this);
         getActivityInter().setOnCreateListener(this);
     }
 
@@ -47,5 +48,17 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
                                   lmodel.login(name.getText().toString(),pass.getText().toString());
                               }
                           });
+    }
+
+    @Override
+    public void onLogSuccess() {
+        getActivityRaw().finish();
+        navTo(HomeActivity.class);
+    }
+
+    @Override
+    public void onLogFailed() {
+        ILoginCallBack callBack = (ILoginCallBack) getContext();
+        callBack.onLogFailed();
     }
 }
