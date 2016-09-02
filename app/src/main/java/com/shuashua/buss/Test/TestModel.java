@@ -10,7 +10,6 @@ import com.shuashua.buss.Model.Beans.Shop;
 import com.shuashua.buss.Model.Entity.CardPropertys;
 
 import net.gy.SwiftFrameWork.IOC.Core.impl.IOC;
-import net.gy.SwiftFrameWork.IOC.Core.kernel.KernelLang;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -20,7 +19,6 @@ import java.util.List;
 
 import dalvik.system.BaseDexClassLoader;
 import dalvik.system.DexFile;
-import dalvik.system.PathClassLoader;
 
 /**
  * Created by pc on 16/8/1.
@@ -124,6 +122,9 @@ public class TestModel {
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
+    }
+
+    public void test2(){
     }
 
 
