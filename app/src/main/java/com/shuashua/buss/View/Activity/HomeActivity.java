@@ -33,7 +33,6 @@ import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
 
@@ -89,8 +88,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).setViewContent(this).establish();
-        login.regist("a","b","c");
+//        login = HttpProxyFactory.With(ILogin.class).addCallBack("login",this).setViewContent(this).establish();
+//        login.regist("a","b","c");
     }
 
     private void addFragments(){
@@ -235,6 +234,9 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         switch (item.getItemId()){
             case R.id.nav_login:
                 navTo(LoginActivity.class);
+                break;
+            case R.id.nav_search:
+                navTo(ActivatorActivity.class);
                 break;
         }
         mDrawerLayout.closeDrawer(GravityCompat.START);

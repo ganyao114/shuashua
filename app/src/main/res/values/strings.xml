@@ -150,5 +150,6 @@
     <string name="title_activity_creat_order">创建订单</string>
     <string name="title_activity_mem">XXX会员</string>
     <string name="title_activity_staff_mng">StaffMngActivity</string>
+    <string name="title_activity_activator">ActivatorActivity</string>
 
 </resources>
