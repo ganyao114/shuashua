@@ -1,30 +1,19 @@
 package com.shuashua.buss.View.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.shuashua.buss.Presenter.Base.SearchPresenter;
 import com.shuashua.buss.R;
-import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMainFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
 import com.shuashua.buss.View.Fragment.SearchFragment.SearchCardFragment;
 import com.shuashua.buss.View.Fragment.SearchFragment.SearchMemFragment;
 import com.shuashua.buss.View.Fragment.SearchFragment.SearchOrderFragment;
@@ -34,7 +23,6 @@ import com.shuashua.buss.View.Listener.ISearch;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVP.Presenter.Presenter;
 
 import java.util.ArrayList;
 import java.util.List;

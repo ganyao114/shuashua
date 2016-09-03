@@ -4,7 +4,7 @@ import android.app.Application;
 
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
+import com.shuashua.buss.View.Fragment.HomeInner.HMsgFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 import com.shuashua.buss.View.Fragment.MngInner.CardManagerFragment;
@@ -40,7 +40,7 @@ public class MyApplication extends Application{
         //Swift IOC预加载
         ReflectCacheControl.getInstance().AddpreLoad(ClassType.ACTIVITY, AnnotationFactory.getAllActivity(this));
         ReflectCacheControl.getInstance().AddpreLoad(ClassType.FRAGMENT,new Class[]{HomeFragment.class, MngFragment.class
-                , HCampFragment.class, HCardsFragment.class, HMoreFragment.class, CardManagerFragment.class, MemManagerFragment.class
+                , HCampFragment.class, HMsgFragment.class, HMoreFragment.class, CardManagerFragment.class, MemManagerFragment.class
                 , OrderManagerFragment.class, ShopManagerFragment.class});
         new Thread(new Runnable() {
             @Override

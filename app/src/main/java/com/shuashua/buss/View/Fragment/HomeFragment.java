@@ -13,10 +13,11 @@ import android.view.ViewGroup;
 
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HCardsFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMainFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
+import com.shuashua.buss.View.Fragment.HomeInner.HMsgFragment;
 
+import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.fragment.BaseFragmentV4;
@@ -37,11 +38,11 @@ public class HomeFragment extends BaseFragmentV4{
 
 
     private List<Fragment> fragments = new ArrayList<>(4);
-    private String[] title = new String[]{"主页", "会员卡", "推荐", "更多"};
+    private String[] title = new String[]{"主页", "消息", "推荐", "更多"};
 
     //二级fragment
     private HMainFragment mainFragment;
-    private HCardsFragment cardsFragment;
+    private HMsgFragment cardsFragment;
     private HCampFragment campFragment;
     private HMoreFragment moreFragment;
 
@@ -52,8 +53,10 @@ public class HomeFragment extends BaseFragmentV4{
             return view;
         super.onCreateView(inflater, container, savedInstanceState);
         initView();
+        S.Event().regist(this);
         return view;
     }
+
 
     private void initView(){
         if (mainFragment == null){
@@ -61,7 +64,7 @@ public class HomeFragment extends BaseFragmentV4{
             fragments.add(mainFragment);
         }
         if (cardsFragment == null){
-            cardsFragment = new HCardsFragment();
+            cardsFragment = new HMsgFragment();
             fragments.add(cardsFragment);
         }
         if (campFragment == null){
@@ -83,6 +86,7 @@ public class HomeFragment extends BaseFragmentV4{
     @Override
     public void onDestroy() {
         super.onDestroy();
+        S.Event().unregist(this);
     }
 
     class MyAdapter extends FragmentPagerAdapter {
