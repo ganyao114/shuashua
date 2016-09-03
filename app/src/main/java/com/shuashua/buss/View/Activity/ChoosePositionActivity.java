@@ -1,7 +1,6 @@
 package com.shuashua.buss.View.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -20,6 +19,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
@@ -57,7 +57,6 @@ import net.gy.SwiftFrameWork.Reactive.annotation.RunContext;
 import net.gy.SwiftFrameWork.Reactive.entity.RunContextType;
 import net.gy.SwiftFrameWork.Reactive.impl.Observer;
 import net.gy.SwiftFrameWork.Reactive.impl.Publisher;
-import net.gy.SwiftFrameWork.UI.view.baserecycleview.recyclerview.DividerItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +121,7 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SDKInitializer.initialize(getApplicationContext());
         S.ViewUtils.Inject(this);
         init();
     }

@@ -61,4 +61,5 @@ dependencies {
     compile files('libs/pinyin4j-2.5.0.jar')
     compile project(':libzxing')
     compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/jpush-android-2.1.9.jar')
 }
