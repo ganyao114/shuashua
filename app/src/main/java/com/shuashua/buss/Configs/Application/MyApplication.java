@@ -4,14 +4,13 @@ import android.app.Application;
 
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
-import com.shuashua.buss.View.Fragment.HomeInner.HMsgFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HMoreFragment;
+import com.shuashua.buss.View.Fragment.HomeInner.HMsgFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
 import com.shuashua.buss.View.Fragment.MngInner.CardManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.MemManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.OrderManagerFragment;
 import com.shuashua.buss.View.Fragment.MngInner.ShopManagerFragment;
-import com.squareup.leakcanary.LeakCanary;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Core.cache.ClassType;
@@ -36,7 +35,7 @@ public class MyApplication extends Application{
         //SwiftFrame初始化
         S.init(this);
         //LeakCanary初始化
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
         //Swift IOC预加载
         ReflectCacheControl.getInstance().AddpreLoad(ClassType.ACTIVITY, AnnotationFactory.getAllActivity(this));
         ReflectCacheControl.getInstance().AddpreLoad(ClassType.FRAGMENT,new Class[]{HomeFragment.class, MngFragment.class

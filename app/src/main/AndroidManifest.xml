@@ -145,8 +145,8 @@
         <activity
             android:name=".View.Activity.CreateCardActivity"
             android:label="@string/title_activity_create_card"
-            android:launchMode="singleTask"
             android:parentActivityName=".View.Activity.HomeActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <meta-data
@@ -273,6 +273,8 @@
             android:name=".View.Activity.ActivatorActivity"
             android:label="@string/title_activity_activator"
             android:theme="@style/SplashTheme" />
+
+        <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
         <!-- 极光推送 -->
 

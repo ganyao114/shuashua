@@ -22,7 +22,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView
+            <com.shuashua.buss.View.Widgets.ImgCanDel.LoadingImgView
                 android:id="@+id/shop_upload_icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

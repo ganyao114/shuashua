@@ -6,20 +6,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.CreateShopPresenter;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Utils.FileUtil;
 import com.shuashua.buss.View.Utils.PhotoEdit;
 import com.shuashua.buss.View.Window.SelectPicPopupWindow;
+import com.soundcloud.android.crop.Crop;
 
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
@@ -98,7 +94,7 @@ public class CreateShopActivity extends BaseMvpActivity<CreateShopPresenter> imp
                 File temp = new File(Environment.getExternalStorageDirectory() + "/" + photoname);
                 PhotoEdit.zoomPt(this, Uri.fromFile(temp));
                 break;
-            case PhotoEdit.REQUESTCODE_CUTTING:
+            case Crop.REQUEST_CROP:
                 if (data != null) {
                     setPicToView(data);
                 }

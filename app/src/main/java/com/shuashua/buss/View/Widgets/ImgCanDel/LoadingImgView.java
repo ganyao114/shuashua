@@ -13,7 +13,7 @@ import android.widget.ImageView;
  */
 public class LoadingImgView extends ImageView{
 
-    private float per;
+    private float per = -1;
 
     private boolean isfinished = false;
 
@@ -26,6 +26,7 @@ public class LoadingImgView extends ImageView{
 
     private float layer_w;
     private float layer_h;
+    private String perStr = "等待中";
 
     public LoadingImgView(Context context) {
         super(context);
@@ -49,16 +50,15 @@ public class LoadingImgView extends ImageView{
         paintLayer.setAlpha(100);
         textPaint = new Paint();
         textPaint.setColor(Color.DKGRAY);
-        textPaint.setTextSize(25);
+        textPaint.setTextSize(30);
         textbound = new Rect();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (isfinished)
+        if (isfinished||per < 0)
             return;
-        String perStr = (int) (per*100) + "%";
         //获取文字区域的矩形大小，以便确定文字正中间的位置
         textPaint.getTextBounds(perStr,0, perStr.length(),textbound);
         layer_w = getWidth();
@@ -72,12 +72,18 @@ public class LoadingImgView extends ImageView{
 
     public void setPer(float per){
         this.per = per;
+        perStr = (int) (per*100) + "%";
         //在主线程刷新
         postInvalidate();
     }
 
     public void finish(){
         isfinished = true;
+        postInvalidate();
+    }
+
+    public void setText(String str){
+        perStr = str;
         postInvalidate();
     }
 

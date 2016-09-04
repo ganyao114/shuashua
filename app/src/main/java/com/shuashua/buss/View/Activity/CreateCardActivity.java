@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shuashua.buss.Model.Entity.CardPropertys;
 import com.shuashua.buss.Presenter.Base.CardCreatePresenter;
@@ -23,15 +24,16 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.Test.TestModel;
 import com.shuashua.buss.Utils.FileUtil;
 import com.shuashua.buss.View.Utils.PhotoEdit;
-import com.shuashua.buss.View.Widgets.PopupMenu.StringMenuHelper;
+import com.shuashua.buss.View.Widgets.ImgCanDel.LoadingImgView;
 import com.shuashua.buss.View.Widgets.PopupMenu.OnMenuClick;
+import com.shuashua.buss.View.Widgets.PopupMenu.StringMenuHelper;
 import com.shuashua.buss.View.Window.SelectPicPopupWindow;
+import com.soundcloud.android.crop.Crop;
 
 import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.UI.customwidget.autoloadimgview.AutoLoadImgView;
 import net.gy.SwiftFrameWork.UI.view.recyclerview.HeadFooterAdapter;
 
 import java.io.File;
@@ -50,7 +52,7 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     private FrameLayout content;
 
     @ViewInject(R.id.card_upload_icon)
-    private AutoLoadImgView card_cover;
+    private LoadingImgView card_cover;
 
     private HeadFooterAdapter adapter;
 
@@ -123,7 +125,7 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
                 break;
             case R.id.pickPhotoBtn:
                 menu.dismiss();
-                PhotoEdit.PickPt(this,photoname);
+                Crop.pickImage(this);
                 break;
             case R.id.cancelBtn:
                 menu.dismiss();
@@ -145,25 +147,28 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        switch (requestCode) {
-            case PhotoEdit.REQUESTCODE_PICK:
-                try {
-                    PhotoEdit.zoomPt(this,data.getData());
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
-                break;
-            case PhotoEdit.REQUESTCODE_TAKE:
-                File temp = new File(Environment.getExternalStorageDirectory() + "/" + photoname);
-                PhotoEdit.zoomPt(this,Uri.fromFile(temp));
-                break;
-            case PhotoEdit.REQUESTCODE_CUTTING:
-                if (data != null) {
-                    setPicToView(data);
-                }
-                break;
+        if (requestCode == Crop.REQUEST_PICK && resultCode == RESULT_OK) {
+            beginCrop(data.getData());
+        } else if (requestCode == Crop.REQUEST_CROP) {
+            handleCrop(resultCode, data);
+        }else if (requestCode == PhotoEdit.REQUESTCODE_TAKE){
+            File temp = new File(Environment.getExternalStorageDirectory() + "/" + photoname);
+            PhotoEdit.zoomPt(this,Uri.fromFile(temp));
         }
-        super.onActivityResult(requestCode, resultCode, data);
+//
+//        switch (requestCode) {
+//            case Crop.REQUEST_PICK:
+//                if (resultCode == RESULT_OK)
+//                    beginCrop(data.getData());
+//                break;
+//            case PhotoEdit.REQUESTCODE_TAKE:
+//                File temp = new File(Environment.getExternalStorageDirectory() + "/" + photoname);
+//                PhotoEdit.zoomPt(this,Uri.fromFile(temp));
+//                break;
+//            case Crop.REQUEST_CROP:
+//                handleCrop(resultCode, data);
+//                break;
+//        }
     }
 
     private void setPicToView(Intent data) {
@@ -201,4 +206,19 @@ public class CreateCardActivity extends BaseMvpActivity<CardCreatePresenter> imp
                 editText.setText(propertys.getName());
         }
     }
+
+    private void beginCrop(Uri source) {
+        Uri destination = Uri.fromFile(new File(getCacheDir(), "cropped"));
+        Crop.of(source, destination).asSquare().withAspect(856,540).start(this);
+    }
+
+    private void handleCrop(int resultCode, Intent result) {
+        if (resultCode == RESULT_OK) {
+            card_cover.setImageDrawable(null);
+            card_cover.setImageURI(Crop.getOutput(result));
+        } else if (resultCode == Crop.RESULT_ERROR) {
+            Toast.makeText(this, Crop.getError(result).getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

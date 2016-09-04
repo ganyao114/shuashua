@@ -2,10 +2,11 @@ package com.shuashua.buss.View.Utils;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+
+import com.soundcloud.android.crop.Crop;
 
 import java.io.File;
 
@@ -31,18 +32,20 @@ public class PhotoEdit {
     }
 
     public static void zoomPt(Activity context,Uri uri){
-        Intent intent = new Intent("com.android.camera.action.CROP");
-        intent.setDataAndType(uri, "image/*");
-        intent.putExtra("crop", "true");
-        intent.putExtra("aspectX", 856);
-        intent.putExtra("aspectY", 540);
-        intent.putExtra("outputX", 856);
-        intent.putExtra("outputY", 540);
-        intent.putExtra("scale", true);//黑边
-        intent.putExtra("scaleUpIfNeeded", true);//黑边
-        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-        intent.putExtra("return-data", true);
-        context.startActivityForResult(intent, REQUESTCODE_CUTTING);
+//        Intent intent = new Intent("com.android.camera.action.CROP");
+//        intent.setDataAndType(uri, "image/*");
+//        intent.putExtra("crop", "true");
+//        intent.putExtra("aspectX", 856);
+//        intent.putExtra("aspectY", 540);
+//        intent.putExtra("outputX", 856);
+//        intent.putExtra("outputY", 540);
+//        intent.putExtra("scale", true);//黑边
+//        intent.putExtra("scaleUpIfNeeded", true);//黑边
+//        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+//        intent.putExtra("return-data", true);
+//        context.startActivityForResult(intent, REQUESTCODE_CUTTING);
+        Uri destination = Uri.fromFile(new File(context.getCacheDir(), "cropped"));
+        Crop.of(uri, destination).withAspect(856,540).start(context);
     }
 
 
