@@ -1,1 +1,1 @@
-include ':app', ':SwiftFrameWork', ':libzxing'
+include ':app', ':SwiftFrameWork', ':libzxing', ':libcrop'

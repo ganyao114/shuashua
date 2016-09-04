@@ -1,7 +1,6 @@
 package com.shuashua.buss.View.Utils;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -9,7 +8,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 
 import java.io.File;
-import java.net.URI;
 
 /**
  * Created by pc on 16/8/12.

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SwiftFrameWork/SwiftFrameWork.iml" filepath="$PROJECT_DIR$/SwiftFrameWork/SwiftFrameWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libcrop/libcrop.iml" filepath="$PROJECT_DIR$/libcrop/libcrop.iml" />
       <module fileurl="file://$PROJECT_DIR$/libzxing/libzxing.iml" filepath="$PROJECT_DIR$/libzxing/libzxing.iml" />
       <module fileurl="file://$PROJECT_DIR$/shuashua.iml" filepath="$PROJECT_DIR$/shuashua.iml" />
     </modules>

@@ -62,4 +62,5 @@ dependencies {
     compile project(':libzxing')
     compile files('libs/BaiduLBS_Android.jar')
     compile files('libs/jpush-android-2.1.9.jar')
+    compile project(':libcrop')
 }
