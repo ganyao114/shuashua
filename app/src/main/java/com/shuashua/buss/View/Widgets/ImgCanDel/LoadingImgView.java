@@ -13,7 +13,7 @@ import android.widget.ImageView;
  */
 public class LoadingImgView extends ImageView{
 
-    private float per = -1;
+    private float per;
 
     private boolean isfinished = false;
 
@@ -50,14 +50,13 @@ public class LoadingImgView extends ImageView{
         paintLayer.setAlpha(100);
         textPaint = new Paint();
         textPaint.setColor(Color.DKGRAY);
-        textPaint.setTextSize(30);
         textbound = new Rect();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (isfinished||per < 0)
+        if (isfinished)
             return;
         //获取文字区域的矩形大小，以便确定文字正中间的位置
         textPaint.getTextBounds(perStr,0, perStr.length(),textbound);
@@ -67,6 +66,7 @@ public class LoadingImgView extends ImageView{
         //画遮蔽层
         canvas.drawRect(0,y,layer_w,getHeight(),paintLayer);
         //画文字
+        textPaint.setTextSize(Math.max(getHeight()/16,getWidth()/16));
         canvas.drawText(perStr, getWidth() / 2 - textbound.width() / 2, getHeight() / 2 + textbound.height() / 2, textPaint);
     }
 
