@@ -9,6 +9,11 @@
     tools:showIn="@layout/activity_staff_mng"
     app:behavior_overlapTop="30dp">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <android.support.v7.widget.CardView
         app:cardBackgroundColor="@color/white"
         android:layout_width="match_parent"
@@ -70,5 +75,17 @@
 
 
     </android.support.v7.widget.CardView>
+
+        <net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/staff_list">
+
+        </net.gy.SwiftFrameWork.UI.view.recyclerview.LoadMoreRecyclerView>
+
+
+    </LinearLayout>
+
+
 
 </android.support.v4.widget.NestedScrollView>

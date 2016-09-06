@@ -27,7 +27,4 @@ public class ActivatorActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

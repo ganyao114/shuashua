@@ -142,14 +142,14 @@
     <string name="title_activity_create_shop">创建店铺</string>
     <string name="title_activity_shop">XXX店铺</string>
     <string name="title_activity_all_cards">AllCardsActivity</string>
-    <string name="title_activity_activity_search">ActivitySearch</string>
-    <string name="title_activity_cards_search">CardsSearchActivity</string>
+    <string name="title_activity_activity_search">搜索</string>
+    <string name="title_activity_cards_search">搜卡</string>
     <string name="title_activity_cards_list">CardsListActivity</string>
     <string name="title_activity_order">订单详情</string>
     <string name="title_activity_distribute">发卡界面</string>
     <string name="title_activity_creat_order">创建订单</string>
     <string name="title_activity_mem">XXX会员</string>
-    <string name="title_activity_staff_mng">StaffMngActivity</string>
-    <string name="title_activity_activator">ActivatorActivity</string>
+    <string name="title_activity_staff_mng">员工管理</string>
+    <string name="title_activity_activator">激活界面</string>
 
 </resources>
