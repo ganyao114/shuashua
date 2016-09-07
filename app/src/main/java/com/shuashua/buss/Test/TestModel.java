@@ -7,7 +7,9 @@ import com.shuashua.buss.Model.Beans.Cards;
 import com.shuashua.buss.Model.Beans.Mem;
 import com.shuashua.buss.Model.Beans.Order;
 import com.shuashua.buss.Model.Beans.Shop;
+import com.shuashua.buss.Model.Beans.Staff;
 import com.shuashua.buss.Model.Entity.CardPropertys;
+import com.shuashua.buss.Model.Entity.Message;
 
 import net.gy.SwiftFrameWork.IOC.Core.impl.IOC;
 
@@ -77,6 +79,22 @@ public class TestModel {
         List<ADListBean> list = new ArrayList<>();
         for (int i = 0;i < 20; i++){
             list.add(new ADListBean());
+        }
+        return list;
+    }
+
+    public static List<Staff> getStaff(){
+        List<Staff> list = new ArrayList<>();
+        for (int i = 0;i < 20; i++){
+            list.add(new Staff());
+        }
+        return list;
+    }
+
+    public static List<Message> getMsg(){
+        List<Message> list = new ArrayList<>();
+        for (int i = 0;i < 20; i++){
+            list.add(new Message());
         }
         return list;
     }

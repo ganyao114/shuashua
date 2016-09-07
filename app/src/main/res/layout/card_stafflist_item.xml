@@ -1,23 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="8dp"
-    android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="@color/white"
-    android:clickable="true"
-    android:background="@color/white">
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="14dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/card_main">
 
+            <LinearLayout
+                android:id="@+id/pic_rl"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    </RelativeLayout>
+                <!-- my_class_image_width -->
+                <TextView
+                    android:id="@+id/staff_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="14dp"
+                    android:textColor="@color/gray_deep"
+                    android:text="XXX员工" />
 
-    </android.support.v7.widget.CardView>
+                <TextView
+                    android:id="@+id/staff_statue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textSize="12dp"
+                    android:textColor="@color/gray_deep"
+                    android:text="已到店" />
+
+                <ImageView
+                    android:id="@+id/staff_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/loading" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left|center"
+                android:orientation="vertical"
+                android:paddingLeft="16dp"
+                android:paddingRight="12dp"
+                android:id="@+id/card_right"
+                android:weightSum="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp">
+
+                    <TextView
+                        android:id="@+id/staff_ol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/gray_deep"
+                        android:text="月上线:20天" />
+
+                    <TextView
+                        android:id="@+id/staff_ol_per"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:text="上线率:90.0%"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/gray_deep"
+                        android:layout_alignParentEnd="true" />
+
+                    <ProgressBar
+                        android:id="@+id/card_progressbar1"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_marginTop="4dp"
+                        android:layout_height="6dp"
+                        android:layout_below="@+id/staff_ol"
+                        android:progress="60"
+                        android:indeterminate="false" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/staff_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/gray_deep"
+                    android:text="定制你的个性CSDN内容快速入口 知识库 中国移动开发者大会 推荐频道: C币兑换 博客专栏 精品资源 会" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

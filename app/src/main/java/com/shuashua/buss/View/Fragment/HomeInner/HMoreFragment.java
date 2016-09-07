@@ -38,7 +38,7 @@ public class HMoreFragment extends BaseFragmentV4 implements SwipeRefreshLayout.
     private void init(){
         //WebView加载web资源
         refreshLayout.setOnRefreshListener(this);
-        webView.loadUrl("http://baidu.com");
+        webView.loadUrl("http://www.tuladin.com");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
         webView.setHorizontalScrollBarEnabled(false);

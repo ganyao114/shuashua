@@ -1,5 +1,9 @@
 package com.shuashua.buss.Model.Entity;
 
+import com.shuashua.buss.R;
+
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.annotation.ListDataSrc;
+
 import org.xutils.db.annotation.Column;
 import org.xutils.db.annotation.Table;
 
@@ -8,6 +12,7 @@ import java.io.Serializable;
 /**
  * Created by gy on 2016/9/3.
  */
+@ListDataSrc(R.layout.item_msg_layout)
 @Table(name = "msg")
 public class Message implements Serializable{
     @Column(name = "id",isId = true)

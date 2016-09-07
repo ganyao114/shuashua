@@ -12,7 +12,7 @@ import com.shuashua.buss.R;
 import com.shuashua.buss.View.Window.SelectEditPopupWindow;
 import com.shuashua.buss.View.Window.SelectShopEditPopupWindow;
 
-public class ShopActivity extends AppCompatActivity implements View.OnClickListener{
+public class ShopActivity extends BaseActivity implements View.OnClickListener{
 
     private SelectShopEditPopupWindow menu;
 
@@ -41,6 +41,9 @@ public class ShopActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.shop_cancel_edit:
                 menu.dismiss();
+                break;
+            case R.id.btn_change_shop_staff:
+                navTo(StaffMngActivity.class);
                 break;
         }
     }
