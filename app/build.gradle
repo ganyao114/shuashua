@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'shuashua'
             keyPassword '15189811174'
-            storeFile file('J:/shuashua/key.jks')
+            storeFile file('C:/Users/gy939/Desktop/Project/shuashua/key.jks')
             storePassword '15189811174'
         }
     }

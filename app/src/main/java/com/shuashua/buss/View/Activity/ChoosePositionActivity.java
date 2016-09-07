@@ -509,6 +509,8 @@ public class ChoosePositionActivity extends BaseActivity implements BDLocationLi
                 poiCitySearchOption.pageCapacity(50);
                 //分页编号
                 poiCitySearchOption.pageNum(0);
+                if (poiCitySearchOption == null)
+                    return;
                 poiSearch.searchInCity(poiCitySearchOption);
                 //设置poi检索监听者
                 poiSearch.setOnGetPoiSearchResultListener(new OnGetPoiSearchResultListener() {
