@@ -9,13 +9,15 @@ import com.shuashua.buss.Presenter.IMsgHandler;
 public class MsgHandlerFactory {
 
     public final static String MSG_ACTION_NEWDD = "newdd";
-    public final static String MSG_ACTION_NEWDY = "newdy";
+    public final static String MSG_ACTION_NEWDY = "newstaff";
 
     public static IMsgHandler obtain(Message msg){
         IMsgHandler handler = null;
         String action = msg.getAction();
         if (action.equals(MSG_ACTION_NEWDD)){
             handler = new OrderMsgHandler();
+        }else if (action.equals(MSG_ACTION_NEWDY)){
+
         }
         return handler;
     }

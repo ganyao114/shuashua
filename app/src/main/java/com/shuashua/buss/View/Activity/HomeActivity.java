@@ -89,8 +89,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-        login = HttpProxyFactory.With(ILogin.class).setCallBack(this).setViewContent(this).establish();
-        login.regist("a","b","c");
+//        login = HttpProxyFactory.With(ILogin.class).setCallBack(this).setViewContent(this).establish();
+//        login.regist("a","b","c");
     }
 
     private void addFragments(){

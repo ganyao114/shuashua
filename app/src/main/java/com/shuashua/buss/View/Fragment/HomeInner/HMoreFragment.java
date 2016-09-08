@@ -31,7 +31,7 @@ public class HMoreFragment extends BaseFragmentV4 implements SwipeRefreshLayout.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        init();
+//        init();
         return view;
     }
 

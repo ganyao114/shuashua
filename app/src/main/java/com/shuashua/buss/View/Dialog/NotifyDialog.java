@@ -1,12 +1,11 @@
 package com.shuashua.buss.View.Dialog;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
 import com.shuashua.buss.Model.Entity.NotifyType;
-import com.shuashua.buss.Presenter.OnNotifyListener;
+import com.shuashua.buss.Presenter.CallBack.OnNotifyListener;
 import com.shuashua.buss.Presenter.Service.NotifyFilter;
 
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;

@@ -1,7 +1,7 @@
 package com.shuashua.buss.Presenter.Service;
 
 import com.shuashua.buss.Model.Entity.Notify;
-import com.shuashua.buss.Presenter.OnNotifyListener;
+import com.shuashua.buss.Presenter.CallBack.OnNotifyListener;
 
 import java.util.ArrayList;
 import java.util.List;

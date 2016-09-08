@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.shuashua.buss.Presenter.OnNotifyListener;
+import com.shuashua.buss.Presenter.CallBack.OnNotifyListener;
 
 import java.util.List;
 
