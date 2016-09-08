@@ -36,6 +36,7 @@ import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
+import net.gy.SwiftFrameWork.utils.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         initView();
 //        login = HttpProxyFactory.With(ILogin.class).setCallBack(this).setViewContent(this).establish();
 //        login.regist("a","b","c");
+        test t = new test();
+        t.run();
     }
 
     private void addFragments(){
