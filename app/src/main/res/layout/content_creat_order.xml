@@ -14,6 +14,12 @@
         android:orientation="vertical">
         <include layout="@layout/card_mngordercard_layout"></include>
 
+        <include android:id="@+id/cardorder_picmem_btn" layout="@layout/card_orderinfo_custinfo"></include>
+
         <include layout="@layout/card_order_cutvalue"></include>
+
+        <include layout="@layout/card_property_choose"></include>
+
+        <include android:id="@+id/btn_commit_order" layout="@layout/card_btn_newmem_confirm"></include>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -76,14 +76,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:src="@drawable/plus"
-                android:id="@+id/btn_dist_plus" />
+            android:orientation="horizontal">
 
             <EditText
                 android:layout_width="wrap_content"
@@ -94,16 +87,30 @@
                 android:hint="余额正在加载"
                 android:id="@+id/input_dist"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/btn_dist_plus"
-                android:layout_toLeftOf="@+id/btn_dist_cut"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/tip_ck"
+                android:layout_toStartOf="@+id/tip_ck"
                 android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"/>
+                android:layout_marginRight="6dp"/>
 
-            <ImageView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="应用折扣"
+                android:textColor="@color/gray_deep"
+                android:id="@+id/tip_ck"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_dist_cut"
+                android:layout_toStartOf="@+id/btn_dist_cut" />
+
+            <CheckBox
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@drawable/cust"
                 android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/btn_dist_cut" />
