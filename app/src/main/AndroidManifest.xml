@@ -337,8 +337,6 @@
         <!-- Required SDK核心功能-->
         <receiver android:name="cn.jpush.android.service.AlarmReceiver" android:exported="false"/>
 
-        <!-- 极光推送 -->
-
         <receiver
             android:name=".Presenter.Notify.Receiver.NotifyReceiver"
             android:enabled="true"
@@ -358,6 +356,25 @@
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data android:name="JPUSH_CHANNEL" android:value="developer-default"/>
         <meta-data android:name="JPUSH_APPKEY" android:value="eed46cad2478c28a78d1e507" /> <!--  </>值来自开发者平台取得的AppKey-->
+
+        <!-- 极光推送 -->
+
+        <!--支付宝-->
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind">
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind">
+        </activity>
+
+        <!--支付宝-->
 
     </application>
 

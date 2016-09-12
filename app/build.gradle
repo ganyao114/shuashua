@@ -64,4 +64,5 @@ dependencies {
     compile files('libs/jpush-android-2.1.9.jar')
     compile project(':libcrop')
     compile project(path: ':libcrop')
+    compile files('libs/alipaySingle-20160825.jar')
 }

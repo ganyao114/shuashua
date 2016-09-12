@@ -7,4 +7,6 @@ import com.shuashua.buss.Model.Beans.User;
  */
 public class Global {
     public static User user = new User();
+
+    public final static String SKEY_LOGIN = "login";
 }
