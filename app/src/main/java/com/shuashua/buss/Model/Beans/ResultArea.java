@@ -23,6 +23,7 @@ public class ResultArea implements IHandler{
     private String name;
     @JsonString("id")
     private String id;
+    @BindListView(CityPickerActivity.ListViewId)
     @JsonSet(name = "areas",clazz = Area.class)
     private List<Area> child;
 

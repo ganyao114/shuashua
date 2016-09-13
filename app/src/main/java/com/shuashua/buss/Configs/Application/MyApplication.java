@@ -62,6 +62,6 @@ public class MyApplication extends Application{
         JPushInterface.init(this);     		// 初始化 JPush
 
         //session,baseurl配置
-        BaseUrlFactory.addUrl("default","http://192.168.10.132:8080");
+        BaseUrlFactory.addUrl("default","http://139.196.222.167:8080");
     }
 }

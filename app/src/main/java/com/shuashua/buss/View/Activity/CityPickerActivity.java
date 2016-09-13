@@ -1,9 +1,9 @@
 package com.shuashua.buss.View.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -37,7 +38,6 @@ import net.gy.SwiftFrameWork.Core.S;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.impl.ListBinder;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
-import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
 
 import java.util.List;
 
@@ -46,7 +46,8 @@ import java.util.List;
  */
 public class CityPickerActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener, ICallBack<ResultArea,Throwable> {
 
-    public final static @IdRes int listViewId = 1234521213;
+
+    public final static @IdRes int ListViewId = 12312313;
 
     public final static int RET_TYPE_QX = 0;
 
@@ -74,7 +75,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
 
     private AMapLocationClient mLocationClient;
 
-    private MaterialDialog Descdialog;
+    private MaterialDialog.Builder Descdialog;
     private ListView descListView;
 
     private String tarCity;
@@ -93,6 +94,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         initLocation();
 
         getDescBycity = HttpProxyFactory.With(IGetDescBycity.class)
+                                        .setViewContent(descListView)
                                         .setCallBack(this)
                                         .establish();
     }
@@ -162,12 +164,16 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         });
 
         if (Descdialog == null) {
-            Descdialog = new MaterialDialog(this);
-            Descdialog.setTitle("选择区县");
+            Descdialog = new MaterialDialog.Builder(this);
+            Descdialog.title("选择区县");
+            Descdialog.backgroundColor(Color.WHITE);
+            Descdialog.titleColor(Color.DKGRAY);
             descListView = new ListView(this);
-            descListView.setId(listViewId);
+            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            descListView.setLayoutParams(params);
             descListView.setOnItemClickListener(this);
-            Descdialog.setContentView(descListView);
+            descListView.setId(ListViewId);
+            Descdialog.customView(descListView,false);
         }
 
         searchBox = (EditText) findViewById(R.id.et_search);
@@ -265,8 +271,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
     @Override
     public void onSuccess(ResultArea o) {
         descsBean = o;
-        S.ViewUtils.ListBind(descListView).bind(descsBean.getChild());
-        Descdialog.setListViewHeightBasedOnChildren(descListView);
+//        S.ViewUtils.ListBind(descListView).bind(descsBean.getChild());
     }
 
     @Override

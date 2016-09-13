@@ -65,4 +65,5 @@ dependencies {
     compile project(':libcrop')
     compile project(path: ':libcrop')
     compile files('libs/alipaySingle-20160825.jar')
+    compile 'com.afollestad.material-dialogs:core:0.9.0.1'
 }
