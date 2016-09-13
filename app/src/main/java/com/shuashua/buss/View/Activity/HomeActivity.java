@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.shuashua.buss.Presenter.Base.HomePresenter;
 import com.shuashua.buss.R;
+import com.shuashua.buss.Test.Test;
 import com.shuashua.buss.Utils.LeakFix;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.MngFragment;
@@ -90,6 +91,8 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
+//        Test test = new Test();
+//        test.test();
     }
 
     private void addFragments(){

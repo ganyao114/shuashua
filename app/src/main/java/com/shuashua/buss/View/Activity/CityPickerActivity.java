@@ -2,6 +2,7 @@ package com.shuashua.buss.View.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -20,6 +21,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.shuashua.buss.Model.Beans.DescsBean;
+import com.shuashua.buss.Model.Beans.ResultArea;
 import com.shuashua.buss.Presenter.IGetDescBycity;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Widgets.CityPicker.adapter.CityListAdapter;
@@ -31,6 +33,8 @@ import com.shuashua.buss.View.Widgets.CityPicker.utils.StringUtils;
 import com.shuashua.buss.View.Widgets.CityPicker.utils.ToastUtils;
 import com.shuashua.buss.View.Widgets.SideBar.SideLetterBar;
 
+import net.gy.SwiftFrameWork.Core.S;
+import net.gy.SwiftFrameWork.IOC.UI.view.viewbinder.impl.ListBinder;
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
@@ -40,7 +44,9 @@ import java.util.List;
 /**
  * author zaaach on 2016/1/26.
  */
-public class CityPickerActivity extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener, ICallBack {
+public class CityPickerActivity extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener, ICallBack<ResultArea,Throwable> {
+
+    public final static @IdRes int listViewId = 1234521213;
 
     public final static int RET_TYPE_QX = 0;
 
@@ -74,7 +80,8 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
     private String tarCity;
 
     private IGetDescBycity getDescBycity;
-    private DescsBean descsBean;
+
+    private ResultArea descsBean;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +93,6 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
         initLocation();
 
         getDescBycity = HttpProxyFactory.With(IGetDescBycity.class)
-                                        .setViewContent(this)
                                         .setCallBack(this)
                                         .establish();
     }
@@ -155,6 +161,15 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        if (Descdialog == null) {
+            Descdialog = new MaterialDialog(this);
+            Descdialog.setTitle("选择区县");
+            descListView = new ListView(this);
+            descListView.setId(listViewId);
+            descListView.setOnItemClickListener(this);
+            Descdialog.setContentView(descListView);
+        }
+
         searchBox = (EditText) findViewById(R.id.et_search);
         searchBox.addTextChangedListener(new TextWatcher() {
             @Override
@@ -211,19 +226,12 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
                 finish();
                 break;
             case RET_TYPE_QX:
-
+                showDesc(city);
                 break;
         }
     }
 
     private void showDesc(String city){
-        if (Descdialog == null) {
-            Descdialog = new MaterialDialog(this);
-            Descdialog.setTitle("选择区县");
-            descListView = new ListView(this);
-            descListView.setOnItemClickListener(this);
-            Descdialog.setContentView(descListView);
-        }
         getDescBycity.getdesces(city);
         Descdialog.show();
     }
@@ -255,13 +263,14 @@ public class CityPickerActivity extends AppCompatActivity implements View.OnClic
     }
 
     @Override
-    public void onSuccess(Object o) {
-        if (o!=null)
-        descsBean = (DescsBean) o;
+    public void onSuccess(ResultArea o) {
+        descsBean = o;
+        S.ViewUtils.ListBind(descListView).bind(descsBean.getChild());
+        Descdialog.setListViewHeightBasedOnChildren(descListView);
     }
 
     @Override
-    public void onFailed(Object o) {
-
+    public void onFailed(Throwable o) {
+        showSnakeBar(o.getMessage());
     }
 }
