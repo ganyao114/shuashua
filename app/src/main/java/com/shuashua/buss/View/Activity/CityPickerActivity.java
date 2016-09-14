@@ -93,6 +93,7 @@ public class CityPickerActivity extends BaseActivity implements View.OnClickList
         initView();
         initLocation();
 
+        //简单实现
         getDescBycity = HttpProxyFactory.With(IGetDescBycity.class)
                                         .setViewContent(descListView)
                                         .setCallBack(this)

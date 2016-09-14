@@ -3,11 +3,13 @@ package com.shuashua.buss.Presenter.Base;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.shuashua.buss.Model.Http.LoginModel;
+import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Model.ILoginCallBack;
+import com.shuashua.buss.Presenter.Login;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Activity.HomeActivity;
 import com.shuashua.buss.View.Activity.LoginActivity;
@@ -15,13 +17,15 @@ import com.shuashua.buss.View.Activity.LoginActivity;
 import net.gy.SwiftFrameWork.MVP.Presenter.Presenter;
 import net.gy.SwiftFrameWork.MVP.View.context.entity.ActivityOnCreatedListener;
 import net.gy.SwiftFrameWork.MVP.View.context.entity.ContextChangeEvent;
+import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
+import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 
 /**
  * Created by pc on 16/8/3.
  */
-public class LoginPresenter extends Presenter implements ActivityOnCreatedListener,ILoginCallBack{
+public class LoginPresenter extends Presenter implements ActivityOnCreatedListener,ICallBack<User,Throwable>{
 
-    private LoginModel lmodel;
+    private Login login;
 
     @Override
     protected void onContextChanged(ContextChangeEvent event) {
@@ -30,7 +34,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
 
     @Override
     public void OnPresentInited(Context context) {
-        lmodel = new LoginModel(this);
+        login = HttpProxyFactory.With(Login.class).setCallBack(this).establish();
         getActivityInter().setOnCreateListener(this);
     }
 
@@ -45,19 +49,22 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
                                   getActivityInter().getView(R.id.btn_login).setClickable(false);
                                   EditText name = getActivityInter().getView(R.id.login_name);
                                   EditText pass = getActivityInter().getView(R.id.login_pass);
-                                  lmodel.login(name.getText().toString(),pass.getText().toString());
+                                  Log.e("gy","log");
+                                  login.userlogin(name.getText().toString(),pass.getText().toString());
                               }
                           });
     }
 
+
     @Override
-    public void onLogSuccess() {
+    public void onSuccess(User user) {
+        Log.e("gy",user.toString());
         getActivityRaw().finish();
         navTo(HomeActivity.class);
     }
 
     @Override
-    public void onLogFailed() {
+    public void onFailed(Throwable throwable) {
         ILoginCallBack callBack = (ILoginCallBack) getContext();
         callBack.onLogFailed();
     }

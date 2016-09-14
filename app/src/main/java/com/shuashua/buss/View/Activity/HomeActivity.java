@@ -34,10 +34,7 @@ import net.gy.SwiftFrameWork.IOC.Mvp.annotation.InjectPresenter;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
-import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
-import net.gy.SwiftFrameWork.MVVM.Test.ILogin;
-import net.gy.SwiftFrameWork.utils.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +73,6 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
     private boolean isOpen = false;
     private List<Fragment> fragmentlist = new ArrayList<>(3);
     private MyFragmentPagerAdapter adapter;
-    private ILogin login;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,8 +87,6 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
-//        Test test = new Test();
-//        test.test();
     }
 
     private void addFragments(){

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.RegistModel;
 import com.shuashua.buss.Model.IRegistCallback;
 import com.shuashua.buss.R;
+import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.View.Widgets.ImgCanDel.ImgCanDel;
 
 import net.gy.SwiftFrameWork.Core.S;
@@ -82,7 +84,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     private Runnable uirunnable;
     private boolean isAcrun = true;
 
-    private String url = "http://pic30.nipic.com/20130626/8174275_085522448172_2.jpg";
+    private String url = Global.BASE_URL + "/utils/validate";
 
     private String citycode;
 
@@ -166,8 +168,11 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
         if (valiDia == null){
             valiDia = new MaterialDialog(this);
             valiDia.setTitle(getString(R.string.valiimg_dialog_title));
-            codeImg = new ImgCanDel(this);
-            codeImg.setMaxHeight(64);
+            codeImg = new ImageView(this);
+//            codeImg.setMaxHeight(128);
+            codeImg.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            codeImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            codeImg.setAdjustViewBounds(true);
             LinearLayout content = new LinearLayout(this);
             content.setOrientation(LinearLayout.VERTICAL);
             codeInput = new EditText(this);
