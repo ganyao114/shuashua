@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.shuashua.buss.Model.Beans.ResultArea;
 import com.shuashua.buss.Presenter.IGetDescBycity;
+import com.shuashua.buss.Presenter.ISessionStart;
 
 import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
 import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
@@ -11,19 +12,19 @@ import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 /**
  * Created by gy939 on 2016/9/13.
  */
-public class Test implements ICallBack<ResultArea,Throwable>{
+public class Test implements ICallBack<String,Throwable>{
     public void test(){
-        IGetDescBycity getDescBycity = HttpProxyFactory.With(IGetDescBycity.class).setCallBack(this).establish();
-        getDescBycity.getdesces("北京市");
+        ISessionStart sessionStart = HttpProxyFactory.With(ISessionStart.class).setCallBack(this).establish();
+        sessionStart.start();
     }
 
     @Override
-    public void onSuccess(ResultArea resultArea) {
-        Log.e("gy","size:"+resultArea.getChild().size());
+    public void onSuccess(String s) {
+        Log.e("gy",s);
     }
 
     @Override
     public void onFailed(Throwable throwable) {
-
+        Log.e("gy",throwable.getMessage());
     }
 }

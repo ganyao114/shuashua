@@ -87,6 +87,9 @@ public class HomeActivity extends BaseMvpActivity<HomePresenter> implements View
         super.onCreate(savedInstanceState);
         addFragments();
         initView();
+
+        Test test = new Test();
+        test.test();
     }
 
     private void addFragments(){
