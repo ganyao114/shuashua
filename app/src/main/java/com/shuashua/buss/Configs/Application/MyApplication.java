@@ -3,7 +3,7 @@ package com.shuashua.buss.Configs.Application;
 import android.app.Application;
 
 import com.shuashua.buss.Presenter.IGetDescBycity;
-import com.shuashua.buss.Presenter.Login;
+import com.shuashua.buss.Presenter.ILogin;
 import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.View.Fragment.HomeFragment;
 import com.shuashua.buss.View.Fragment.HomeInner.HCampFragment;
@@ -56,7 +56,7 @@ public class MyApplication extends Application{
                 ReflectCacheControl.getInstance().preLoad(ClassType.FRAGMENT);
             }
         }).start();
-        MvvmCacheControl.preLoad(new Class[]{Login.class,IGetDescBycity.class});
+        MvvmCacheControl.preLoad(new Class[]{ILogin.class,IGetDescBycity.class});
 
         //极光初始化
         JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志

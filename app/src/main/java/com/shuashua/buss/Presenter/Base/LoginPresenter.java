@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Model.ILoginCallBack;
-import com.shuashua.buss.Presenter.Login;
+import com.shuashua.buss.Presenter.ILogin;
 import com.shuashua.buss.R;
 import com.shuashua.buss.View.Activity.HomeActivity;
 import com.shuashua.buss.View.Activity.LoginActivity;
@@ -25,7 +25,7 @@ import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
  */
 public class LoginPresenter extends Presenter implements ActivityOnCreatedListener,ICallBack<User,Throwable>{
 
-    private Login login;
+    private ILogin ILogin;
 
     @Override
     protected void onContextChanged(ContextChangeEvent event) {
@@ -34,7 +34,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
 
     @Override
     public void OnPresentInited(Context context) {
-        login = HttpProxyFactory.With(Login.class).setCallBack(this).establish();
+        ILogin = HttpProxyFactory.With(ILogin.class).setCallBack(this).establish();
         getActivityInter().setOnCreateListener(this);
     }
 
@@ -49,8 +49,7 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
                                   getActivityInter().getView(R.id.btn_login).setClickable(false);
                                   EditText name = getActivityInter().getView(R.id.login_name);
                                   EditText pass = getActivityInter().getView(R.id.login_pass);
-                                  Log.e("gy","log");
-                                  login.userlogin(name.getText().toString(),pass.getText().toString());
+                                  ILogin.login(name.getText().toString(),pass.getText().toString());
                               }
                           });
     }

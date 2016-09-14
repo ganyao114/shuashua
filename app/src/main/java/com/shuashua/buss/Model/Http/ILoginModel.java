@@ -2,7 +2,7 @@ package com.shuashua.buss.Model.Http;
 
 import com.shuashua.buss.Model.Beans.User;
 import com.shuashua.buss.Model.ILoginCallBack;
-import com.shuashua.buss.Presenter.Login;
+import com.shuashua.buss.Presenter.ILogin;
 import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.Utils.ParseProxy;
 
@@ -17,7 +17,7 @@ import java.lang.ref.WeakReference;
 /**
  * Created by pc on 16/8/3.
  */
-public class LoginModel extends MyBaseHttp<User>implements Login {
+public class ILoginModel extends MyBaseHttp<User>implements ILogin {
 
     private WeakReference<ILoginCallBack> callRef;
 
@@ -26,12 +26,12 @@ public class LoginModel extends MyBaseHttp<User>implements Login {
         super.initModel();
     }
 
-    public LoginModel(ILoginCallBack loginCallBack) {
+    public ILoginModel(ILoginCallBack loginCallBack) {
         callRef = new WeakReference<ILoginCallBack>(loginCallBack);
     }
 
 
-    public User userlogin(String name,String pass) {
+    public User login(String name,String pass) {
         addParam("username",name);
         addParam("password",pass);
         super.doHttp();

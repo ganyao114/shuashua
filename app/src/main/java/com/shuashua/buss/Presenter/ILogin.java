@@ -10,7 +10,7 @@ import net.gy.SwiftFrameWork.MVVM.Annotations.Param;
 /**
  * Created by gy on 2016/9/1.
  */
-public interface Login {
+public interface ILogin {
     @HttpSrcMethod(url = "/store/login",session = Global.SKEY_UNLOGIN,filters = ResultFilter.class)
-    public User userlogin(@Param("tel")String name,@Param("password")String passwd);
+    public User login(@Param("tel")String name,@Param("password")String passwd);
 }
