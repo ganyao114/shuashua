@@ -41,8 +41,12 @@ public class HMsgFragment extends BaseFragmentV4 implements OnItemClickListener,
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         S.Event().regist(this);
-        init();
         return view;
+    }
+
+    @Override
+    protected void onLazyLoad() {
+        init();
     }
 
     private void init() {

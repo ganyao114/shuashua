@@ -5,5 +5,5 @@ package com.shuashua.buss.Model;
  */
 public interface ILoginCallBack {
     public void onLogSuccess();
-    public void onLogFailed();
+    public void onLogFailed(String msg);
 }

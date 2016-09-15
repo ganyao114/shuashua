@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,8 +51,13 @@ public class MngFragment extends BaseFragmentV4{
         if (view != null)
             return view;
         super.onCreateView(inflater, container, savedInstanceState);
-        initView();
         return view;
+    }
+
+    @Override
+    protected void onLazyLoad() {
+        Log.e("gy","mng加载");
+        initView();
     }
 
     private void initView(){

@@ -72,6 +72,6 @@ public class GetBannerModel extends MyBaseHttp<User>{
     @Override
     public void onError(Object object) {
         if (callRef!=null&&callRef.get()!=null)
-            callRef.get().onLogFailed();
+            callRef.get().onLogFailed(object.toString());
     }
 }

@@ -84,8 +84,9 @@ public class LoginActivity extends BaseMvpActivity<LoginPresenter> implements IL
     }
 
     @Override
-    public void onLogFailed() {
+    public void onLogFailed(String msg) {
         progressDialog.dismiss();
         getView(R.id.btn_login).setClickable(true);
+        showSnakeBar(msg);
     }
 }

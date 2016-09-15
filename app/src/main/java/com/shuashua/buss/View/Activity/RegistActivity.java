@@ -21,6 +21,7 @@ import com.shuashua.buss.Model.Beans.LoginBean;
 import com.shuashua.buss.Model.Http.GetValidateImg;
 import com.shuashua.buss.Model.Http.RegistModel;
 import com.shuashua.buss.Model.IRegistCallback;
+import com.shuashua.buss.Presenter.IRegist;
 import com.shuashua.buss.R;
 import com.shuashua.buss.Utils.Global;
 import com.shuashua.buss.View.Widgets.ImgCanDel.ImgCanDel;
@@ -30,6 +31,8 @@ import net.gy.SwiftFrameWork.Exception.model.net.http.HttpServiceException;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ContentView;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.OnClick;
 import net.gy.SwiftFrameWork.IOC.UI.view.viewinject.annotation.ViewInject;
+import net.gy.SwiftFrameWork.MVVM.Impl.HttpProxyFactory;
+import net.gy.SwiftFrameWork.MVVM.Interface.ICallBack;
 import net.gy.SwiftFrameWork.Reactive.IPublisher;
 import net.gy.SwiftFrameWork.Reactive.OnObserver;
 import net.gy.SwiftFrameWork.Reactive.OnPublisher;
@@ -44,7 +47,7 @@ import net.gy.SwiftFrameWork.UI.customwidget.materaldialog.MaterialDialog;
  * Created by pc on 16/8/3.
  */
 @ContentView(R.layout.activity_signup)
-public class RegistActivity extends BaseActivity implements Runnable,IRegistCallback{
+public class RegistActivity extends BaseActivity implements Runnable,IRegistCallback, ICallBack<String,Throwable> {
 
     @ViewInject(R.id.get_yzm)
     private AppCompatButton getyzm;
@@ -88,6 +91,9 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
 
     private String citycode;
 
+    //业务接口
+    private IRegist register;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
@@ -112,6 +118,7 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
                     getyzm.setText("获取验证码");
             }
         };
+        register = HttpProxyFactory.With(IRegist.class).setCallBack(this).establish();
     }
 
     @OnClick({R.id.get_yzm,R.id.btn_signup,R.id.link_login,R.id.get_area})
@@ -292,5 +299,15 @@ public class RegistActivity extends BaseActivity implements Runnable,IRegistCall
     public void onRegistFail(String msg) {
         progressDialog.cancel();
         showSnakeBar(msg);
+    }
+
+    @Override
+    public void onSuccess(String s) {
+
+    }
+
+    @Override
+    public void onFailed(Throwable throwable) {
+
     }
 }

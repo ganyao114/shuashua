@@ -74,6 +74,6 @@ public class ILoginModel extends MyBaseHttp<User>implements ILogin {
     @Override
     public void onError(Object object) {
         if (callRef!=null&&callRef.get()!=null)
-            callRef.get().onLogFailed();
+            callRef.get().onLogFailed(object.toString());
     }
 }

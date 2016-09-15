@@ -65,6 +65,6 @@ public class LoginPresenter extends Presenter implements ActivityOnCreatedListen
     @Override
     public void onFailed(Throwable throwable) {
         ILoginCallBack callBack = (ILoginCallBack) getContext();
-        callBack.onLogFailed();
+        callBack.onLogFailed(throwable.getMessage());
     }
 }
