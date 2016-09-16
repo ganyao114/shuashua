@@ -24,6 +24,7 @@ public class Shop implements Serializable{
     private String subKind;
     private String areacode;
     private String areaName;
+    @BindAsyncImgUrl(R.id.mngfreg_shop_cover)
     private String coverUrl;
     private String tel;
     private String grade;

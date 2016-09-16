@@ -35,6 +35,10 @@ public class HMoreFragment extends BaseFragmentV4 implements SwipeRefreshLayout.
         return view;
     }
 
+    @Override
+    protected void onLazyLoad() {
+    }
+
     private void init(){
         //WebView加载web资源
         refreshLayout.setOnRefreshListener(this);

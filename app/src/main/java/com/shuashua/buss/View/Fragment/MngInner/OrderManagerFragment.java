@@ -39,12 +39,10 @@ public class OrderManagerFragment extends BaseFragmentV4 implements OnItemClickL
 
     private List<Order> orders;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
+    protected void onLazyLoad() {
         init();
-        return view;
     }
 
     private void init() {

@@ -56,16 +56,9 @@ public class CardManagerFragment extends BaseFragmentV4 implements OnTabItemClic
     private List<Cards> cards;
     private List<String> menuData;
 
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
+    protected void onLazyLoad() {
         test();
-        return view;
-    }
-
-    private void init(){
-
     }
 
     private void test(){

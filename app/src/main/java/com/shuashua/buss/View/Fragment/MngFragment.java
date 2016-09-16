@@ -56,7 +56,6 @@ public class MngFragment extends BaseFragmentV4{
 
     @Override
     protected void onLazyLoad() {
-        Log.e("gy","mng加载");
         initView();
     }
 

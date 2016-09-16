@@ -37,8 +37,12 @@ public class HCampFragment extends BaseFragmentV4<HomePresenter> implements Load
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        init();
         return view;
+    }
+
+    @Override
+    protected void onLazyLoad() {
+        init();
     }
 
     private void init(){

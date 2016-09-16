@@ -41,12 +41,10 @@ public class MemManagerFragment extends BaseFragmentV4 implements OnItemClickLis
 
     private List<Mem> mems;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
+    protected void onLazyLoad() {
         init();
-        return view;
     }
 
     private void init() {

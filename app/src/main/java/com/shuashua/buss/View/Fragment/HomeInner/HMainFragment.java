@@ -69,8 +69,12 @@ public class HMainFragment extends BaseFragmentV4 implements ImageCycleView.Imag
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        test();
         return view;
+    }
+
+    @Override
+    protected void onLazyLoad() {
+        test();
     }
 
     private void test(){
